@@ -15,47 +15,84 @@ app.use(express.static(path.join(__dirname, 'css')));
 
 app.get('/list', (req, res) => {
     connection.query('SELECT * FROM detailpage', (err, rows) => {
-      if (err) throw err;
-  
-      let html = `
+        if (err) throw err;
+
+        let html = `
         <html>
-          <head>
-            <title>사전 검색</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                font-size: 16px;
-                line-height: 1.6;
-              }
-              h1 {
-                font-size: 24px;
-              }
-              p {
-                margin: 0;
+            <head>
+                <title>사전 검색</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 1.6;
+                    }
+
+                    h1 {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        margin: 0;
+                        padding: 10px;
+                        background-color: #D0E450;
+                    }
+
+                    .box ul li:hover {
+                        z-index: 100;
+                        background: #D0E450;
+                        box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
+                        color: #fff;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>사전 검색</h1>
+        `;
+
+        // 데이터를 HTML 형식으로 변환
+        for (let row of rows) {
+            html += `
+            <div class="box">
+                <h2></h2>
+                <ul style="width: 600px;
+            border-bottom: 20px solid #D0E450;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position:relative;
+            background: #fff;">
+                    <li style="width: 600px;
+                border-bottom: 20px solid #D0E450;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                list-style: none;
                 padding: 10px;
-                background-color: #D0E450;
-              }
-            </style>
-          </head>
-          <body>
-            <h1>사전 검색</h1>
-      `;
-  
-      // 데이터를 HTML 형식으로 변환
-      for (let row of rows) {
-        html += `<p><a href="/detail/${row.itemIndex}">${row.itemName} - ${row.itemDescription} - ${row.itemDescription2}</a></p>`;
-      }
-      
-  
-      html += `
-          </body>
+                width: 100%;
+                background: #fff;
+                box-shadow: 0 5px 25px rgba(0,0,0,.1);
+                transition: transform 0.5s;">
+                        <div class="form-check form-check-reverse">
+                            <input class="form-check-input" type="checkbox" value="" id="reverseCheck${row.itemIndex}">
+                            <label class="form-check-label" for="reverseCheck${row.itemIndex}">
+                                ${row.itemName}
+                            </label>
+                        </div>
+                    </li>
+                <ul>`;
+        }
+
+
+
+        html += `
+            </body>
         </html>
-      `;
-  
-      // HTML 응답 보내기
-      res.send(html);
+        `;
+
+        // HTML 응답 보내기
+        res.send(html);
     });
-  });
+});
+
 
   app.get('/search', (req, res) => {
     const searchQuery = req.query.q;
