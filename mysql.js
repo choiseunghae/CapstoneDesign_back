@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 const app = express();
-const path = require('path'); // path 모듈 추가
+const path = require('path');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -20,7 +20,7 @@ app.get('/dictionary', (req, res) => {
     let html = `
         <html>
             <head>
-                <title>사전 검색</title>
+
                 <style>
   body {
     font-family: Arial, sans-serif;
