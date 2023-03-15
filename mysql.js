@@ -1,8 +1,4 @@
-const express = require('express');
-const router = express.Router();
-const mysql = require('mysql');
-const app = express();
-const path = require('path');
+var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -11,86 +7,91 @@ var connection = mysql.createConnection({
   database: 'dictionary'
 });
 
-app.use(express.static(path.join(__dirname, 'css')));
+connection.connect();
 
-app.get('/dictionary', (req, res) => {
+connection.query('SELECT * FROM detailpage', function (error, results, fields) {
+  if (error) {
+    console.log(error);
+  }
+  console.log(results);
+});
+
+module.exports = connection;
+
+
+/* server.get('/dictionary', (req, res) => {
   connection.query('SELECT * FROM detailpage', (err, rows) => {
     if (err) throw err;
 
     let html = `
         <html>
             <head>
-
-                <style>
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  h1 {
-    font-size: 40px;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: inherit;
-  }
-
-  a:focus {
-    outline: none;
-  }
-  
-
-  p {
-    margin: 0;
-    padding: 0px;
-    background-color: #D0E450;
-  }
-
-  .box {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 0 auto;
-    width : 60vh;
-    height: 75vh;
-    overflow: auto;
-  }
-
-  .box ul
-  {
-    position:relative;
-    background: #fff;
-    margin: 0 auto;
-    width : 100%;
-    justify-content: left;
-  }
-
-  .box ul li {
-    padding: 10px;
-    list-style: none;
-    background: #fff;
-    box-shadow: 0 5px 25px rgba(0,0,0,.1);
-    transition: transform 0.5s;
-  }
-
-  .box ul li:hover
-  {
-    z-index: 100;
-    background: #D0E450;
-    box-shadow: 0 5px 25px rgba(0,0,0,.2);
-    color:#fff;
-  }
-
-</style>
-
-            </head>
-            <body>
-                <h1>사전 검색</h1>
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  font-size: 16px;
+                  line-height: 1.6;
+                }
+              
+                h1 {
+                  font-size: 40px;
+                }
+              
+                a {
+                  text-decoration: none;
+                }
+              
+                a:visited {
+                  color: inherit;
+                }
+              
+                a:focus {
+                  outline: none;
+                }
+                
+              
+                p {
+                  margin: 0;
+                  padding: 0px;
+                  background-color: #D0E450;
+                }
+              
+                .box {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: row;
+                  margin: 0 auto;
+                  width : 80vh;
+                  height: 80vh;
+                  overflow: auto;
+                }
+              
+                .box ul
+                {
+                  position:relative;
+                  background: #fff;
+                  margin: 0 auto;
+                  width : 100vh;
+                  justify-content: left;
+                }
+              
+                .box ul li {
+                  padding: 10px;
+                  list-style: none;
+                  background: #fff;
+                  box-shadow: 0 5px 25px rgba(0,0,0,.1);
+                  transition: transform 0.5s;
+                }
+              
+                .box ul li:hover
+                {
+                  z-index: 100;
+                  background: #D0E450;
+                  box-shadow: 0 5px 25px rgba(0,0,0,.2);
+                  color:#fff;
+                }
+              </style>
+             </head>
                 <div class="box">
                 `;
 
@@ -112,7 +113,7 @@ app.get('/dictionary', (req, res) => {
     }
 
     html += ` </div>
-            </body>
+
         </html>
         `;
 
@@ -120,10 +121,10 @@ app.get('/dictionary', (req, res) => {
     res.send(html);
   });
 });
-
+*/
 
 // detailpage를 구성해 id 값을 기준으로 단어를 보여줌.
-app.get('/detail/:id', (req, res) => {
+/* app.get('/detail/:id', (req, res) => {
   const id = req.params.id;
   connection.query(`SELECT * FROM detailpage WHERE itemIndex = '${id}'`, (err, rows) => {
     if (err) throw err;
@@ -184,6 +185,7 @@ app.listen(3000, () => {
   console.log('Server started on port 3000');
 });
 
+*/
 
 
 // search.js를 따로 만들 예정입니다.
