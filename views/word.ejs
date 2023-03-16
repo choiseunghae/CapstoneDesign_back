@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="word.css">
+</head>
+<body>
+    <header>
+        <form>
+            <div class="search_box">
+                <input type="text" maxlength="225" tabindex="1" />
+                <button type="submit" tabindex="2">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+    </header>
+
+   <%- word %>
+
+    <footer class="btn">
+        <a class="btn__link" href="#"><i class="bi bi-hand-thumbs-up" style="font-size: 2rem;"></i></a>
+        <a class="btn__link" href="#"><i class="bi bi-box-arrow-up" style="font-size: 2rem;"></i>
+        </a>
+    </footer>
+
+    <%- bottom %>
+
+    <script src="https://kit.fontawesome.com/851d0d4158.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
