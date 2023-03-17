@@ -38,6 +38,18 @@ router.get('/', (req, res) => {
       html += ` </div>
   
           `;
+
+          const dom = new JSDOM(html);
+          const { document } = dom.window;
+          
+          // 이벤트 리스너 추가
+          const container = document.querySelector('.box');
+          container.addEventListener('click', function(event) {
+            event.preventDefault();
+            const link = this.querySelector('a');
+            window.location.href = link.href;
+          });
+          
   
       // HTML 응답 보내기
       res.render('listpage', { list_page: html });
