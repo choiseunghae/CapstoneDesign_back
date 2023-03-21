@@ -29,7 +29,7 @@ function show02(){
     console.log("02카테고리고 가욤");
 }
 
-    res.render('mainpage', { category_point : html });
+    res.render('mainpage', { category : html });
 });
 
 module.exports = router;
