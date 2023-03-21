@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
 const bottomRouter = require('./bottomnav_bar'); // bottomnav_bar.js 파일을 불러옵니다.
+const searchboxRouter = require('./search_box');
 
 router.use(bottomRouter); // bottom 미들웨어를 사용합니다.
+router.use(searchboxRouter);
 
 router.get('/', (req, res) => {
     let html = `

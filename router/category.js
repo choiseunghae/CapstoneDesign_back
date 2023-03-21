@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
 const bottomRouter = require('./bottomnav_bar');
+const searchboxRouter = require('./search_box');
 
 router.use(bottomRouter);
+router.use(searchboxRouter);
 
 router.get('/', (req, res) => {
     connection.query('SELECT * FROM detailpage', (err, rows) => {
