@@ -18,9 +18,9 @@ app.use(bottomRouter);
 
 app.use(express.static(__dirname + '/css'));
 
-app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar 모듈을 사용
+app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // categoryRouter, bottomnav_bar, searchbox 모듈을 사용
-app.use('/dictionary', [listpageRouter, bottomRouter]); // listpageRouter, bottomnav_bar 모듈을 사용
+app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
 
