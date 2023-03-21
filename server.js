@@ -4,6 +4,7 @@ const app = express();
 const mainpageRouter = require('./router/categorypoint');
 const listpageRouter = require('./router/dictionary');
 const detailpageRouter = require('./router/detailpage');
+const categoryRouter = require('./router/category');
 const bottomRouter = require('./router/bottomnav_bar');
 const port = 3000;
 
@@ -15,6 +16,7 @@ app.use(bottomRouter);
 app.use(express.static(__dirname + '/css'));
 
 app.use('/mainpage', [mainpageRouter, bottomRouter]); // categorypointRouter, bottomnav_bar 모듈을 사용
+app.use('/category', [categoryRouter, bottomRouter]); // categoryRouter, bottomnav_bar 모듈을 사용
 app.use('/dictionary', [listpageRouter, bottomRouter]); // listpageRouter, bottomnav_bar 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 
