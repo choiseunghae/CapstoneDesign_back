@@ -1,3 +1,21 @@
+/*const express = require('express');
+const app = express();
+const connection = require('./mysql');
+const port = 3000;
+
+app.set('view engine', 'html'); // html를 뷰 엔진으로 사용
+
+app.get("/express", (req, res) => {
+  let name = res.qurry.name;
+  res.render("index.html", { user: name })
+})
+
+app.listen(3000,(err) => {
+  if(err) return console.log(err);
+  console.log("The server is listening on port 3000")
+});
+*/
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -21,7 +39,7 @@ app.use(express.static(__dirname + '/css'));
 app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // categoryRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
-app.use('/detail/:id', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
+app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
 
 app.use((req, res) => {
