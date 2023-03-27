@@ -17,6 +17,7 @@ app.listen(3000,(err) => {
 */
 
 const express = require('express');
+const http = require('http');
 const path = require('path');
 const app = express();
 const mainpageRouter = require('./router/categorypoint');
@@ -35,6 +36,7 @@ app.use(searchboxRouter);
 app.use(bottomRouter);
 
 app.use(express.static(__dirname + '/css'));
+app.use('/detail', express.static(__dirname + '/css'));
 
 app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // categoryRouter, bottomnav_bar, searchbox 모듈을 사용
@@ -45,6 +47,11 @@ app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_b
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
 });
+
+http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World!');
+}).listen(8080);
 
 app.listen(3000,(err) => {
   if(err) return console.log(err);

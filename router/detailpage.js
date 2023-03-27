@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
                 <li>
                 ${row.itemDescription}</li>
               <div class="line"></div>
-              <h2>예시</h2>
+              <h2>예</h2>
                 <li>
                 ${row.itemDescription2}</li>
               </ul>
