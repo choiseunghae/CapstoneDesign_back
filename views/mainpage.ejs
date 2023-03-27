@@ -13,24 +13,44 @@
 
 <body>
   <div>
-    <div class="row">
-      <nav class="navbar fixed-top navbar-light bg-white ">
-        <div class="container-fluid fs-4">
-          <a class="navbar-brand center fw-bold" href="#"> 요즘말사전 </a>
-          <a href="mainpage">{username}님 </a>
-        </div>
-      </nav>
-    </div>
+    <div class="container text-center">
+   
+      <!-- 상단 네브바 (뒤로가기, 마이페이지, 환경설정) -->
+      <div class="row ">
+          <nav class="navbar fixed-top navbar-light bg-white ">
+              <div class="container-fluid fs-4"  style="text-align:center; margin-left: 50px; margin-right: 50px;" >
+                <!-- <a class="bi bi-arrow-left"  style="color: black ;"></a> -->
+                <a class="navbar-brand center fw-bold" href="#" style="color: #D0E450;"> 요즘말사전 </a>
+                <a class="navbar-brand center fw-bold" href="#" style="color: #D0E450;"> {username}님  </a>
+              </div>
+            </nav>
+      </div>
+      <!-- // -->
+      <!-- 검색기능 -->
+      <div class="input-group mb-3">
+        <input type="text" class=" search-text form-control mx-auto " placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2" style="margin-top: 250px; ">
+        <button onclick="showword()" class="bi bi-search btn btn-outline-#D0E450" type="button" style="margin-top: 250px; background-color: #D0E450; "></button>
+      </div>
+      
+      
+      <div class="mx-auto" style="text-decoration: none;">
+          <button type="button" onclick="show01()" class="btn btn-light" style="border-radius: 50%;  background-color: #D0E450;">신조어</button>
+          <button type="button" onclick="show02()" class="btn btn-light"style="border-radius: 50%; background-color: #D0E450;">줄임말</button>
+          <button type="button" onclick="show03()" class="btn btn-light"style="border-radius: 50%; background-color: #D0E450;">합성어</button>
+          <button type="button" onclick="show04()" class="btn btn-light"style="border-radius: 50%; background-color: #D0E450;">유행어</button>
+          <button type="button" onclick="show05()" class="btn btn-light"style="border-radius: 50%; background-color: #D0E450;">초성</button>
+          <button type="button" onclick="show06()" class="btn btn-light"style="border-radius: 50%; background-color: #D0E450;">이모티콘</button>
+          <button type="button"  class="btn btn-light"style="border-radius: 50%; background-color: #D0E450; text-decoration: none;"><a href="category">전체</a></button>
+      </div>
+      
+  </div>
+  </div>
 
-    <div class ="position">
-    <%- searchbox %>
-     </div>
-
-
-    <%- category %>
 
       <%- bottom %>
 
 </body>
 
 </html>
+
+
