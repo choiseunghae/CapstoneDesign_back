@@ -17,15 +17,7 @@ router.get('/', (req, res) => {
 
         let html = `
 
-        <ul class="category__theme">
-            <li class="category__btn"><a class="category__link" href="#">전체</a></li>
-            <li class="category__btn"><a class="category__link" href="#">자음</a></li>
-            <li class="category__btn"><a class="category__link" href="#">모음</a></li>
-            <li class="category__btn"><a class="category__link" href="#">줄임말</a></li>
-            <li class="category__btn"><a class="category__link" href="#">신조어</a></li>
-            <li class="category__btn"><a class="category__link" href="#">영어</a></li>
-            <li class="category__btn"><a class="category__link" href="#">응용</a></li>
-        </ul>
+
 
         <div class="category_all">
         <ol id="entryList" class="list_all">
