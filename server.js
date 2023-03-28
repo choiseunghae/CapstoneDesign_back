@@ -8,7 +8,7 @@ const categoryRouter = require('./router/category');
 const settingRouter = require('./router/settingpage')
 const searchboxRouter = require('./router/search_box');
 const bottomRouter = require('./router/bottomnav_bar');
-const bookmarkRouter = require('./router/bookmark');
+const QuizRouter = require('./router/quiz');
 const port = 3000;
 
 app.set('views', path.join(__dirname, 'views')); // 뷰 디렉토리 설정
@@ -25,7 +25,7 @@ app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // catego
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
-app.use('/bookmark', [bookmarkRouter, bottomRouter]); //bookmarkRouter bottomnav_bar 모듈을 사용
+app.use('/quiz', [QuizRouter]);
 
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
