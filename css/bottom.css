@@ -1,10 +1,14 @@
-.nav_form
+.nav__form
 {
+    margin-bottom: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #D0E450;
-    padding: 23px 40px;
     box-sizing: border-box;
     border-radius: 10px 10px 0px 0px;
 }
@@ -14,29 +18,4 @@
     display: flex;
     justify-content: space-between;
     list-style: none;
-}
-
-.bi bi-bookmark-fill 
-{
-    font-size: 1.5rem;
-}
-
-.bi bi-house-door-fill 
-{
-    font-size: 1.5rem;
-}
-
-.bi bi-search 
-{
-    font-size: 1.5rem;
-}
-
-.bi bi-person-fill 
-{
-    font-size: 1.5rem;
-}
-
-.bi bi-chat-dots-fill 
-{
-    font-size: 1.5rem;
 }
