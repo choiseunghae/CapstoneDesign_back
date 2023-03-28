@@ -1,5 +1,4 @@
 const express = require('express');
-const http = require('http');
 const path = require('path');
 const app = express();
 const mainpageRouter = require('./router/categorypoint');
@@ -26,16 +25,12 @@ app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // catego
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
-app.use('/bookmark', [bookmarkRouter]); //bookmarkRouter 모듈을 사용
+app.use('/bookmark', [bookmarkRouter, bottomRouter]); //bookmarkRouter bottomnav_bar 모듈을 사용
 
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
 });
 
-http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World!');
-}).listen(8080);
 
 app.listen(3000,(err) => {
   if(err) return console.log(err);

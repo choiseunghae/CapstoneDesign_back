@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const bottomRouter = require('./bottomnav_bar');
+
+router.use(bottomRouter);
 
 router.use((req, res, next) => {
     let html=`
@@ -53,7 +56,7 @@ document.querySelector('.d-flex').appendChild(ul);
 
 
 
-    res.render('bookmark', { list_page: html });
+    res.render('bookmark', { bookmark: html });
     next();
   });
   
