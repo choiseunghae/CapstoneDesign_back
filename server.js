@@ -1,21 +1,3 @@
-/*const express = require('express');
-const app = express();
-const connection = require('./mysql');
-const port = 3000;
-
-app.set('view engine', 'html'); // html를 뷰 엔진으로 사용
-
-app.get("/express", (req, res) => {
-  let name = res.qurry.name;
-  res.render("index.html", { user: name })
-})
-
-app.listen(3000,(err) => {
-  if(err) return console.log(err);
-  console.log("The server is listening on port 3000")
-});
-*/
-
 const express = require('express');
 const http = require('http');
 const path = require('path');

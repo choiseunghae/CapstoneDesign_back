@@ -5,12 +5,6 @@ var connection = mysql.createConnection({
   user: 'root',
   password: '963472',
   database: 'dictionary'
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '963472',
-
-//   database: 'dictionary'
 });
 
 connection.connect();
