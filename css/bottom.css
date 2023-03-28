@@ -1,6 +1,7 @@
 .nav__form
 {
     margin-bottom: 0;
+    padding-left: 0;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -15,6 +16,8 @@
 
 .nav__list 
 {
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     justify-content: space-between;
     list-style: none;
