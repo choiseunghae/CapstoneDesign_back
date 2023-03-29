@@ -45,7 +45,7 @@ router.use((req, res) => {
                   <div> Quiz </div>
                   <h1>${result[0].itemDescription}</h1>
                   <ul>
-                    ${options.map((option) => `<li>${option}</li>`).join('')}
+                    ${options.map((option) => `<li><button onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</button></li>`).join('')}
                   </ul>
                 `;
 
