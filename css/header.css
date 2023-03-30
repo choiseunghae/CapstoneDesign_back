@@ -1,0 +1,25 @@
+.status-bookmark {
+    margin-bottom: 70px;
+
+}
+.status-bar {
+    display: flex;
+    z-index: 9999;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 72px;
+    top: 0;
+    width: 100%;
+    padding: 20px 30px;
+}
+
+.status-bar__coulumn {
+    color: #D0E450;
+    font-size: 21px;
+    font-weight: bold;
+}
+.status-bar__coulumn i{
+    color: black; 
+    font-size:25px;
+}

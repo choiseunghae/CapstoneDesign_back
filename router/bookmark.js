@@ -1,47 +1,59 @@
 const express = require('express');
 const router = express.Router();
+const connection = require('../mysql');
+const headerRouter = require('./headernav_bar');
+const navitemRouter = require('./navitem_bar');
+const bottomRouter = require('./bottomnav_bar'); 
+
+
+router.use(headerRouter);
+router.use(bottomRouter); 
+router.use(navitemRouter); 
+
 
 router.use((req, res, next) => {
-    let html=`
-    <header class="status-bookmark">
-    <div class="status-bar">
-      <div onclick="goBack()"><i class="bi bi-arrow-left " style="color: black; font-size:25px;"></i></div>
-      <div class="status-bar__coulumn">북마크</div>
-      <div class="status-bar__coulumn"><a href="setting" class="status-bar__link"><i class="bi bi-gear-fill fs-4" style="color: black; font-size:25px;"></i></a></div>
-  </div>
-  </header>`
+    let html=`<div class="my-2 p-3">      
+    <div class="bookmark d-flex justify-content-between">
+      <div class="bookmark__word">북마크 단어</div>
+     </div>
+    `;
+    
+    var listItems = $('.list-group-item');
 
+    for (var i = 0; i < listItems.length; i++) {
+      var listItem = listItems[i];
+      var link = $(listItem).children('a');
+      console.log(link.text());
 
+      html +=`<ul class="list-group border-2">
+      <li class="list-group-item d-flex" style="border-color:#D0E450"><a href="word">
+      ${row.itemName}</a>
+        <div><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+      </li>
+      `;
+    }
 
-
-    const words = ['북마크단어1', '북마크단어2', '북마크단어3', '북마크단어4', '북마크단어5', '북마크단어6', '북마크단어7', '북마크단어8', '북마크단어9', '북마크단어10'];
-
-const ul = document.createElement('ul');
-ul.classList.add('list-group', 'border-2');
-
-for (let i = 0; i < words.length; i++) {
-  const li = document.createElement('li');
-  li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-  li.style.borderColor = '#D0E450';
-
-  const a = document.createElement('a');
-  a.href = 'word';
-  a.style.fontSize = '14px';
-  a.textContent = words[i];
-
-  const div = document.createElement('div');
-
-  const iElem = document.createElement('i');
-  iElem.classList.add('bi', 'bi-bookmark-fill');
-  iElem.addEventListener('click', toggleIcon);
-
-  div.appendChild(iElem);
-  li.appendChild(a);
-  li.appendChild(div);
-  ul.appendChild(li);
+//** 북마크 설정 및 해제 **//
+function toggleIcon(icon) {
+  if (icon.classList.contains('bi-bookmark-fill')) {
+    // 북마크가 설정되었을 경우 해제하기
+    icon.classList.remove('bi-bookmark-fill');
+    icon.classList.add('bi-bookmark');
+  } else {
+    // 북마크가 해제되었을 경우 설정하기
+    icon.classList.remove('bi-bookmark');
+    icon.classList.add('bi-bookmark-fill');
+  }
 }
 
-document.querySelector('.d-flex').appendChild(ul);
+module.exports = router;
+
+
+  
+            
+            
+
+              
 
 
 
@@ -53,7 +65,10 @@ document.querySelector('.d-flex').appendChild(ul);
 
 
 
-    res.render('bookmark', { list_page: html });
+
+
+
+    res.render('bookmark', { bookmark: html });
     next();
   });
   
