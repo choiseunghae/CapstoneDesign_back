@@ -12,11 +12,6 @@ router.use((req, res, next) => {
   </header>
             `;
     
-     //** 이전 페이지로 돌아가기 **//
-      function goBack() {
-        window.history.back();
-      } 
-  
     res.locals.header = html;
     next();
   });
