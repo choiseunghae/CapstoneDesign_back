@@ -10,7 +10,7 @@ router.use(headerRouter);
 router.use(bottomRouter); 
 router.use(navitemRouter); 
 
-router.use((req, res, next) => {
+router.get('/', (req, res) => {
     let html=`<div class="my-2 p-3">      
     <div class="bookmark d-flex justify-content-between">
       <div class="bookmark__word">북마크 단어</div>
@@ -32,46 +32,8 @@ router.use((req, res, next) => {
       `;
     }
 
-//** 북마크 설정 및 해제 **//
-function toggleIcon(icon) {
-  if (icon.classList.contains('bi-bookmark-fill')) {
-    // 북마크가 설정되었을 경우 해제하기
-    icon.classList.remove('bi-bookmark-fill');
-    icon.classList.add('bi-bookmark');
-  } else {
-    // 북마크가 해제되었을 경우 설정하기
-    icon.classList.remove('bi-bookmark');
-    icon.classList.add('bi-bookmark-fill');
-  }
-}
-
-module.exports = router;
-
-
-  
-            
-            
-
-              
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> c4f9d8b6bfb9028ce724663848591be9663b0983
     res.render('bookmark', { bookmark: html });
-    next();
+
   });
   
 
