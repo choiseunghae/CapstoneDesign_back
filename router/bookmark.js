@@ -10,7 +10,6 @@ router.use(headerRouter);
 router.use(bottomRouter); 
 router.use(navitemRouter); 
 
-
 router.use((req, res, next) => {
     let html=`<div class="my-2 p-3">      
     <div class="bookmark d-flex justify-content-between">
@@ -65,9 +64,12 @@ module.exports = router;
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> c4f9d8b6bfb9028ce724663848591be9663b0983
     res.render('bookmark', { bookmark: html });
     next();
   });

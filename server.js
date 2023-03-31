@@ -1,15 +1,13 @@
 const express = require('express');
-const http = require('http');
 const path = require('path');
 const app = express();
-const mainpageRouter = require('./router/categorypoint');
 const listpageRouter = require('./router/dictionary');
 const detailpageRouter = require('./router/detailpage');
 const categoryRouter = require('./router/category');
 const settingRouter = require('./router/settingpage')
 const searchboxRouter = require('./router/search_box');
 const bottomRouter = require('./router/bottomnav_bar');
-const bookmarkRouter = require('./router/bookmark');
+const QuizRouter = require('./router/quiz');
 const port = 3000;
 
 app.set('views', path.join(__dirname, 'views')); // 뷰 디렉토리 설정
@@ -20,22 +18,16 @@ app.use(bottomRouter);
 
 app.use(express.static(__dirname + '/css'));
 app.use('/detail', express.static(__dirname + '/css'));
-
-app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar, searchbox 모듈을 사용
+app.use('/mainpage', [bottomRouter, searchboxRouter, QuizRouter]); // bottomnav_bar, searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // categoryRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
-app.use('/bookmark', [bookmarkRouter]); //bookmarkRouter 모듈을 사용
 
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
 });
 
-http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World!');
-}).listen(8080);
 
 app.listen(3000,(err) => {
   if(err) return console.log(err);
