@@ -49,7 +49,8 @@ router.use((req, res) => {
                   </ul>
                 `;
 
-                res.render('quiz', { quiz : html });
+                res.locals.quiz = html;
+                res.render('mainpage', { quiz: html });
             });
         });
     });

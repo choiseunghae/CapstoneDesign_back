@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const mainpageRouter = require('./router/categorypoint');
 const listpageRouter = require('./router/dictionary');
 const detailpageRouter = require('./router/detailpage');
 const categoryRouter = require('./router/category');
@@ -19,13 +18,11 @@ app.use(bottomRouter);
 
 app.use(express.static(__dirname + '/css'));
 app.use('/detail', express.static(__dirname + '/css'));
-
-app.use('/mainpage', [mainpageRouter, bottomRouter, searchboxRouter]); // mainpageRouter, bottomnav_bar, searchbox 모듈을 사용
+app.use('/mainpage', [bottomRouter, searchboxRouter, QuizRouter]); // bottomnav_bar, searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // categoryRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
-app.use('/quiz', [QuizRouter]);
 
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
