@@ -27,6 +27,10 @@ app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detail
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
 app.use('/quiz', [QuizRouter]);
 
+app.use('/chat', (req, res) => {
+  res.sendFile(__dirname+"/chat.html");
+});
+
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
 });
