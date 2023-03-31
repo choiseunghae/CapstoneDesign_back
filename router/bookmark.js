@@ -16,13 +16,10 @@ router.get('/', (req, res) => {
       <div class="bookmark__word">북마크 단어</div>
      </div>
     `;
-    
-    var listItems = $('.list-group-item');
 
-    for (var i = 0; i < listItems.length; i++) {
-      var listItem = listItems[i];
-      var link = $(listItem).children('a');
-      console.log(link.text());
+    
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
 
       html +=`<ul class="list-group border-2">
       <li class="list-group-item d-flex" style="border-color:#D0E450"><a href="word">
