@@ -1,14 +1,14 @@
-body{
-    margin: 0;
-}
 .bookmark__word{
-    font-weight: bold; 
-    color:#D0E450;
+    font-weight: bold;
+    font-size: 17px;
+    color: #D0E450;
+    margin-bottom: 10px;
 }
 .list-group-item{
     justify-content: space-between;
     align-items: center;
     display: flexbox;
+    margin-bottom: 5px;
 }
 .list-group{
     border-color:#D0E450;

@@ -16,21 +16,18 @@ router.get('/', (req, res) => {
       res.send('Error occurred');
       return;
     }
-    let html = `<div class="my-2 p-3">      
-    <div class="bookmark d-flex justify-content-between">
-      <div class="bookmark__word">북마크 단어</div>
-     </div>
-     <div class="d-flex text-muted pt-2"></div>
+    let html = `<div class="bookmark__word">북마크 단어</div>
     `;
 
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
 
-      html += `<ul class="list-group border-2">
-      <li class="list-group-item d-flex" style="border-color:#D0E450"><a href="detail/${row.itemIndex}">${row.itemName}</a>
+      html += `<ul class="list-group">
+      <li class="list-group-item"><a href="detail/${row.itemIndex}">${row.itemName}</a>
         <div><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
       </li>
+      </ul>
       `;
     }
 
