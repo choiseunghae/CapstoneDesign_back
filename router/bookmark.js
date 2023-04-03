@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../mysql');
 const headerRouter = require('./headernav_bar');
 const navitemRouter = require('./navitem_bar');
 const bottomRouter = require('./bottomnav_bar');
@@ -34,11 +33,27 @@ router.get('/', (req, res) => {
       `;
     }
 
+    html += `</ul>`;
     res.render('bookmark', { bookmark: html });
   });
-
 });
 
 
 module.exports = router;
+
+/*
+function toggleIcon(icon) {
+  if (icon.classList.contains('bi-bookmark-fill')) {
+    // 북마크가 설정되었을 경우 해제하기
+    icon.classList.remove('bi-bookmark-fill');
+    icon.classList.add('bi-bookmark');
+  } else {
+    // 북마크가 해제되었을 경우 설정하기
+    icon.classList.remove('bi-bookmark');
+    icon.classList.add('bi-bookmark-fill');
+  }
+}
+*/
+
+
 
