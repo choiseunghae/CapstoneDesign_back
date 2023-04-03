@@ -2,15 +2,19 @@
     font-weight: bold;
     font-size: 17px;
     color: #D0E450;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 .list-group-item{
+    border-color:#D0E450;
     justify-content: space-between;
     align-items: center;
-    display: flexbox;
-    margin-bottom: 5px;
+    display: flex;
+    margin-bottom: 6px;
 }
 .list-group{
+    margin-left: 20px;
+    margin-right: 20px;
     border-color:#D0E450;
 }
 .list-group a{
