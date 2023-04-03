@@ -65,3 +65,15 @@ function shuffleArray(arr) {
 }
 
 module.exports = router;
+
+/*
+<script>
+  function checkAnswer(selectedAnswer, correctAnswer) {
+      if (selectedAnswer === correctAnswer) {
+          alert('정답입니다.');
+      } else {
+          alert('님뭐함');
+      }
+  }
+  </script>
+  */

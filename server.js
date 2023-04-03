@@ -30,6 +30,7 @@ app.use('/bookmark', [bookmarkRouter, headerRouter, navitemRouter, bottomRouter]
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
+  [bookmarkRouter]
 });
 
 app.use((req, res) => {
