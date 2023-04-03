@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
     <div class="bookmark d-flex justify-content-between">
       <div class="bookmark__word">북마크 단어</div>
      </div>
+     <div class="d-flex text-muted pt-2"></div>
     `;
 
 
