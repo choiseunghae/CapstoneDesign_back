@@ -1,3 +1,6 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+
 :root {
     --body-bg: #D0E450;
     --msger-bg: #fff;
@@ -17,6 +20,10 @@
     padding: 0;
     box-sizing: inherit;
   }
+
+  i {
+    cursor: pointer;
+  }
   
   body {
     display: flex;
@@ -26,6 +33,12 @@
     background-image: var(--body-bg);
     font-family: Helvetica, sans-serif;
   }
+  .msger-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   
   .msger {
     display: flex;
@@ -149,4 +162,6 @@
   .msger-chat {
     background-color: #fcfcfe;
   }
+
+  
   

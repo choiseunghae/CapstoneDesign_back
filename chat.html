@@ -10,19 +10,15 @@
 <body>
     <section class="msger">
         <header class="msger-header">
-          <div class="msger-header-title">
-            <i class="fas fa-comment-alt"></i> Chat
-          </div>
-          <div class="msger-header-options">
-            <span><i class="fas fa-cog"></i></span>
-          </div>
+            <div class="msger-title" >Chat</div>
+            <i class="bi bi-x" style="font-size: 2rem;" onclick="goBack()"></i>
         </header>
       
         <main class="msger-chat">
           <div class="msg left-msg">
             <div
-             class="msg-img"
-             style="background-image: url()"
+            class="msg-img"
+            style="background-image: url()"
             ></div>
       
             <div class="msg-bubble">
@@ -62,7 +58,12 @@
         </form>
       </section>
 
-      <script>const msgerForm = get(".msger-inputarea");
+      <script>
+      function goBack() {
+  window.history.back();
+}
+      
+      const msgerForm = get(".msger-inputarea");
         const msgerInput = get(".msger-input");
         const msgerChat = get(".msger-chat");
         
