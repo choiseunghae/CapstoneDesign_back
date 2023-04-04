@@ -11,6 +11,7 @@ const QuizRouter = require('./router/quiz');
 const bookmarkRouter = require('./router/bookmark');
 const headerRouter = require('./router/headernav_bar');
 const navitemRouter = require('./router/navitem_bar');
+const mypageRouter = require('./router/mypage');
 const port = 3000;
 
 app.set('views', path.join(__dirname, 'views')); // 뷰 디렉토리 설정
@@ -27,6 +28,8 @@ app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // list
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
 app.use('/bookmark', [bookmarkRouter, headerRouter, navitemRouter, bottomRouter]); // bookmarkRouter, headernav_bar, navitem_bar, bottomnav_bar 모듈을 사용
+app.use('/mypage', [mypageRouter, bottomRouter]); // bottomnav_bar 모듈을 사용
+
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
