@@ -42,11 +42,12 @@ router.use((req, res) => {
                 shuffleArray(options);
 
                 const html = `
-                  <div> Quiz </div>
+                  <div class="quizbox">
                   <h1>${result[0].itemDescription}</h1>
                   <ul>
                     ${options.map((option) => `<li><button onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</button></li>`).join('')}
                   </ul>
+                  </div>
                 `;
 
                 res.locals.quiz = html;

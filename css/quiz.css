@@ -1,0 +1,42 @@
+.quizbox
+{
+    display: grid;
+    margin: 15px 10vh;
+}
+
+.quizbox h1
+{
+    box-shadow: inset;
+    text-align: center;
+    font-size: 20px;
+    margin : 20px;
+    border: 20px solid #f6f6f6;
+    background-color: #f6f6f6;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.quizbox ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align:center; 
+    font-size: 20px;
+    
+}
+
+.quizbox li
+{
+    border: 5px solid #fff;
+    box-sizing: border-box;
+  }
