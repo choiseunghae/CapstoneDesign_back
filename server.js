@@ -10,7 +10,6 @@ const bottomRouter = require('./router/bottomnav_bar');
 const QuizRouter = require('./router/quiz');
 const bookmarkRouter = require('./router/bookmark');
 const headerRouter = require('./router/headernav_bar');
-const navitemRouter = require('./router/navitem_bar');
 const mypageRouter = require('./router/mypage');
 const port = 3000;
 
@@ -27,7 +26,7 @@ app.use('/category', [categoryRouter, bottomRouter, searchboxRouter]); // catego
 app.use('/dictionary', [listpageRouter, bottomRouter, searchboxRouter]); // listpageRouter, bottomnav_bar, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, bottomRouter, searchboxRouter]); // detailpageRouter bottomnav_bar 모듈을 사용
 app.use('/setting', [settingRouter, bottomRouter]); // settingRouter bottomnav_bar 모듈을 사용
-app.use('/bookmark', [bookmarkRouter, headerRouter, navitemRouter, bottomRouter]); // bookmarkRouter, headernav_bar, navitem_bar, bottomnav_bar 모듈을 사용
+app.use('/bookmark', [bookmarkRouter, headerRouter, bottomRouter]); // bookmarkRouter, headernav_bar, bottomnav_bar 모듈을 사용
 app.use('/mypage', [mypageRouter, bottomRouter]); // bottomnav_bar 모듈을 사용
 
 

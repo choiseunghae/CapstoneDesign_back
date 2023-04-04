@@ -10,6 +10,11 @@ router.use((req, res, next) => {
       <div class="status-bar__coulumn"><a href="setting" class="status-bar__link"><i class="bi bi-gear-fill fs-4"></i></a></div>
   </div>
   </header>
+
+  <div class="my-4 nav-item-bar">
+    <div class="nav-item active" onclick="changeColor(this)"><a href="bookmark"><i class="bi bi-bookmark-fill"></i></a></div>
+    <div class="nav-item" onclick="changeColor(this)"><a href="thumbs"><i class="bi bi-hand-thumbs-up-fill"></i></a></div>
+    </div> 
             `;
     
     res.locals.header = html;
