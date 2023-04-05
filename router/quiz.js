@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
+const usernameRouter = require('./username');
+
+router.use(usernameRouter);
 
 router.use((req, res) => {
     connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
@@ -50,7 +53,6 @@ router.use((req, res) => {
                   </div>
                 `;
 
-                res.locals.quiz = html;
                 res.render('mainpage', { quiz: html });
             });
         });

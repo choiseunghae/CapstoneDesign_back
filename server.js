@@ -12,7 +12,6 @@ const searchboxRouter = require('./router/search_box');
 const QuizRouter = require('./router/quiz');
 const bookmarkRouter = require('./router/bookmark');
 const headerRouter = require('./router/headernav_bar');
-//const navitemRouter = require('./router/navitem_bar');
 const signupRouter = require('./router/signup');
 const loginRouter = require('./router/login');
 
