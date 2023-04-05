@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
-const usernameRouter = require('./username');
-
-router.use(usernameRouter);
 
 router.use((req, res) => {
     connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
@@ -57,6 +54,16 @@ router.use((req, res) => {
             });
         });
     });
+});
+
+router.post('/', (req, res) => {
+  connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
+      if (err) {
+        console.log(err);
+        res.send('Error occurred');
+        return;
+      }
+  });
 });
 
 // Shuffle array in place
