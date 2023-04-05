@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const connection = require('../mysql');
 const headerRouter = require('./headernav_bar');
 const bottomRouter = require('./bottomnav_bar');
 

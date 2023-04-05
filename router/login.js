@@ -8,6 +8,9 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cookieParser());
 
 router.get('/', (req, res) => {
+    if (req.session.usernickname) {
+        return res.redirect('/mypage');
+      }
     res.render('login');
 });
 
