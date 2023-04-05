@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
+const bodyParser = require('body-parser');
+
+router.use(bodyParser.urlencoded({ extended: true }));
 
 router.use((req, res) => {
     connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
@@ -57,6 +60,8 @@ router.use((req, res) => {
 });
 
 router.post('/', (req, res) => {
+  const usernickname = req.body.usernickname;
+
   connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
       if (err) {
         console.log(err);
