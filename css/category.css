@@ -131,3 +131,7 @@
     background-color: #D0E450;
     text-decoration: none;
 }
+
+#entryList {
+    list-style: none;
+}
