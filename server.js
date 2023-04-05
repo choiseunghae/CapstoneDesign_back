@@ -14,6 +14,7 @@ const bookmarkRouter = require('./router/bookmark');
 const headerRouter = require('./router/headernav_bar');
 const signupRouter = require('./router/signup');
 const loginRouter = require('./router/login');
+const mypageRouter = require('./router/mypage');
 
 const bottomRouter = require('./router/bottomnav_bar');
 
@@ -42,7 +43,7 @@ app.use('/setting', [settingRouter]); // settingRouter 모듈을 사용
 app.use('/bookmark', [bookmarkRouter, headerRouter]); // bookmarkRouter, headernav_bar, navitem_bar 모듈을 사용
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
-
+app.use('/mypage', [mypageRouter]);
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
