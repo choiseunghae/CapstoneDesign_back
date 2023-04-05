@@ -12,7 +12,7 @@ const searchboxRouter = require('./router/search_box');
 const QuizRouter = require('./router/quiz');
 const bookmarkRouter = require('./router/bookmark');
 const headerRouter = require('./router/headernav_bar');
-const navitemRouter = require('./router/navitem_bar');
+//const navitemRouter = require('./router/navitem_bar');
 const signupRouter = require('./router/signup');
 const loginRouter = require('./router/login');
 
@@ -40,7 +40,7 @@ app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, sear
 app.use('/dictionary', [listpageRouter, searchboxRouter]); // listpageRouter, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, searchboxRouter]); // detailpageRouter,  searchboxRouter모듈을 사용
 app.use('/setting', [settingRouter]); // settingRouter 모듈을 사용
-app.use('/bookmark', [bookmarkRouter, headerRouter, navitemRouter]); // bookmarkRouter, headernav_bar, navitem_bar 모듈을 사용
+app.use('/bookmark', [bookmarkRouter, headerRouter]); // bookmarkRouter, headernav_bar, navitem_bar 모듈을 사용
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 
