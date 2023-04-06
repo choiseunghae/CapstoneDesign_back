@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     for (let row of rows) {
       html += `
       <div class="wordbox">
-              <h1>${row.itemName}</h1>
+              <h1>${row.itemName}  ${req.session.usernickname ? '<i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i>' : ''}</h1>
               <ul>
               <h2>뜻</h2>
                 <li>
