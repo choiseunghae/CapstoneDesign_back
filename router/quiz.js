@@ -59,7 +59,7 @@ router.use((req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+/*router.post('/', (req, res) => {
   const usernickname = req.body.usernickname;
 
   connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
         return;
       }
   });
-});
+});*/
 
 // Shuffle array in place
 function shuffleArray(arr) {

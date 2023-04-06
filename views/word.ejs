@@ -21,4 +21,19 @@
 
 </body>
 
+<script>
+
+function toggleIcon(icon) {
+    if (icon.classList.contains('bi-bookmark')) {
+      // 북마크가 해제되었을 때 설정하기
+      icon.classList.remove('bi-bookmark');
+      icon.classList.add('bi-bookmark-fill');
+    } else {
+      // 북마크가 설정되었을 때 해제하기
+      icon.classList.remove('bi-bookmark-fill');
+      icon.classList.add('bi-bookmark');
+    }
+  }
+</script>
+
 </html>
