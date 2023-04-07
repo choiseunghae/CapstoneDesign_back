@@ -16,8 +16,8 @@
 
 .nav__list 
 {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     justify-content: space-between;
     list-style: none;

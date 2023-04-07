@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./thumbs.css">
+    <link rel="stylesheet" href="./thumbsnav.css">
+    <link rel="stylesheet" href="./bottom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <title>추천</title>
+</head>
+
+<body>
+
+  <%- thumbsnav %>  
+
+  <%- thumbs %>
+
+  <%- bottom %>
+
+    
+</body>
+<script>
+
+   // 이전 페이지로 돌아가기 
+   function goBack() {
+        window.history.back();
+      } 
+
+   //* 북마크&추천 nav바 *//
+     function changeColor(navItem) {
+        // 모든 Nav 아이템의 active 클래스 제거
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active'));
+        
+        // 클릭한 Nav 아이템에 active 클래스 추가
+        navItem.classList.add('active');
+      }
+
+   //** 추천 설정 및 해제 **//
+    function toggleIcon(icon) {
+      if (icon.classList.contains('bi-hand-thumbs-up-fill')) {
+        // 추천이 설정되었을 경우 해제하기
+        icon.classList.remove('bi-hand-thumbs-up-fill');
+        icon.classList.add('bi-hand-thumbs-up');
+      } else {
+        // 추천이 해제되었을 경우 설정하기
+        icon.classList.remove('bi-hand-thumbs-up');
+        icon.classList.add('bi-hand-thumbs-up-fill');
+      }
+    }
+</script>
+
+</html>
+
+
+
+

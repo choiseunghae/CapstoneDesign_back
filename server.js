@@ -17,6 +17,8 @@ const loginRouter = require('./router/login');
 const mypageRouter = require('./router/mypage');
 const searchRouter = require('./router/search');
 
+const thumbsRouter = require('./router/thumbs');
+const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
 
 const port = 3000;
@@ -45,6 +47,7 @@ app.use('/bookmark', [bookmarkRouter, headerRouter]); // bookmarkRouter, headern
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use('/mypage', [mypageRouter]);
+app.use('/thumbs', [thumbsRouter, thumbsnavRouter ]);
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");

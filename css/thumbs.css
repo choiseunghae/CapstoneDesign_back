@@ -1,20 +1,20 @@
-.bookmark__word{
+.thumbs__word{
     font-weight: bold;
     font-size: 17px;
     color: rgb(86, 82, 82);
     position: fixed;
-    margin-top: 35px;
+    margin-top: 100px;
     padding-top: 30px;
     padding-left: 25px;
-    padding-bottom: 15px;
     width: 100%;
     z-index: 9999;
     background-color: white;
+    padding-bottom: 10px;
 
 }
 .list-group-item{
     height: 48px;
-    top: 105px;
+    top: 170px;
     border-color:#D0E450;
     justify-content: space-between;
     align-items: center;
