@@ -21,26 +21,19 @@
       <div class="row ">
         <nav class="navbar fixed-top navbar-light bg-white ">
           <div class="container-fluid fs-4" style="text-align:center; margin-left: 50px; margin-right: 50px;">
-            <a class="navbar-brand center fw-bold" href="#" style="color: #f394cd;"> 요즘말사전 </a>
+            <!-- <a class="bi bi-arrow-left"  style="color: black ;"></a> -->
+            <a class="navbar-brand center fw-bold" href="#" style="color: #D0E450;"> 요즘말사전 </a>
             <a class="navbar-brand center fw-bold" href="/login" style="color: #D0E450;"> ${usernickname}님 </a>
           </div>
         </nav>
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
-<<<<<<< HEAD
       <div class="input-group mb-3" style="margin-top: 150px;">
-        <input type="text" id="searchWord" class="search-text form-control mx-auto" placeholder="검색어를 입력하시오"
+        <input type="text" id="searchWord" class=" search-text form-control mx-auto" placeholder="검색어를 입력하시오"
           aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
         <button onclick="search()" class="bi bi-search btn btn-outline-#D0E450" type="button"
-          style="background-color: #D0E450;"></button>
-=======
-      <div class="input-group mb-3" style="margin-top: 150px;"> 
-        <input type="text" id= "searchWord"class=" search-text form-control mx-auto " placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오"
-          aria-describedby="button-addon2" >
-        <button onclick="search()" class="bi bi-search btn btn-outline-#D0E450" type="button"
-        style="background-color: #D0E450; "></button>
->>>>>>> 7841b4b48ba4aab55c28367a830d9df07b3be251
+          style="background-color: #D0E450; "></button>
       </div>
 
 
@@ -48,7 +41,7 @@
 
       <div class="mx-auto" style="text-decoration: none;">
         <button type="button" onclick="show01()" class="btn btn-light"
-          style="border-radius: 50%;  background-color:  #f394cd;">신조어</button>
+          style="border-radius: 50%;  background-color: #D0E450;">신조어</button>
         <button type="button" onclick="show02()" class="btn btn-light"
           style="border-radius: 50%; background-color: #D0E450;">줄임말</button>
         <button type="button" onclick="show03()" class="btn btn-light"
@@ -68,20 +61,12 @@
   </div>
   <%- quiz %>
 
-  <%- bottom %>
+    <%- bottom %>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
-  <script>
+      <script>
         // import Axios from 'axios';
         //const aixos=require('axios');
-<<<<<<< HEAD
         const words = [
-=======
-
-     const words = [
->>>>>>> 7841b4b48ba4aab55c28367a830d9df07b3be251
           {
             ItemName: "1",
             Category_categoryId: "1",
@@ -154,58 +139,36 @@
             link: "dd",
           },
         ]
-      console.log(words);
+        console.log(words);
 
-<<<<<<< HEAD
         function search() {
-          const searchWord = document.getElementById('searchWord').value;
+          const searchValue = document.getElementById('searchWord').value;
 
-          // 검색어가 입력되지 않았을 경우
-          if (!searchWord) {
-            alert('검색어를 입력해주세요');
-            return;
-          }
-
-          // 검색어가 입력된 경우
-          // POST 방식으로 서버로 데이터 전송
+          // 서버로 검색어를 전송하는 코드
           fetch('/search', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              searchWord: searchWord
+              searchValue: searchValue
             })
           })
-            .then(res => res.json())
+            .then(response => response.json())
             .then(data => {
-              if (data.itemIndex) {
-                location.href = `/detail/${data.itemIndex}`;
-              } else {
-                alert('검색 결과가 없습니다');
-              }
+              const itemIndex = data.itemIndex;
+              window.location.href = `/detail/${itemIndex}`;
             })
-            .catch(err => {
-              console.error(err);
-            });
+            .catch(error => console.error(error));
         }
-
 
         document.getElementById('searchWord').addEventListener('keyup', function (event) {
           if (event.key === 'Enter') {
-            console.log(event.target.value);
-            axios.post('/search', {
-              searchWord: event.target.value
-            })
-              .then(function (response) {
-                console.log(response.data);
-                window.location.href = `/detail/${response.data}`;
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+            search();
           }
         });
+
+
 
 
         // axios.get('http://localhost:3000/mainpage').then(req=>{
@@ -215,35 +178,6 @@
         // })
 
         //activate Enterkey for Search
-=======
-     document.getElementById('searchWord').addEventListener('keyup', function (event) {
-      if (event.key === 'Enter') {
-        console.log(event.target.value);
-         //데이터 불러오기
-        let searchId = words.filter(words => words.itemName === ""); // "이 안에 검색 키워드 일치하는거 쓰기/.../.."
-        if(searchId==itemName){
-
-          // name의 id를 받아..? 
-          // id로 detailpage.js로 ... 랜더링해서 화면에 보여주면 됨
-        
-  }
-      }
-        });
-         // axios.get('http://localhost:3000/mainpage').then(req=>{
-          //   console.log(res);
-          //   응답온 객체를 담는 변수 하나 만들고
-          //   a.ㅇㅇ==1이면 유행어를 보여주고 등등
-          // })
-        
-        //activate Enterkey for Search
-    function search() {
-      console.log("누름");
-      let textBox = document.getElementById('searchWord');
-        if (textBox != null) {
-          console.log(textBox.value);
-        }
-      }
->>>>>>> 7841b4b48ba4aab55c28367a830d9df07b3be251
 
         function show01() {
           console.log("01카테고리고 가욤");

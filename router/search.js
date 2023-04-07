@@ -1,25 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
-const bodyParser = require('body-parser');
 
-router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/search', (req, res) => {
-  const searchWord = req.body.searchWord;
-  connection.query(`SELECT itemIndex FROM words WHERE itemName LIKE '%${searchWord}%'`, (err, rows) => {
+  const searchValue = req.body.searchValue;
+
+  connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchValue}%'`, (err, rows) => {
     if (err) {
       console.log(err);
-      res.status(500).send('Error occurred');
+      res.send('Error occurred');
       return;
     }
 
-    if (rows.length === 0) {
-      res.status(404).send('Not found');
+    if (rows.length === 0) { // 검색 결과가 없는 경우
+      console.log('404');
+      res.send('404');
       return;
     }
 
-    res.send(rows[0].itemIndex);
+    const itemIndex = rows[0].itemIndex; // 검색된 첫 번째 행의 itemIndex를 가져옵니다.
+    console.log(itemIndex);
+    res.send(itemIndex);
+    return;
   });
 });
 

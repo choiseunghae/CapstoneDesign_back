@@ -13,7 +13,6 @@ connection.query('SELECT * FROM detailpage', function (error, results, fields) {
   if (error) {
     console.log(error);
   }
-  console.log(results);
 });
 
 
