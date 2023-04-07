@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
 const bodyParser = require('body-parser');
+const searchRouter = require('./search');
+
+router.use(searchRouter);
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -59,17 +62,6 @@ router.use((req, res) => {
     });
 });
 
-/*router.post('/', (req, res) => {
-  const usernickname = req.body.usernickname;
-
-  connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
-      if (err) {
-        console.log(err);
-        res.send('Error occurred');
-        return;
-      }
-  });
-});*/
 
 // Shuffle array in place
 function shuffleArray(arr) {

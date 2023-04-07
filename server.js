@@ -15,6 +15,7 @@ const headerRouter = require('./router/headernav_bar');
 const signupRouter = require('./router/signup');
 const loginRouter = require('./router/login');
 const mypageRouter = require('./router/mypage');
+const searchRouter = require('./router/search');
 
 const bottomRouter = require('./router/bottomnav_bar');
 
@@ -35,7 +36,7 @@ app.use(session({
 app.use(express.static(__dirname + '/css'));
 
 app.use('/detail', express.static(__dirname + '/css'));
-app.use('/mainpage', [searchboxRouter, QuizRouter]); // searchbox, QuizRouter 모듈을 사용
+app.use('/mainpage', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, searchboxRouter]); // listpageRouter, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter, searchboxRouter]); // detailpageRouter,  searchboxRouter모듈을 사용
@@ -47,7 +48,6 @@ app.use('/mypage', [mypageRouter]);
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
-  [bookmarkRouter]
 });
 
 app.use((req, res) => {
