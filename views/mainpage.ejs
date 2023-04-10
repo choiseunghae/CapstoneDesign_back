@@ -18,7 +18,7 @@
     <div class="container text-center">
 
       <!-- 상단 네브바 (뒤로가기, 마이페이지, 환경설정) -->
-      <div class="row ">
+      <div class="row">
         <nav class="navbar fixed-top navbar-light bg-white ">
           <div class="container-fluid fs-4" style="text-align:center; margin-left: 50px; margin-right: 50px;">
             <!-- <a class="bi bi-arrow-left"  style="color: black ;"></a> -->
@@ -29,17 +29,16 @@
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
-
-      <form action="/search" method="post">
+      <form action="/mainpage/search" method="POST">
         <div class="input-group mb-3" style="margin-top: 150px;">
-          <input type="text" name="searchValue" class="search-text form-control mx-auto" placeholder="검색어를 입력하시오"
-            aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
-          <button class ="bi bi-search btn btn-outline-#D0E450" type="submit"
+          <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
+            placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
+          <button id="searchBtn" class="bi bi-search btn btn-outline-#D0E450" type="submit"
             style="background-color: #D0E450;"></button>
         </div>
       </form>
 
-<!--
+      <!--
       <div class="input-group mb-3" style="margin-top: 150px;">
         <input type="text" id="searchWord" class="search-text form-control mx-auto" placeholder="검색어를 입력하시오"
           aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
@@ -51,108 +50,115 @@
 
 
 
-        <div class="mx-auto" style="text-decoration: none;">
-          <button type="button" onclick="show01()" class="btn btn-light"
-            style="border-radius: 50%;  background-color: #D0E450;">신조어</button>
-          <button type="button" onclick="show02()" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450;">줄임말</button>
-          <button type="button" onclick="show03()" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450;">합성어</button>
-          <button type="button" onclick="show04()" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450;">유행어</button>
-          <button type="button" onclick="show05()" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450;">초성</button>
-          <button type="button" onclick="show06()" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450;">이모티콘</button>
-          <button type="button" class="btn btn-light"
-            style="border-radius: 50%; background-color: #D0E450; text-decoration: none;"><a
-              href="category">전체</a></button>
-        </div>
-
+      <div class="mx-auto" style="text-decoration: none;">
+        <button type="button" onclick="show01()" class="btn btn-light"
+          style="border-radius: 50%;  background-color: #D0E450;">신조어</button>
+        <button type="button" onclick="show02()" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450;">줄임말</button>
+        <button type="button" onclick="show03()" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450;">합성어</button>
+        <button type="button" onclick="show04()" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450;">유행어</button>
+        <button type="button" onclick="show05()" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450;">초성</button>
+        <button type="button" onclick="show06()" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450;">이모티콘</button>
+        <button type="button" class="btn btn-light"
+          style="border-radius: 50%; background-color: #D0E450; text-decoration: none;"><a
+            href="category">전체</a></button>
       </div>
-    </div>
-    <%- quiz %>
 
-      <%- bottom %>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-          // import Axios from 'axios';
-          //const aixos=require('axios');
-          const words = [
-            {
-              ItemName: "1",
-              Category_categoryId: "1",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "2",
-              Category_categoryId: "2",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "3",
-              Category_categoryId: "3",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "4",
-              Category_categoryId: "4",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "5",
-              Category_categoryId: "5",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "6",
-              Category_categoryId: "6",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-            {
-              ItemName: "7",
-              Category_categoryId: "7",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            }, {
-              ItemName: "1",
-              Category_categoryId: "1",
-              itemDescription: "dd",
-              itemDescription2: "dd",
-              bookmarkTF: "dd",
-              goodTF: "dd",
-              link: "dd",
-            },
-          ]
-          console.log(words);
-          /*
+    </div>
+  </div>
+  <%- quiz %>
+
+    <%- bottom %>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        // import Axios from 'axios';
+        //const aixos=require('axios');
+        const words = [
+          {
+            ItemName: "1",
+            Category_categoryId: "1",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "2",
+            Category_categoryId: "2",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "3",
+            Category_categoryId: "3",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "4",
+            Category_categoryId: "4",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "5",
+            Category_categoryId: "5",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "6",
+            Category_categoryId: "6",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+          {
+            ItemName: "7",
+            Category_categoryId: "7",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          }, {
+            ItemName: "1",
+            Category_categoryId: "1",
+            itemDescription: "dd",
+            itemDescription2: "dd",
+            bookmarkTF: "dd",
+            goodTF: "dd",
+            link: "dd",
+          },
+        ]
+        console.log(words);
+
+        document.getElementById('searchWord').addEventListener('keyup', function (event) {
+          if (event.key === 'Enter') {
+            search();
+          }
+        });
+
+
         function search() {
           const searchValue = document.getElementById('searchWord').value;
 
@@ -175,41 +181,32 @@
             .catch(error => console.error(error));
         }
 
-        document.getElementById('searchWord').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            search();
+        // axios.get('http://localhost:3000/mainpage').then(req=>{
+        //   console.log(res);
+        //   응답온 객체를 담는 변수 하나 만들고
+        //   a.ㅇㅇ==1이면 유행어를 보여주고 등등
+        // })
+
+        //activate Enterkey for Search
+
+        function show01() {
+          console.log("01카테고리고 가욤");
+          let word1 = words.filter(words => words.Category_categoryId === "1");
+          console.log(word1);
+        }
+        function show02() {
+          console.log("02카테고리고 가욤");
+          let word2 = words.filter(words => words.Category_categoryId === "2");
+          console.log(word2);
+        }
+        function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
+          if (selectedAnswer === correctAnswer) {
+            alert('정답입니다.');
+          } else {
+            alert('님뭐함');
           }
-        });
-        */
-
-
-
-          // axios.get('http://localhost:3000/mainpage').then(req=>{
-          //   console.log(res);
-          //   응답온 객체를 담는 변수 하나 만들고
-          //   a.ㅇㅇ==1이면 유행어를 보여주고 등등
-          // })
-
-          //activate Enterkey for Search
-
-          function show01() {
-            console.log("01카테고리고 가욤");
-            let word1 = words.filter(words => words.Category_categoryId === "1");
-            console.log(word1);
-          }
-          function show02() {
-            console.log("02카테고리고 가욤");
-            let word2 = words.filter(words => words.Category_categoryId === "2");
-            console.log(word2);
-          }
-          function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
-            if (selectedAnswer === correctAnswer) {
-              alert('정답입니다.');
-            } else {
-              alert('님뭐함');
-            }
-          }
-        </script>
+        }
+      </script>
 </body>
 
 

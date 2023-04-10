@@ -12,24 +12,25 @@ router.get('/', (req, res) => {
 });
 
 router.post('/search', (req, res) => {
-  const searchValue = req.body.searchValue;
+  const searchWord = req.body.searchWord;
 
-  connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchValue}%'`, (err, rows) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send('Error occurred');
-      return;
+  connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchWord}%'`, (error, results) => {
+    if (error) {
+      console.error(error);
+      return res.status(500).send('Internal Server Error');
     }
 
-    if (rows.length === 0) { // 검색 결과가 없는 경우
-      res.send({ itemIndex: null });
-      return;
+    // 검색 결과가 없는 경우
+    if (results.length === 0) {
+      return res.status(404).send('Not Found');
     }
 
-    const itemIndex = rows[0].itemIndex; // 검색된 첫 번째 행의 itemIndex를 가져옵니다.
-    res.send({ itemIndex: itemIndex });
+    // 검색 결과가 있는 경우
+    const itemId = results[0].itemIndex;
+
+    // 해당 itemId에 해당하는 페이지로 이동시키기
+    res.redirect(`/detail/${itemId}`);
   });
 });
-
 module.exports = router;
 
