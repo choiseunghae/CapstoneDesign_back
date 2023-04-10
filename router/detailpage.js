@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
  
     let html = ``
 
-    connection.query(``)
 
     // 데이터를 HTML 형식으로 변환
     for (let row of rows) {
