@@ -13,9 +13,12 @@
 
 }
 .list-group-item{
+    box-shadow: inset;
+    border: 20px solid #f6f6f6;
+    background-color: #f6f6f6;
+    border-radius: 15px;
     height: 48px;
     top: 105px;
-    border-color:#D0E450;
     justify-content: space-between;
     align-items: center;
     display: flex;
@@ -28,10 +31,12 @@
     margin-bottom: 100px;
 }
 .list-group a{
-    color:rgb(60, 60, 60);
+    color: black;
     font-weight: bold;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+    opacity: 80%;
+
 }
 .list-group i{
     color:#D0E450;

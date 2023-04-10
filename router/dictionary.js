@@ -17,6 +17,24 @@ router.get('/', (req, res) => {
       return;
     }
     let html = `
+    <ul class="nav">
+  <li class="nav-item">
+  <a class="nav-link active href="#">전체</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">신조어</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">줄임말</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">합성어</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">유행어</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">초성</a>
+  <span class="txt-bar">|</span>
+  <a class="nav-link active href="#">이모티콘</a>
+  </li>
+</ul>
+
                   <div class="box">
                   `;
 
@@ -27,9 +45,9 @@ router.get('/', (req, res) => {
     for (let row of rows) {
       html += `
                   <ul>
-                      <li>
-                        <a href="/detail/${row.itemIndex}">${row.itemName}</a>
-                      </li>
+                        <li class="list"><a href="/detail/${row.itemIndex}">${row.itemName}</a>
+                        <i class="bi bi-chevron-right"></i>
+                        </li>
                   </ul>
                 `;
 
