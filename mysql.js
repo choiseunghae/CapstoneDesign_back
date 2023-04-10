@@ -9,11 +9,4 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM detailpage', function (error, results, fields) {
-  if (error) {
-    console.log(error);
-  }
-});
-
-
 module.exports = connection;

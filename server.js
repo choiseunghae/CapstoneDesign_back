@@ -48,6 +48,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter ]);
+app.use('/search', searchRouter);
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");

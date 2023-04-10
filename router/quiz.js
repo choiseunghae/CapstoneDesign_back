@@ -2,13 +2,10 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
 const bodyParser = require('body-parser');
-const searchRouter = require('./search');
-
-router.use(searchRouter);
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.use((req, res) => {
+router.use((req, res,next) => {
     connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
         if (err) {
           console.log(err);
@@ -51,12 +48,13 @@ router.use((req, res) => {
                   <div class="quizbox">
                   <h1>${result[0].itemDescription}</h1>
                   <ul>
-                    ${options.map((option) => `<li><button onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</button></li>`).join('')}
+                    ${options.map((option) => `<li button class="gradient-btn" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</li>`).join('')}
                   </ul>
                   </div>
                 `;
 
-                res.render('mainpage', { quiz: html });
+                res.locals.quiz = html;
+                next();
             });
         });
     });
