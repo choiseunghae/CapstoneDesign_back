@@ -29,7 +29,7 @@
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
-      <form action="/mainpage/search" method="POST">
+      <form action="/mainpage/search" method="GET">
         <div class="input-group mb-3" style="margin-top: 150px;">
           <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
             placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
@@ -151,35 +151,6 @@
           },
         ]
         console.log(words);
-
-        document.getElementById('searchWord').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            search();
-          }
-        });
-
-
-        function search() {
-          const searchValue = document.getElementById('searchWord').value;
-
-          // 서버로 검색어를 전송하는 코드
-
-          fetch('/search', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              searchValue: searchValue
-            })
-          })
-            .then(response => response.json())
-            .then(data => {
-              const itemIndex = data.itemIndex;
-              window.location.href = `/detail/${itemIndex}`;
-            })
-            .catch(error => console.error(error));
-        }
 
         // axios.get('http://localhost:3000/mainpage').then(req=>{
         //   console.log(res);
