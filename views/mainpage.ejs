@@ -29,7 +29,7 @@
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
-      <form action="/mainpage/search" method="GET">
+      <form action="/mainpage/search" method="POST">
         <div class="input-group mb-3" style="margin-top: 150px;">
           <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
             placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
@@ -38,16 +38,15 @@
         </div>
       </form>
 
-      <!--
+      
       <div class="input-group mb-3" style="margin-top: 150px;">
         <input type="text" id="searchWord" class="search-text form-control mx-auto" placeholder="검색어를 입력하시오"
           aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
-        <button onclick="search()" class="bi bi-search btn btn-outline-#D0E450" type="button"
-          style="background-color: #D0E450; "></button>
-      </div>
--->
+        <button onclick="search()" class="bi bi-search btn btn-outline-#D0E450" type="button" -->
+          <!-- style="background-color: #D0E450; "></button> -->
+      <!-- </div> -->
 
-
+      
 
 
       <div class="mx-auto" style="text-decoration: none;">
@@ -67,11 +66,9 @@
           style="border-radius: 50%; background-color: #D0E450; text-decoration: none;"><a
             href="category">전체</a></button>
       </div>
-
+      <%- quiz %>
     </div>
   </div>
-  <%- quiz %>
-
     <%- bottom %>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>

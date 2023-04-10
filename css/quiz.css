@@ -1,42 +1,43 @@
 .quizbox
 {
     display: grid;
-    margin: 15px 10vh;
-}
+    margin: 80px 10vh;
 
+}     
 .quizbox h1
 {
-    box-shadow: inset;
+    color: #D0E450;
     text-align: center;
     font-size: 20px;
     margin : 20px;
-    border: 20px solid #f6f6f6;
-    background-color: #f6f6f6;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-
-.quizbox ul 
-{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    text-align:center; 
-    font-size: 20px;
-    
+.quizbox ul {
+    counter-reset: list-counter;
+    list-style: none;
+    float:left;
 }
+.quizbox li{
+    /* display: inline-block; */
+    padding: 1em 2em;
+    border-radius: 0;
+  color: #D0E450;
+    margin-top:2rem;
+    font-weight: bold;
+    font-size: 0.678rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+  background: linear-gradient(to right, rgba(#D0E450, 0) 25%, rgba(#D0E450, .8) 75%);
+  background-position: 1% 50%;
+  background-size: 400% 300%;
+  border: 1px solid #D0E450;
+}
+/* 여기 퀴즈 버튼 디자인이여용 ~~~~  */
+.gradient-btn{
+    color: #D0E450;
 
-.quizbox li
-{
-    border: 5px solid #fff;
-    box-sizing: border-box;
-  }
+}

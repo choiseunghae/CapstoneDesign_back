@@ -48,7 +48,7 @@ router.use((req, res,next) => {
                   <div class="quizbox">
                   <h1>${result[0].itemDescription}</h1>
                   <ul>
-                    ${options.map((option) => `<li><button onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</button></li>`).join('')}
+                    ${options.map((option) => `<li button class="gradient-btn" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</li>`).join('')}
                   </ul>
                   </div>
                 `;

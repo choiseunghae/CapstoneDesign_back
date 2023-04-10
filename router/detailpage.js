@@ -18,6 +18,10 @@ router.get('/:id', (req, res) => {
  
     let html = ``
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6194bb3b4250843f7a9501d8ac984f67bd242d0e
     // 데이터를 HTML 형식으로 변환
     for (let row of rows) {
       html += `
