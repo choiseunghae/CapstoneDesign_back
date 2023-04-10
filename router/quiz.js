@@ -2,13 +2,10 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysql');
 const bodyParser = require('body-parser');
-const searchRouter = require('./search');
-
-router.use(searchRouter);
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.use((req, res) => {
+router.use((req, res,next) => {
     connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
         if (err) {
           console.log(err);
@@ -56,7 +53,8 @@ router.use((req, res) => {
                   </div>
                 `;
 
-                res.render('mainpage', { quiz: html });
+                res.locals.quiz = html;
+                next();
             });
         });
     });
