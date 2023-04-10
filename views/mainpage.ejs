@@ -18,7 +18,7 @@
     <div class="container text-center">
 
       <!-- 상단 네브바 (뒤로가기, 마이페이지, 환경설정) -->
-      <div class="row ">
+      <div class="row">
         <nav class="navbar fixed-top navbar-light bg-white ">
           <div class="container-fluid fs-4" style="text-align:center; margin-left: 50px; margin-right: 50px;">
             <!-- <a class="bi bi-arrow-left"  style="color: black ;"></a> -->
@@ -29,17 +29,28 @@
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
+
       <div  style="margin-top: 150px;">
         <%- searchbox %> 
         <!-- <input type="text" id="searchWord" class=" search-text form-control mx-auto" placeholder="검색어를 입력하시오"
+      <form action="/mainpage/search" method="POST">
+        <div class="input-group mb-3" style="margin-top: 150px;">
+          <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
+            placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
+          <button id="searchBtn" class="bi bi-search btn btn-outline-#D0E450" type="submit"
+            style="background-color: #D0E450;"></button>
+        </div>
+      </form>
+
+      
+      <div class="input-group mb-3" style="margin-top: 150px;">
+        <input type="text" id="searchWord" class="search-text form-control mx-auto" placeholder="검색어를 입력하시오"
           aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
         <button onclick="search()" class="bi bi-search btn btn-outline-#D0E450" type="button" -->
           <!-- style="background-color: #D0E450; "></button> -->
-      </div>
+      <!-- </div> -->
+
       
-   
-
-
 
 
       <div class="mx-auto" style="text-decoration: none;">
@@ -63,7 +74,7 @@
     </div>
   </div>
     <%- bottom %>
-
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
         // import Axios from 'axios';
         //const aixos=require('axios');
@@ -142,10 +153,18 @@
         ]
         console.log(words);
 
+        document.getElementById('searchWord').addEventListener('keyup', function (event) {
+          if (event.key === 'Enter') {
+            search();
+          }
+        });
+
+
         function search() {
           const searchValue = document.getElementById('searchWord').value;
 
           // 서버로 검색어를 전송하는 코드
+
           fetch('/search', {
             method: 'POST',
             headers: {
@@ -162,15 +181,6 @@
             })
             .catch(error => console.error(error));
         }
-
-        document.getElementById('searchWord').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            search();
-          }
-        });
-
-
-
 
         // axios.get('http://localhost:3000/mainpage').then(req=>{
         //   console.log(res);
