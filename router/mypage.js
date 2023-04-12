@@ -21,41 +21,21 @@ router.get('/', (req, res) => {
         <div class="status-bar__coulumn"><a href="setting" class="status-bar__link"><i class="bi bi-gear-fill" style="font-size: 25px;"></i></a></div>
     </div>
     <div class="mypage-profile">
-        <div id="profile-photo" class="profile-photo" onclick="onProfilePhotoClick()">
-          <!-- 기존 프로필 사진 -->
-          <!-- <img src="profile-photo.jpg" alt="프로필 사진"> -->
+        <div id="profile-photo" class="profile-photo">
         </div>
-        <div class="loginloginform">
-        <form class="hidden" id="login-form">
-          <input required maxlength="15" type="text" placeholder="닉네임을 입력하세요" />
-        </form>
-        <h1 id="username-display">{username}님</h1>
-        <input
-          id="username-input"
-          type="text"
-          placeholder="닉네임을 입력하세요"
-          maxlength="15"
-          class="hidden"
+        <div id="profile-nickname" class="profile-nickname"><h2>Guest님</h2>
+        </div>  
+    </div>
+    
+    <div class="mypage_btn">
+    <div class="mypage_like_btn"><a href="bookmark"><i class="bi bi-bookmark-fill"></i><span>( )개</span></a></div>
+    <div class="mypage_like_btn"><a href="thumbs"><i class="bi bi-hand-thumbs-up-fill"></i><span>( )개</span></a></div>
+</div>
 
-          required
-        />
-        <button id="edit-btn" onclick="onEditClick()">
-          <i class="bi bi-pencil-fill"></i>
-        </button>
-        <button id="save-btn" class="hidden" onclick="onSaveClick()">
-          <i class="bi bi-check-lg"></i>
-        </button>
-        <!-- 파일 업로드 input 태그 추가 -->
-        <input
-          id="photo-input"
-          type="file"
-          accept="image/*"
-          class="hidden"
-          onchange="onFileSelected(event)"
-        />
-        </div>
-      </div>
-
+<div class="mypage_btn_list">
+<a href="" class="changenickname"><input type="button" value="닉네임 변경" class="nicknamechange"></a>
+<a href="" class="changepassword"><input type="button" value="비밀번호 변경" class="passwordchange"></a>
+</div>
     `;
 
     res.render('mypage', { mypage: html });
