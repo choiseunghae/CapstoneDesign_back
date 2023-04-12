@@ -15,39 +15,10 @@ router.get('/:id', (req, res) => {
       res.send('Error occurred');
       return;
     }
- 
-    let html = ``
-
-    // 데이터를 HTML 형식으로 변환
-    for (let row of rows) {
-      html += `
-      <div class="wordbox">
-              <h1>${row.itemName}  ${req.session.usernickname ? '<i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i>' : ''}</h1>
-              <ul>
-              <h2>뜻</h2>
-                <li>
-                ${row.itemDescription}</li>
-              <div class="line"></div>
-              <h2>예</h2>
-                <li>
-                ${row.itemDescription2}</li>
-              </ul>
-            </div>
-
-            <nav class="nav_form">
-            <a class="btn__link" href="#"><i class="bi bi-hand-thumbs-up" style="font-size: 2rem;"></i></a>
-            <a class="btn__link" href="#"><i class="bi bi-box-arrow-up" style="font-size: 2rem;"></i></a>
-        </nav>
-
-
-          `;
-    }
-
-    html += `
-      `;
+    const { itemName, itemDescription, itemDescription2 } = rows[0];
 
     // HTML 응답 보내기
-    res.render('word', { word: html });
+    res.render('word', { itemName, itemDescription, itemDescription2 });
   });
 });
 
