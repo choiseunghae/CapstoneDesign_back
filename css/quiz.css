@@ -20,24 +20,26 @@
     list-style: none;
     float:left;
 }
+
 .quizbox li{
-    /* display: inline-block; */
-    padding: 1em 2em;
+    padding: 1em 1em;
     border-radius: 0;
-  color: #D0E450;
-    margin-top:2rem;
+    color:black; 
+    /* 글자색이 바뀜 */
+    margin-top:1rem;
     font-weight: bold;
-    font-size: 0.678rem;
+    font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-  background: linear-gradient(to right, rgba(#D0E450, 0) 25%, rgba(#D0E450, .8) 75%);
-  background-position: 1% 50%;
-  background-size: 400% 300%;
-  border: 1px solid #D0E450;
+    background: linear-gradient(to right, rgba(#D0E450, 0) 25%, rgba(#D0E450, .8) 75%);
+    /* 디자인 색이 바뀜 */
+    background-position: 1% 50%;
+    background-size: 400% 300%;
+    border: 1px solid #D0E450;
 }
 /* 여기 퀴즈 버튼 디자인이여용 ~~~~  */
 .gradient-btn{
-    color: #D0E450;
+    color: black;
 
 }
