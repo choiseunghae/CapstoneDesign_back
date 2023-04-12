@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
   connection.query("INSERT INTO users (usernickname, password, createdAt) VALUES (?, ?, ?)", [usernickname, password, createdAt], (error, result) => {
     if (error) throw error;
     console.log("New user registered:", usernickname, password, "at", createdAt);
-    res.redirect("/mainpage");
+    res.redirect("/login");
   });
 });
 
