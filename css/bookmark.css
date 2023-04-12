@@ -13,18 +13,13 @@
 
 }
 .list-group-item{
-    box-shadow: inset;
-    border: 20px solid #f6f6f6;
-    background-color: #f6f6f6;
-    border-radius: 15px;
-    height: 48px;
+    height: 80px;
     top: 105px;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
     margin-bottom: 10px;  
 }
 .list-group{
+    border-radius: 20px;
+    display: flex;
     margin-left: 20px;
     margin-right: 20px;
     border-color:#D0E450;
@@ -40,4 +35,5 @@
 }
 .list-group i{
     color:#D0E450;
+    margin-left: 30px;
 }

@@ -25,9 +25,9 @@ router.get('/', (req, res) => {
 
       html += `<ul class="list-group border-2">
       <li class="list-group-item d-flex" style="border-color:#D0E450""><a href="detail/${row.itemIndex}">${row.itemName}</a>
-        <div><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+      <div><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+      <div class="word_content_content">${description}</div>
       </li>
-      <div class="word_content">${description}</div>
       </ul>  
       `;
     }
