@@ -8,7 +8,12 @@ router.use(quizRouter);
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', (req, res) => {
-  res.render('mainpage');
+  var nickname = req.session.usernickname;
+
+  if (nickname == null) {
+    nickname = 'Guest';
+  }
+  res.render('mainpage', { nickname });
 });
 
 router.get('/search', (req, res) => {

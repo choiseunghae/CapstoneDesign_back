@@ -11,11 +11,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const usernickname = req.body.usernickname;
+  const password = req.body.password;
   const createdAt = new Date(); 
 
-  connection.query("INSERT INTO users (usernickname, createdAt) VALUES (?, ?)", [usernickname, createdAt], (error, result) => {
+  connection.query("INSERT INTO users (usernickname, password, createdAt) VALUES (?, ?, ?)", [usernickname, password, createdAt], (error, result) => {
     if (error) throw error;
-    console.log("New user registered:", usernickname, "at", createdAt);
+    console.log("New user registered:", usernickname, password, "at", createdAt);
     res.redirect("/mainpage");
   });
 });

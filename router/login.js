@@ -16,9 +16,9 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const usernickname = req.body.usernickname;
+    const password = req.body.password;
 
-    // 데이터베이스에서 회원 정보 조회
-    connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
+    connection.query("SELECT * FROM users WHERE usernickname = ? AND userpassword = ?", [usernickname, password], (error, result) => {
         if (error) throw error;
         if (result.length === 1) {
             // 로그인 성공
@@ -26,12 +26,12 @@ router.post('/', (req, res) => {
             function generateAuthToken() {
                 let authToken = '';
                 const possibleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
+    
                 // 랜덤한 문자열을 32자 생성
                 for (let i = 0; i < 32; i++) {
                     authToken += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
                 }
-
+    
                 return authToken;
             }
             res.cookie('authToken', authToken, { maxAge: 86400000, httpOnly: true }); // 쿠키에 인증 토큰 저장
