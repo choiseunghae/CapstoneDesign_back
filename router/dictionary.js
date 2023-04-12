@@ -19,19 +19,19 @@ router.get('/', (req, res) => {
     let html = `
     <ul class="nav">
   <li class="nav-item">
-  <a class="nav-link active href="#">전체</a>
+  <a href="#">신조어</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">신조어</a>
+  <a href="#">줄임말</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">줄임말</a>
+  <a href="#">합성어</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">합성어</a>
+  <a href="#">유행어</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">유행어</a>
+  <a href="#">초성</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">초성</a>
+  <a href="#">이모티콘</a>
   <span class="txt-bar">|</span>
-  <a class="nav-link active href="#">이모티콘</a>
+  <a href="#">전체</a>
   </li>
 </ul>
 

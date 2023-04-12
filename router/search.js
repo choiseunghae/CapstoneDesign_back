@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
   res.render('mainpage');
 });
 
-router.post('/search', (req, res) => {
-  const searchWord = req.body.searchWord;
+router.get('/search', (req, res) => {
+  const searchWord = req.query.searchWord;
 
   connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchWord}%'`, (error, results) => {
     if (error) {
@@ -26,11 +26,14 @@ router.post('/search', (req, res) => {
     }
 
     // 검색 결과가 있는 경우
-    const itemId = results[0].itemIndex;
+    const itemIds = results.map(result => result.itemIndex);
 
-    // 해당 itemId에 해당하는 페이지로 이동시키기
-    res.redirect(`/detail/${itemId}`);
+    // 검색어 리스트를 검색 페이지에 표시
+    res.render('search', { searchWord, itemIds });
   });
 });
+
+
+
 module.exports = router;
 
