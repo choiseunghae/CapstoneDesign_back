@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
     const usernickname = req.body.usernickname;
     const password = req.body.password;
 
-    connection.query("SELECT * FROM users WHERE usernickname = ? AND userpassword = ?", [usernickname, password], (error, result) => {
+    connection.query("SELECT * FROM users WHERE usernickname = ? AND password = ?", [usernickname, password], (error, result) => {
         if (error) throw error;
         if (result.length === 1) {
             // 로그인 성공
@@ -38,19 +38,9 @@ router.post('/', (req, res) => {
             req.session.usernickname = usernickname; // 세션에 유저 정보 저장
             res.redirect("/mainpage");
         } else {
-            res.redirect('/signup-prompt');
-            res.render('signup-prompt', { message: '회원가입을 하시겠습니까?' });
+            res.render('login', { message: '회원 정보가 다릅니다.' });
         }
     });
-});
-
-router.post('/signup-prompt', (req, res) => {
-    const answer = req.body.answer;
-    if (answer === '네') {
-        res.redirect('/signup');
-    } else {
-        res.redirect('/login');
-    }
 });
 
 module.exports = router;
