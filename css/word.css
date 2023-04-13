@@ -8,6 +8,11 @@
   margin: 100px;
 }
 
+#word__icon {
+  margin-left: 10px;
+  font-size: 30px;
+}
+
 .word__title
 {
   font-size: 35px;

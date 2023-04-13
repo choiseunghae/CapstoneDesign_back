@@ -19,3 +19,7 @@ margin: 0;
 padding: 0px;
 background-color: var(--color-blue);
 }
+
+i {
+    cursor: pointer;
+}
