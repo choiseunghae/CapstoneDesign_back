@@ -12,32 +12,37 @@
     background-color: white;
 
 }
-.list-group-item{
-    height: 80px;
-    top: 105px;
-    margin-bottom: 10px;  
-    border-color: var(--color-blue);
-    color:var(--color-blue);
-}
-.list-group{
-    border-radius: 20px;
+
+.list-group-content {
     display: flex;
     margin-left: 20px;
-    margin-right: 20px;
-    border-color: var(--color-blue);
-    color:var(--color-blue);
-    margin-bottom: 100px;
 }
-.list-group a{
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 15px;
-    opacity: 80%;
 
+.list-group__info {
+    margin-left: 20px;
+    opacity: 70%;
 }
-.list-group i{
-    color:var(--color-blue);
-    margin-left: 10px;
+
+.list-group {
+    height: 70px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid var(--color-blue);
+    display: flex;
+    flex-direction: column;
+    margin: 15px 30px 15px 30px;
+    justify-content: center;
 }
+
+.list-group__icon > i {
+    color: var(--color-blue);
+    margin-left:5px;
+}
+
+.list_name {
+    text-decoration: none;
+    color: black;
+}
+
+
 
