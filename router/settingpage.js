@@ -10,21 +10,27 @@ router.get('/', (req, res) => {
 
     <header class="status-setting">
     <div class="status-bar">
-      <div onclick="goBack()"><i class="bi bi-arrow-left " style="color: black; font-size:25px;"></i></div>
+      <div onclick="goBack()"><i class="bi bi-arrow-left" style="color: black; font-size:25px;"></i></div>
       <div class="status-bar__coulumn">설정</div>
-      <div class="status-bar__coulumn">.</div>
+      <div class="status-bar_coulumn">.</div>
     </div>
     </header>
 
-    <ul class="userlist border-2">
-    
+    <div class="account">계정</div>
+    <ul class="userlist">
     <li class="mypage-profile">
-    <div id="profile-photo" class="profile-photo" onclick="onProfilePhotoClick()">
-    </div></li>
-    <di></di></div>
+    <div class="profile-photo" onclick="onProfilePhotoClick()"></div>
+    </li>
 
-    <a class="navbar-brand center fw-bold" href="/login" style="color: #D0E450;"> <%= nickname %>님 </a>
-  
+    <li class="user">
+    <div class="nickname"><a>username 님</a></div>
+    <div class="information"><a href="/mypage">내 정보 보기</a>
+    <i class="bi bi-chevron-right"></i></div>
+    </li>
+
+    </ul>
+
+    <div class="customer">고객지원</div>
 
     <div class="box">
         <ul>
@@ -53,7 +59,7 @@ router.get('/', (req, res) => {
         <a href="#">초기화</a></div>
         <i class="bi bi-chevron-right"></i></li>
 
-        <li class="settinglist">
+        <li class="settinglist_last">
         <div><i class="bi bi-display fs-4"></i>
         <a href="#">PC버전</a></div>
         <i class="bi bi-chevron-right"></i></li>
