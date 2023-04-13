@@ -16,13 +16,16 @@
     height: 80px;
     top: 105px;
     margin-bottom: 10px;  
+    border-color: var(--color-blue);
+    color:var(--color-blue);
 }
 .list-group{
     border-radius: 20px;
     display: flex;
     margin-left: 20px;
     margin-right: 20px;
-    border-color:#D0E450;
+    border-color: var(--color-blue);
+    color:var(--color-blue);
     margin-bottom: 100px;
 }
 .list-group a{
@@ -34,6 +37,7 @@
 
 }
 .list-group i{
-    color:#D0E450;
-    margin-left: 30px;
+    color:var(--color-blue);
+    margin-left: 10px;
 }
+

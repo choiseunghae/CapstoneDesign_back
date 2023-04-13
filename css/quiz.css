@@ -6,7 +6,7 @@
 }     
 .quizbox h1
 {
-    color: #D0E450;
+    color: var(--color-blue);
     text-align: center;
     font-size: 20px;
     /* margin : 20px; */
@@ -25,7 +25,7 @@
 {
   
   /* color: #D0E450; */
-  background-color: #D0E450;
+  background-color: var(--color-blue);
   opacity: 0.8;
 }
 
@@ -42,11 +42,11 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    background: linear-gradient(to right, rgba(#D0E450, 0) 25%, rgba(#D0E450, .8) 75%);
+    background: linear-gradient(to right, rgba(#4298e8, 0) 25%, rgba(#4298e8, .8) 75%);
     /* 디자인 색이 바뀜 */
     background-position: 1% 50%;
     background-size: 400% 300%;
-    border: 0.8px solid #D0E450;
+    border: 0.8px solid var(--color-blue);
     border-radius: 15px;
 
 }
