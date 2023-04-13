@@ -12,22 +12,20 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body class="word_body">
+<body class="word__body">
 
-    <%- searchbox %>
-
-    <div class="wordbox">
-      <h1><%= itemName %><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></h1>
-      <ul>
-      <h2>뜻</h2>
-        <li>
-        <%= itemDescription %></li>
-      <div class="line"></div>
-      <h2>예</h2>
-        <li>
-        <%= itemDescription2 %></li>
-      </ul>
+  <div class="word__box">
+    <div class="word__title"><%= itemName %><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+    <div class="word__description">
+        <div class="word__description--name">뜻</div>
+        <div class="word__description--info"><%= itemDescription %></div>
     </div>
+    <div class="word__line"></div>
+    <div class="word__example">
+        <div class="word__example--name">예</div>
+        <div class="word__example--info"><%= itemDescription2 %></div>
+    </div>
+  </div>
 
     <nav class="nav_form">
       <a class="btn__link" href="#"><i class="bi bi-hand-thumbs-up" style="font-size: 2rem;"></i></a>
