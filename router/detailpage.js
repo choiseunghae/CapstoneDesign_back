@@ -35,46 +35,5 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/:id', (req, res) => {
-  const id = req.params.id;
-  const userId = req.session.userIndex;
-  
-  // 로그인되어 있지 않은 경우
-  if (!userId) {
-    res.status(401).send('Unauthorized');
-    return;
-  }
-  
-  connection.query(`SELECT * FROM mybookmarkpage WHERE itemIndex = '${id}' AND userIndex = '${userId}'`, (err, rows) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send('Error occurred');
-      return;
-    }
-
-    if (rows.length > 0) {
-      // 북마크가 이미 설정되어 있으면 해제
-      connection.query(`DELETE FROM mybookmarkpage WHERE itemIndex = '${id}' AND userIndex = '${userId}'`, (err, result) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send('Error occurred');
-          return;
-        }
-        res.json({ bookmarked: false });
-      });
-    } else {
-      // 북마크가 설정되어 있지 않으면 설정
-      connection.query(`INSERT INTO mybookmarkpage (itemIndex, userIndex) VALUES ('${id}', '${userId}')`, (err, result) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send('Error occurred');
-          return;
-        }
-        res.json({ bookmarked: true });
-      })
-    }
-  })
-});
-
 
 module.exports = router;
