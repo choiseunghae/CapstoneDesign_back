@@ -34,35 +34,38 @@ router.get('/', (req, res) => {
 
     <div class="box">
         <ul>
-        <li class="settinglist">
-        <div><i class="bi bi-pencil-square fs-4"></i>
-        <a href="/theme">테마변경</a></div>
-        <i class="bi bi-chevron-right"></i></li>
 
+        <a href="/theme">
         <li class="settinglist">
-        <div><i class="bi bi-trash-fill fs-4"></i>
-        <a href="#">검색기록삭제</a></div>
-        <i class="bi bi-chevron-right"></i></li>
+        <div class="list_icon"><i class="bi bi-pencil-square"></i>
+        테마변경</div>
+        <i class="bi bi-chevron-right"></i></li></a>
 
+        <a href="#">
         <li class="settinglist">
-        <div><i class="bi bi-share-fill fs-4"></i>
-        <a href="#">공유하기</a></div>
-        <i class="bi bi-chevron-right"></i></li>
+        <div class="list_icon"><i class="bi bi-trash-fill"></i>
+        검색기록삭제</div>
+        <i class="bi bi-chevron-right"></i></li></a>
 
-        <li class="settinglist">
-        <div><i class="bi bi-chat-square-text fs-4"></i>
-        <a href="#">공지사항</a></div>
-        <i class="bi bi-chevron-right"></i></li>
+        <a href="#"><li class="settinglist">
+        <div class="list_icon"><i class="bi bi-share-fill"></i>
+        공유하기</div>
+        <i class="bi bi-chevron-right"></i></li></a>
 
-        <li class="settinglist">
-        <div><i class="bi bi-arrow-repeat fs-4"></i>
-        <a href="#">초기화</a></div>
-        <i class="bi bi-chevron-right"></i></li>
+        <a href="#"><li class="settinglist">
+        <div class="list_icon"><i class="bi bi-chat-square-text"></i>
+        공지사항</div>
+        <i class="bi bi-chevron-right"></i></li></a>
 
-        <li class="settinglist_last">
-        <div><i class="bi bi-display fs-4"></i>
-        <a href="#">PC버전</a></div>
-        <i class="bi bi-chevron-right"></i></li>
+        <a href="#"><li class="settinglist">
+        <div class="list_icon"><i class="bi bi-arrow-repeat"></i>
+        초기화</div>
+        <i class="bi bi-chevron-right"></i></li></a>
+
+        <a href="#"><li class="settinglist_last">
+        <div class="list_icon"><i class="bi bi-display"></i>
+        PC버전</div>
+        <i class="bi bi-chevron-right"></i></li></a>
 
         </ul>
         </div>

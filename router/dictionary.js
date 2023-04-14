@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
   <span class="txt-bar">|</span>
   <a href="#">이모티콘</a>
   <span class="txt-bar">|</span>
-  <a href="#">전체</a>
+  <a href="mainpage/category">전체</a>
   </li>
 </ul>
 
@@ -45,9 +45,10 @@ router.get('/', (req, res) => {
     for (let row of rows) {
       html += `
                   <ul>
-                        <li class="list"><a href="/detail/${row.itemIndex}">${row.itemName}</a>
-                        <i class="bi bi-chevron-right"></i>
-                        </li>
+                        <a href="/detail/${row.itemIndex}">
+                        <li class="list">${row.itemName}
+                        <i class="bi bi-chevron-right"></i></li>
+                        </a>
                   </ul>
                 `;
 
