@@ -53,6 +53,10 @@ app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
 });
 
+app.use('/theme', (req, res) => {
+  res.sendFile(__dirname+"/theme.html");
+});
+
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
 });

@@ -9,7 +9,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #D0E450;
+    background-color: var(--color-blue);
     box-sizing: border-box;
     border-radius: 10px 10px 0px 0px;
 }

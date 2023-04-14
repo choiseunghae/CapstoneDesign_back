@@ -14,7 +14,7 @@
     background-color: white;
 }
 .status-bar__coulumn {
-    color: #D0E450;
+    color:black;
     font-size: 21px;
     font-weight: bold;
 }
@@ -50,10 +50,10 @@
     text-decoration: none;
   }
   .nav-item.active {
-    border-bottom: 3px solid #D0E450;
+    border-bottom: 3px solid var(--color-blue);
   }
   .nav-item.active a{
     justify-content: center;
     display: flex;
-    color: #D0E450;
+    color: var(--color-blue);
   }

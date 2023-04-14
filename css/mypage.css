@@ -27,24 +27,47 @@ i {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background-color: #D0E450;
+    background-color: var(--color-blue);
     margin-bottom: 20px;
 }
 
-.loginloginform {
+.mypage_btn {
     display: flex;
-    border: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
-#login-form input {
-    border: none;
-    padding: 15px 0px;
-    font-size: 18px;
-    border-bottom: 1px solid rgba(0,0,0,0.3);
-    text-align: center;
+.mypage_like_btn {
+    padding: 10px;
 }
 
-.submitform {
+.mypage_btn_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.nicknamechange, .passwordchange {
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid var(--color-blue);
     background-color: white;
+    margin-bottom: 30px;
+}
+
+.nicknamechange:hover {
+    cursor: pointer;
+    background-color: var(--color-blue);
+    border: none;
+}
+
+.passwordchange:hover {
+    cursor: pointer;
+    background-color: var(--color-blue);
+    border: none;
 }
 
