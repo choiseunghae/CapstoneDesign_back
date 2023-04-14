@@ -38,8 +38,9 @@ app.use(session({
 app.use(express.static(__dirname + '/css'));
 
 app.use('/detail', express.static(__dirname + '/css'));
+app.use('/mainpage', express.static(__dirname + '/css'));
 app.use('/mainpage', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
-app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용
+app.use('/mainpage/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, searchboxRouter]); // listpageRouter, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter]); // detailpageRouter,  searchboxRouter모듈을 사용
 app.use('/setting', [settingRouter]); // settingRouter 모듈을 사용

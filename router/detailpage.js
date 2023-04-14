@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../mysql'); // mysql 모듈을 가져옴
-const bottomRouter = require('./bottomnav_bar'); // bottomnav_bar.js 파일을 불러옵니다.
+const connection = require('../mysql');
+const bottomRouter = require('./bottomnav_bar');
 
-router.use(bottomRouter); // bottom 미들웨어를 사용합니다.
+router.use(bottomRouter);
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
@@ -13,10 +13,9 @@ router.get('/:id', (req, res) => {
       res.send('Error occurred');
       return;
     }
-    const { itemName, itemDescription, itemDescription2 } = rows[0];
-
-    // 북마크 정보 가져오기
+    const { itemIndex, itemName, itemDescription, itemDescription2 } = rows[0];
     const userId = req.session.userIndex;
+    let isBookmarked = false;
     if (userId) {
       connection.query(`SELECT * FROM mybookmarkpage WHERE itemIndex = '${id}' AND userIndex = '${userId}'`, (err, rows) => {
         if (err) {
@@ -24,16 +23,43 @@ router.get('/:id', (req, res) => {
           res.send('Error occurred');
           return;
         }
-        const isBookmarked = rows.length > 0;
-        // HTML 응답 보내기
-        res.render('word', { itemName, itemDescription, itemDescription2, isBookmarked });
+        isBookmarked = rows.length > 0;
+        res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked });
       });
     } else {
-      // HTML 응답 보내기
-      res.render('word', { itemName, itemDescription, itemDescription2 });
+      res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked });
     }
   });
 });
 
+
+
+// 북마크 추가 요청 처리
+router.post('/:id/bookmark', (req, res) => {
+  const itemIndex = req.params.id;
+  var userId = req.session.userIndex;
+  connection.query(`INSERT INTO mybookmarkpage (itemIndex, userIndex) VALUES ('${itemIndex}', '${userId}')`, (err) => {
+    if (err) {
+      console.log(err);
+      res.send('Error occurred');
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
+// 북마크 삭제 요청 처리
+router.post('/:id/bookmark/delete', (req, res) => {
+  const itemIndex = req.params.id;
+  var userId = req.session.userIndex;
+  connection.query(`DELETE FROM mybookmarkpage WHERE itemIndex = '${itemIndex}' AND userIndex = '${userId}'`, (err) => {
+    if (err) {
+      console.log(err);
+      res.send('Error occurred');
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
 
 module.exports = router;

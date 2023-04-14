@@ -15,7 +15,16 @@
 <body class="word__body">
 
   <div class="word__box">
-    <div class="word__title"><%= itemName %><i id="word__icon" class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+    <div class="word__title" data-index="<%= itemIndex %>">
+      <%= itemName %>
+      <% if (isBookmarked) { %>
+        <i class="bi bi-bookmark-fill" onclick="toggleBookmark(this)"></i>
+      <% } else { %>
+        <i class="bi bi-bookmark" onclick="toggleBookmark(this)"></i>
+      <% } %>
+    
+
+    </div>
     <div class="word__description">
         <div class="word__description--name">뜻</div>
         <div class="word__description--info"><%= itemDescription %></div>
@@ -36,65 +45,37 @@
 
 </body>
 <script>
+function toggleBookmark(itemIcon) {
+  const itemIndex = parseInt(itemIcon.parentElement.getAttribute('data-index'));
+  let isBookmarked = itemIcon.classList.contains('bi-bookmark-fill');
+  const url = isBookmarked ? `/detail/${itemIndex}/bookmark/delete` : `/detail/${itemIndex}/bookmark`;
 
-  // 북마크 여부를 서버로부터 받아오는 함수
-  function fetchBookmarkStatus(itemId) {
-    return fetch(`/api/bookmark/${itemId}`)
-      .then(response => response.json())
-      .then(data => data.isBookmarked);
-  }
-
-  // 북마크 여부에 따라 북마크 아이콘을 설정하는 함수
-  function setBookmarkIcon(isBookmarked) {
-    const icon = document.querySelector('.bi-bookmark');
-    const filledIcon = document.querySelector('.bi-bookmark-fill');
-
-    if (isBookmarked) {
-      icon.classList.add('d-none');
-      filledIcon.classList.remove('d-none');
-    } else {
-      icon.classList.remove('d-none');
-      filledIcon.classList.add('d-none');
-    }
-  }
-
-  // 페이지 로드 시 북마크 여부를 확인하여 북마크 아이콘 설정하기
-  fetchBookmarkStatus(id).then(isBookmarked => {
-    setBookmarkIcon(isBookmarked);
-  });
-
-  // 북마크 아이콘 클릭 시 북마크 ON/OFF 처리
-  function toggleIcon(icon) {
-    const itemId = icon.getAttribute('data-id');
-
-    fetchBookmarkStatus(itemId).then(isBookmarked => {
-      if (isBookmarked) {
-        // 북마크가 설정되어 있는 경우 해제하기
-        fetch('/api/bookmark/remove', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ itemId })
-        }).then(() => {
-          icon.classList.add('d-none');
-          icon.nextElementSibling.classList.remove('d-none');
-        });
-      } else {
-        // 북마크가 설정되어 있지 않은 경우 설정하기
-        fetch('/api/bookmark/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ itemId })
-        }).then(() => {
-          icon.classList.add('d-none');
-          icon.previousElementSibling.classList.remove('d-none');
-        });
+  fetch(url, { method: 'POST' })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
       }
+    })
+    .then((data) => {
+      if (data.hasOwnProperty('isBookmarked')) {
+        isBookmarked = data.isBookmarked;
+        itemIcon.classList.toggle('bi-bookmark-fill', isBookmarked);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
     });
-  }
+}
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
