@@ -23,7 +23,6 @@
 }
 .quizbox li:hover
 {
-  
   /* color: #D0E450; */
   background-color: var(--color-blue);
   opacity: 0.8;
@@ -48,10 +47,6 @@
     background-size: 400% 300%;
     border: 0.8px solid var(--color-blue);
     border-radius: 15px;
-
-}
-/* 여기 퀴즈 버튼 디자인이여용 ~~~~  */
-.gradient-btn{
-    color: black;
-
+    cursor:pointer;                 
+  /* 마우스 포인터 효과 */
 }

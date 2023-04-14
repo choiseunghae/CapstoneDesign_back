@@ -24,13 +24,21 @@
   /* 반응형 이기 때문에 가로값은 100% */
   max-width:400px;          
   /* 팝업의 최대 크기지정 */
-  border-radius:10px;       
+  border-radius:15px;       
   /* 둥글둥글한 디자인을 위해 각을 없앱니다. */
   overflow:hidden;         
   /* 각을 없앴을 때 내부 영역이 튀어나오는걸 방지 */
   background-color:var(--color-blue);
   /* 배경색 팝업이 허공에 떠있는 듯한 느낌을 주기 위한 그림자 효과. */
   box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3); 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;  
+  height: 300px;
 }
 .popup-head{
   width:100%;
