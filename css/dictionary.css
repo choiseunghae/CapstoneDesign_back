@@ -44,5 +44,5 @@
 .box ul li:hover
 {
   z-index: 100;
-  color: #D0E450;
+  color: var(--color-blue);
 }

@@ -56,7 +56,7 @@
     width: 90px;
     height: 90px;
     border-radius: 100%;
-    background-color: #D0E450;
+    background-color: var(--color-blue);
 }
 .user{
     list-style: none;

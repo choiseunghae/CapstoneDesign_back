@@ -1,0 +1,50 @@
+.theme-colors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+}
+
+.theme-colors > button {
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+.burgundy:hover {
+    border-radius: 15px;
+    background-color: #95475b;
+}
+
+.pink:hover {
+    border-radius: 15px;
+    background-color: #ff87a1;
+}
+
+.yellow:hover {
+    border-radius: 15px;
+    background-color: #ffe65a;
+}
+
+.green:hover {
+    border-radius: 15px;
+    background-color: #D0E450;
+}
+
+.blue:hover {
+    border-radius: 15px;
+    background-color: #4298e8;
+}
+
+.purple:hover {
+    border-radius: 15px;
+    background-color: #9554bd;
+}
+
+.white:hover {
+    border-radius: 15px;
+    background-color: #ffffff;
+}
