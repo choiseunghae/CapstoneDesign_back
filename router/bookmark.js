@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
       const description = row.itemDescription.length > 50 ? row.itemDescription.substring(0, 50) + "..." : row.itemDescription;
 
       html += `
-
+      <body>
       <div class="list-group rounded-4">
         <div class="list-group-content">
             <div class="list-group__title" style="border-color:var(—color-blue)"><a class="list_name" href="detail/${row.itemIndex}">${row.itemName}</a></div>
@@ -32,6 +32,7 @@ router.get('/', (req, res) => {
         </div>
         <div class="list-group__info">${description}</div>
     </div> 
+    </body>
       `;
     }
 

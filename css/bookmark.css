@@ -1,12 +1,16 @@
+body{
+    padding-top: 160px;
+    padding-bottom: 75px;
+}
 .bookmark__word{
     font-weight: bold;
     font-size: 17px;
     color: rgb(86, 82, 82);
     position: fixed;
-    margin-top: 35px;
     padding-top: 30px;
     padding-left: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    margin-top: -60px;
     width: 100%;
     z-index: 9999;
     background-color: white;

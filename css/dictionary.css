@@ -1,4 +1,6 @@
-.list{
+body{
+  padding-bottom: 70px;
+}.list{
   display:flex;
   justify-content: space-between;
 }
