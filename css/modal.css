@@ -40,7 +40,7 @@
     background-color:#ffffff;
     border-radius:10px;
     overflow:hidden;
-    background-color:#264db5;
+    background-color:var(--color-blue);
     box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3);
   }
   .popup-head{
@@ -92,5 +92,5 @@
     cursor:pointer;
   }
   .pop-btn.confirm{
-    border-right:1px solid #3b5fbf;
+    border-right:1px solid var(--color-blue);
   }

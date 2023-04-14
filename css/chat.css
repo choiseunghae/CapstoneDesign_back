@@ -2,11 +2,9 @@
 
 
 :root {
-    --body-bg: #D0E450;
     --msger-bg: #fff;
     --border: 2px solid #ddd;
     --left-msg-bg: #ececec;
-    --right-msg-bg: #D0E450;
   }
   
   html {
@@ -30,7 +28,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: var(--body-bg);
+    background-image: var(--color-blue);
     font-family: Helvetica, sans-serif;
   }
   .msger-header {
@@ -123,7 +121,7 @@
     flex-direction: row-reverse;
   }
   .right-msg .msg-bubble {
-    background: var(--right-msg-bg);
+    background: var(--color-blue);
     color: #fff;
     border-bottom-right-radius: 0;
   }
@@ -149,14 +147,14 @@
   }
   .msger-send-btn {
     margin-left: 10px;
-    background: #D0E450;
+    background: var(--color-blue);
     color: #fff;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.23s;
   }
   .msger-send-btn:hover {
-    background: #D0E450;
+    background: var(--color-blue);
   }
   
   .msger-chat {

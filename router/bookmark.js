@@ -23,12 +23,15 @@ router.get('/', (req, res) => {
       const row = rows[i];
       const description = row.itemDescription.length > 30 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
 
-      html += `<ul class="list-group border-2">
-      <li class="list-group-item d-flex" style="border-color:#D0E450""><a href="detail/${row.itemIndex}">${row.itemName}</a>
-      <div><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
-      <div class="word_content_content">${description}</div>
-      </li>
-      </ul>  
+      html += `
+
+      <div class="list-group">
+        <div class="list-group-content">
+            <div class="list-group__title" style="border-color:var(—color-blue)"><a class="list_name" href="detail/${row.itemIndex}">${row.itemName}</a></div>
+            <div class="list-group__icon"><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+        </div>
+        <div class="list-group__info">${description}</div>
+    </div> 
       `;
     }
 

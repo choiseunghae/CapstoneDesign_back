@@ -12,13 +12,13 @@
 
 .navbar-brand center fw-bold
 {
-    color:  #f394cd;;
+    color:  var(--color-blue);
 }
 
 .btn btn-light 
 {
     border-radius: 50%;  
-    background-color: #D0E450;
+    background-color: var(--color-blue);
 }
 
 .form-control mx-auto
@@ -28,5 +28,5 @@ margin-top: 250px;
 
 .bi bi-search fs-4 btn btn-outline-#D0E450
 {
-    margin-top: 250px; background-color: #D0E450;
+    margin-top: 250px; background-color: var(--color-blue);
 }

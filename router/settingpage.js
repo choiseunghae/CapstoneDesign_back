@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
         <ul>
         <li class="settinglist">
         <div><i class="bi bi-pencil-square fs-4"></i>
-        <a href="#">테마변경</a></div>
+        <a href="/theme">테마변경</a></div>
         <i class="bi bi-chevron-right"></i></li>
 
         <li class="settinglist">
