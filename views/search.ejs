@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
-    <h1>검색어: <%= searchWord %>
-    </h1>
-
-
+    <h1>검색어: <%= searchWord %></h1>
     <ul>
-        <% itemIds.forEach(itemId=> { %>
-            <li><a href="/detail/<%= itemId %>">
-                    <%= itemId %>
+        <% items.forEach(item => { %>
+            <li><a href="/detail/<%= item.itemIndex %>">
+                    <%= item.itemName %>
                 </a></li>
-            <% }); %>
+                <li>
+                    <%= item.itemDescription %>
+                </li>
+        <% }); %>
     </ul>
 </body>
-
 </html>

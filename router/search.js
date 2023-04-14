@@ -30,11 +30,13 @@ router.get('/search', (req, res) => {
       return res.status(404).send('Not Found');
     }
 
-    // 검색 결과가 있는 경우
-    const itemIds = results.map(result => result.itemIndex);
+    const items = results.map(result => {
+      const { itemIndex, itemName, itemDescription } = result;
+      return { itemIndex, itemName, itemDescription };
+    });
 
     // 검색어 리스트를 검색 페이지에 표시
-    res.render('search', { searchWord, itemIds });
+    res.render('search', { searchWord, items });
   });
 });
 
