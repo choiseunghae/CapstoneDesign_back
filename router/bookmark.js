@@ -21,11 +21,11 @@ router.get('/', (req, res) => {
     for (let i = 0; i < rows.length; i++) {
 
       const row = rows[i];
-      const description = row.itemDescription.length > 30 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
+      const description = row.itemDescription.length > 50 ? row.itemDescription.substring(0, 50) + "..." : row.itemDescription;
 
       html += `
 
-      <div class="list-group">
+      <div class="list-group rounded-4">
         <div class="list-group-content">
             <div class="list-group__title" style="border-color:var(—color-blue)"><a class="list_name" href="detail/${row.itemIndex}">${row.itemName}</a></div>
             <div class="list-group__icon"><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
