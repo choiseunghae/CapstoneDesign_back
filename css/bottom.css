@@ -23,12 +23,17 @@
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
-    list-style: none;
+    text-decoration-line: none;
 }
 .nav__list i{
+    color: black;
     font-size: 1.7rem;
 }
 .text{
+    color: black;
     font-size: 10px;
+}
+.nav__form a{
+    text-decoration-line: none;
 }
 
