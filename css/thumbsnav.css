@@ -1,59 +1,59 @@
-.status-bookmark {
-    margin-bottom: 65px;
+.status-thumbs {
+  margin-bottom: 65px;
 }
 .status-bar {
-    display: flex;
-    z-index: 9999;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    height: 72px;
-    top: 0;
-    width: 100%;
-    padding: 20px 30px;
-    background-color: white;
+  display: flex;
+  z-index: 9999;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 72px;
+  top: 0;
+  width: 100%;
+  padding: 20px 30px;
+  background-color: white;
 }
 .status-bar__coulumn {
-    color: black;
-    font-size: 21px;
-    font-weight: bold;
+  color:black;
+  font-size: 21px;
+  font-weight: bold;
 }
 .status-bar__coulumn i{
-    color: black; 
-    font-size:25px;
+  color: black; 
+  font-size:25px;
 }
 .nav-item-bar{
-    justify-content: center;
-    z-index: 9999;
-    display: flex;
-    padding: 7px;
-    position: fixed;
-    top: 30px;
-    background-color: white;
-    left: 0;
-    right: 0;
+  justify-content: center;
+  z-index: 9999;
+  display: flex;
+  padding: 7px;
+  position: fixed;
+  top: 30px;
+  background-color: white;
+  left: 0;
+  right: 0;
 }
 .nav-item {
-    align-items: center;
-    padding: 3px;
-    margin-right: 0px;
-    cursor: pointer;
-    border-bottom: 2px solid rgb(214, 207, 207);
-    width: 48%;
-    justify-content: space-between;
-    
-  }
-  .nav-item a{
-    justify-content: center;
-    display: flex;
-    color: rgb(214, 207, 207);
-    text-decoration: none;
-  }
-  .nav-item.active {
-    border-bottom: 3px solid var(--color-blue);
-  }
-  .nav-item.active a{
-    justify-content: center;
-    display: flex;
-    color: var(--color-blue);
-  }
+  align-items: center;
+  padding: 3px;
+  margin-right: 0px;
+  cursor: pointer;
+  border-bottom: 2px solid rgb(214, 207, 207);
+  width: 48%;
+  justify-content: space-between;
+  
+}
+.nav-item a{
+  justify-content: center;
+  display: flex;
+  color: rgb(214, 207, 207);
+  text-decoration: none;
+}
+.nav-item.active {
+  border-bottom: 3px solid var(--color-blue);
+}
+.nav-item.active a{
+  justify-content: center;
+  display: flex;
+  color: var(--color-blue);
+}

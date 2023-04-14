@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./bottom.css">
   <link rel="stylesheet" href="./category.css">
   <link rel="stylesheet" href="./searchbox.css">
+  <link rel="stylesheet" href="./modal.css">
   <link rel="stylesheet" href="./quiz.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -58,12 +59,36 @@
           style="border-radius: 50%;  text-decoration: none; background-color:var(--color-blue)"><a
             href="category">전체</a></button>
       </div>
+
+      <div class="container" id=""> 
+        <div class="popup-wrap"> 
+          <div class="popup">	
+            <div class="popup-head">	
+                <span class="head-title">ㅎㅎ</span>
+            </div>
+            <div class="popup-body">	
+              <div class="body-content">
+                <div class="body-titlebox">
+                  <h1>정답입니다~~</h1>
+                </div>
+                <div class="body-contentbox">
+                  <p>정답은 어쩔티비!</p>
+                </div>
+              </div>
+            </div>
+            <div class="popup-foot">
+              <span class="pop-btn confirm" id="confirm" onclick="closeClick()">확인</span>
+              <span class="pop-btn close" id="close" onclick="closeClick()">창 닫기</span>
+            </div>
+          </div>
+         </div>
+      </div>
+      
       <%- quiz %>
     </div>
   </div>
     <%- bottom %>
-
-      <script>
+   <script>
         // import Axios from 'axios';
         //const aixos=require('axios');
         const words = [
@@ -141,7 +166,6 @@
         ]
         console.log(words);
 
-
         function search() {
           const searchValue = document.getElementById('searchWord').value;
 
@@ -163,17 +187,13 @@
             .catch(error => console.error(error));
         }
 
-
         document.getElementById('searchWord').addEventListener('keyup', function (event) {
           if (event.key === 'Enter') {
             search();
           }
         });
 
-
-
         //activate Enterkey for Search
-
         function show01() {
           console.log("01카테고리고 가욤");
           let word1 = words.filter(words => words.Category_categoryId === "1");
@@ -184,12 +204,21 @@
           let word2 = words.filter(words => words.Category_categoryId === "2");
           console.log(word2);
         }
+        
         function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
-          if (selectedAnswer === correctAnswer) {
-            alert('정답');
-          } else {
-            alert('님뭐함');
+          if (selectedAnswer === correctAnswer) { //정답
+            document.querySelector('.popup').style.display = 'block';
+            document.querySelector('.popup-wrap').style.display = 'block';
+          } else { //오답
+            document.querySelector('.popup').style.display = 'block';
+            document.querySelector('.popup-wrap').style.display = 'block';
           }
+        }
+       
+
+        function closeClick(){
+          document.querySelector('.popup').style.display = 'none';
+          document.querySelector('.popup-wrap').style.display = 'none';
         }
       </script>
 </body>
