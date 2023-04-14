@@ -30,6 +30,7 @@
     font-size: 1.7rem;
 }
 .text{
+    margin-top: -6px;
     color: black;
     font-size: 10px;
 }

@@ -29,7 +29,7 @@
 }
 
 .quizbox li{
-    padding: 1em 1em;
+    padding: 12px 12px;
     border-radius: 0;
     color:black; 
     /* 글자색이 바뀜 */
@@ -37,7 +37,7 @@
     margin-top:1rem;
     font-weight: bold;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
