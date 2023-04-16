@@ -3,30 +3,23 @@
     top : 50vh;
 }
 
-.container-fluid fs-4 
+#mainTop
 {
     text-align:center; 
     margin-left: 50px;
     margin-right: 50px;
+  
 }
-
-.navbar-brand center fw-bold
-{
-    color:  var(--color-blue);
-}
-
-.btn btn-light 
-{
-    border-radius: 50%;  
+#categoryBtn{
+    border-radius: 15%;  
     background-color: var(--color-blue);
+    text-align: center;
+    color: white;
+}
+#searchBtn{
+    background-color:var(--color-blue)
 }
 
-.form-control mx-auto
-{
-margin-top: 250px;
-}
-
-.bi bi-search fs-4 btn btn-outline-#D0E450
-{
-    margin-top: 250px; background-color: var(--color-blue);
+.input-group{
+    margin-top: 140px;
 }

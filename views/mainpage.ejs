@@ -18,49 +18,40 @@
 <body>
   <div>
     <div class="container text-center">
-
       <!-- 상단 네브바 (뒤로가기, 마이페이지, 환경설정) -->
       <div class="row ">
         <nav class="navbar fixed-top navbar-light bg-white ">
-          <div class="container-fluid fs-4" style="text-align:center; margin-left: 50px; margin-right: 50px;">
+          <div class="container-fluid fs-4" id="mainTop" >
             <!-- <a class="bi bi-arrow-left"  style="color: black ;"></a> -->
             <a class="navbar-brand center fw-bold" href="#" > 요즘말사전 </a>
-            <a class="navbar-brand center fw-bold" href="/login" "> <%= nickname %>님 </a>
+            <a class="navbar-brand center fw-bold" href="/login" > <%= nickname %>님 </a>
           </div>
         </nav>
       </div>
       <!-- // -->
       <!-- 검색기능 maegin기능 수정 -->
       <form action="/mainpage/search" method="GET">
-        <div class="input-group mb-3" style="margin-top: 140px;">
+        <div class="input-group mb-3">
           <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
             placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
-          <button id="searchBtn" class="bi bi-search btn btn-outline-#264db5" type="submit" style="background-color:var(--color-blue)"
-            ></button>
+          <button id="searchBtn" class="bi bi-search btn btn-outline-#264db5" type="submit" ></button>
         </div>
       </form>
 
 
 
       <div class="mx-auto" style="text-decoration: none;">
-        <button type="button" onclick="show01()" class="btn btn-light"
-          style="border-radius: 50%;  background-color:var(--color-blue)">신조어</button>
-        <button type="button" onclick="show02()" class="btn btn-light"
-          style="border-radius: 50%; background-color:var(--color-blue)">줄임말</button>
-        <button type="button" onclick="show03()" class="btn btn-light"
-          style="border-radius: 50%; background-color:var(--color-blue)">합성어</button>
-        <button type="button" onclick="show04()" class="btn btn-light"
-          style="border-radius: 50%; background-color:var(--color-blue)">유행어</button>
-        <button type="button" onclick="show05()" class="btn btn-light"
-          style="border-radius: 50%; background-color:var(--color-blue)">초성</button>
-        <button type="button" onclick="show06()" class="btn btn-light"
-          style="border-radius: 50%; background-color:var(--color-blue)">이모티콘</button>
-        <button type="button" class="btn btn-light"
-          style="border-radius: 50%;  text-decoration: none; background-color:var(--color-blue)"><a
-            href="category">전체</a></button>
+        <button type="button" onclick="show01()" class="btn" id="categoryBtn">신조어</button>
+        <button type="button" onclick="show02()" class="btn" id="categoryBtn">줄임말</button>
+        <button type="button" onclick="show03()" class="btn" id="categoryBtn">합성어</button>
+        <button type="button" onclick="show04()" class="btn" id="categoryBtn">유행어</button>
+        <button type="button" onclick="show05()" class="btn" id="categoryBtn">초성</button>
+        <button type="button" onclick="show06()" class="btn" id="categoryBtn">이모티콘</button>
+        <button type="button" class="btn" id="categoryBtn"><a href="category">전체</a></button>
       </div>
 
-      <div class="container" id=""> 
+      <!-- modal.css -->
+      <div class="container"> 
         <div class="popup-wrap"> 
           <div class="popup">	
             <div class="popup-head">	
@@ -73,6 +64,30 @@
                 </div>
                 <div class="body-contentbox">
                   <p>정답은 어쩔티비!</p>
+                </div>
+              </div>
+            </div>
+            <div class="popup-foot">
+              <span class="pop-btn confirm" id="confirm" onclick="closeClick()">확인</span>
+              <span class="pop-btn close" id="close" onclick="closeClick()">창 닫기</span>
+            </div>
+          </div>
+         </div>
+      </div>
+      <!-- 오답 modal-->
+      <div class="container"> 
+        <div class="popup-wrap" id="failBack"> 
+          <div class="popup" id="failModal">	
+            <div class="popup-head">	
+                <span class="head-title">ㅎㅎ</span>
+            </div>
+            <div class="popup-body">	
+              <div class="body-content">
+                <div class="body-titlebox">
+                  <h1>틀렷습니다~~</h1>
+                </div>
+                <div class="body-contentbox">
+                  <p>정답은 나도 몰라!</p>
                 </div>
               </div>
             </div>
@@ -210,8 +225,8 @@
             document.querySelector('.popup').style.display = 'block';
             document.querySelector('.popup-wrap').style.display = 'block';
           } else { //오답
-            document.querySelector('.popup').style.display = 'block';
-            document.querySelector('.popup-wrap').style.display = 'block';
+            document.querySelector('#failModal').style.display = 'block';
+            document.querySelector('#failBack').style.display = 'block';
           }
         }
        
