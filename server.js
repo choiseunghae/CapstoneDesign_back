@@ -16,7 +16,7 @@ const signupRouter = require('./router/signup');
 const loginRouter = require('./router/login');
 const mypageRouter = require('./router/mypage');
 const searchRouter = require('./router/search');
-
+const themeRouter = require('./router/theme');
 const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
@@ -50,14 +50,13 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
+app.use('/theme', [themeRouter] );
 
 app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
 });
 
-app.use('/theme', (req, res) => {
-  res.sendFile(__dirname+"/theme.html");
-});
+
 
 app.use((req, res) => {
   res.sendFile(__dirname+"/404.html");
