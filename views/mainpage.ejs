@@ -41,12 +41,12 @@
 
 
       <div class="mx-auto" style="text-decoration: none;">
-        <button type="button" onclick="show01()" class="btn" id="categoryBtn">신조어</button>
-        <button type="button" onclick="show02()" class="btn" id="categoryBtn">줄임말</button>
-        <button type="button" onclick="show03()" class="btn" id="categoryBtn">합성어</button>
-        <button type="button" onclick="show04()" class="btn" id="categoryBtn">유행어</button>
-        <button type="button" onclick="show05()" class="btn" id="categoryBtn">초성</button>
-        <button type="button" onclick="show06()" class="btn" id="categoryBtn">이모티콘</button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/1">신조어</a></button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/2">줄임말</a></button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/3">합성어</a></button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/4">유행어</a></button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/5">초성</a></button>
+        <button type="button" class="btn" id="categoryBtn"><a href="/category/7">이모티콘</a></button>
         <button type="button" class="btn" id="categoryBtn"><a href="/category">전체</a></button>
       </div>
 
@@ -104,82 +104,6 @@
   </div>
     <%- bottom %>
    <script>
-        // import Axios from 'axios';
-        //const aixos=require('axios');
-        const words = [
-          {
-            ItemName: "1",
-            Category_categoryId: "1",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "2",
-            Category_categoryId: "2",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "3",
-            Category_categoryId: "3",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "4",
-            Category_categoryId: "4",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "5",
-            Category_categoryId: "5",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "6",
-            Category_categoryId: "6",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-          {
-            ItemName: "7",
-            Category_categoryId: "7",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          }, {
-            ItemName: "1",
-            Category_categoryId: "1",
-            itemDescription: "dd",
-            itemDescription2: "dd",
-            bookmarkTF: "dd",
-            goodTF: "dd",
-            link: "dd",
-          },
-        ]
-        console.log(words);
 
         function search() {
           const searchValue = document.getElementById('searchWord').value;
@@ -207,18 +131,6 @@
             search();
           }
         });
-
-        //activate Enterkey for Search
-        function show01() {
-          console.log("01카테고리고 가욤");
-          let word1 = words.filter(words => words.Category_categoryId === "1");
-          console.log(word1);
-        }
-        function show02() {
-          console.log("02카테고리고 가욤");
-          let word2 = words.filter(words => words.Category_categoryId === "2");
-          console.log(word2);
-        }
         
         function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
           if (selectedAnswer === correctAnswer) { //정답
