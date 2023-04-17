@@ -11,6 +11,7 @@
   
 }
 #categoryBtn{
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: var(--color-blue);
     text-align: center;
