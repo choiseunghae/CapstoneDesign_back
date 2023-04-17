@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./mypage.css">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.nunucode.com/font.css">
     <title>마이페이지</title>
 </head>
 
@@ -34,11 +35,38 @@
     </div>
 
     <div class="mypage_btn_list">
+        <a href="" class="changeprofile"><input type="button" value="프로필 수정" class="nicknamechange"></a>
         <a href="" class="changenickname"><input type="button" value="닉네임 변경" class="nicknamechange"></a>
         <a href="" class="changepassword"><input type="button" value="비밀번호 변경" class="passwordchange"></a>
+        <a href="" class="logout"><input type="button" value="로그아웃" class="changelogout"></a>
     </div>
 
-    <%- bottom %>
+    <ul class="nav__form">
+        <a href="/bookmark">
+        <li class="nav__list">
+        <div><i class="bi bi-bookmark-fill"></i></div>
+        <span class="text">북마크</span></li></a>
+
+        <a href="/chat">
+        <li class="nav__list">
+        <div><i class="bi bi-chat-dots-fill"></i></div>
+        <span class="text">채팅</span></li></a>
+
+        <a href="/mainpage">
+        <li class="nav__list">
+        <div><i class="bi bi-house-door-fill"></i></div>
+        <span class="text">홈</span></li></a>
+
+        <a href="/dictionary">
+        <li class="nav__list">
+        <div><i class="bi bi-search"></i></div>
+        <span class="text">검색</span></li></a>
+
+        <a href="/mypage">
+        <li class="nav__list">
+        <div><i class="bi bi-person-fill"></i></div>
+        <span class="text">마이페이지</span></li></a>
+    </ul>
 
 
         <script>
