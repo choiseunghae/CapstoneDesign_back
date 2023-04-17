@@ -8,7 +8,13 @@ router.use(headerRouter);
 router.use(bottomRouter);
 
 router.get('/', (req, res) => {
-  connection.query('SELECT * FROM detailpage', (err, rows) => {
+  const userId = req.session.userIndex;
+
+  if (!req.session.userIndex) {
+    return res.redirect('/login');
+  }
+
+  connection.query(`SELECT * FROM detailpage WHERE itemIndex IN (SELECT itemIndex FROM mybookmarkpage WHERE userIndex = ${userId})`, (err, rows) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
@@ -28,7 +34,7 @@ router.get('/', (req, res) => {
       <div class="list-group rounded-4">
         <div class="list-group-content">
             <div class="list-group__title" style="border-color:var(—color-blue)"><a class="list_name" href="detail/${row.itemIndex}">${row.itemName}</a></div>
-            <div class="list-group__icon"><i class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
+            <div class="list-group__icon"><i id="itemIcon" class="bi bi-bookmark-fill" onclick="toggleIcon(this)"></i></div>
         </div>
         <div class="list-group__info">${description}</div>
     </div> 
@@ -41,7 +47,4 @@ router.get('/', (req, res) => {
   });
 });
 
-
 module.exports = router;
-
-

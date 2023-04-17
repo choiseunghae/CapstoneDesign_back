@@ -17,11 +17,8 @@
   <div class="word__box">
     <div class="word__title" data-index="<%= itemIndex %>">
       <%= itemName %>
-      <% if (isBookmarked) { %>
-        <i class="bi bi-bookmark-fill" onclick="toggleBookmark(this)"></i>
-      <% } else { %>
-        <i class="bi bi-bookmark" onclick="toggleBookmark(this)"></i>
-      <% } %>
+      <i id="itemIcon" class="bi <% if (isBookmarked) { %>bi-bookmark-fill<% } else { %>bi-bookmark<% } %>" onclick="toggleBookmark(this)"></i>
+
     
 
     </div>
@@ -60,20 +57,13 @@ function toggleBookmark(itemIcon) {
       if (data.hasOwnProperty('isBookmarked')) {
         isBookmarked = data.isBookmarked;
         itemIcon.classList.toggle('bi-bookmark-fill', isBookmarked);
+        itemIcon.classList.toggle('bi-bookmark', !isBookmarked);
       }
     })
     .catch((error) => {
       console.error(error);
     });
 }
-
-
-
-
-
-
-
-
 
 
 </script>

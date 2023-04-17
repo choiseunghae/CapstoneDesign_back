@@ -1,3 +1,6 @@
+body{
+    padding-bottom: 60px;
+}
 .category__theme {
     display: flex;
     justify-content: center;
