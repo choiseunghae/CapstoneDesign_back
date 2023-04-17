@@ -40,6 +40,7 @@ app.use(express.static(__dirname + '/css'));
 app.use('/detail', express.static(__dirname + '/css'));
 app.use('/mainpage', express.static(__dirname + '/css'));
 app.use('/category', express.static(__dirname + '/css'));
+app.use('/dictionary', express.static(__dirname + '/css'));
 
 app.use('/mainpage', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>    
+<head>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./basic.css">
     <link rel="stylesheet" href="./dictionary.css">
@@ -17,9 +17,27 @@
 
     <%- searchbox %>
 
-    <%- list_page %>
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="/dictionary/1">신조어</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary/2">줄임말</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary/3">합성어</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary/4">유행어</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary/5">초성</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary/7">이모티콘</a>
+                <span class="txt-bar">|</span>
+                <a href="/dictionary">전체</a>
+            </li>
+        </ul>
 
-    <%- bottom %>
+        <%- list_page %>
+
+            <%- bottom %>
 
 </body>
 
