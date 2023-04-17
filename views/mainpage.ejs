@@ -232,8 +232,12 @@
        
 
         function closeClick(){
+          // 정답 modal 바텀 확인 창닫기
           document.querySelector('.popup').style.display = 'none';
           document.querySelector('.popup-wrap').style.display = 'none';
+          // 오답 modal 바텀 확인 창닫기
+          document.querySelector('#failModal').style.display = 'none';
+          document.querySelector('#failBack').style.display = 'none';
         }
       </script>
 </body>
