@@ -8,6 +8,12 @@ router.use(thumbsnavRouter);
 router.use(bottomRouter);
 
 router.get('/', (req, res) => {
+  const userId = req.session.userIndex;
+
+  if (!req.session.userIndex) {
+    return res.redirect('/login');
+  }
+  
   connection.query('SELECT * FROM detailpage', (err, rows) => {
     if (err) {
       console.log(err);
