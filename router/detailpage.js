@@ -44,21 +44,23 @@ router.post('/:id/bookmark', (req, res) => {
       res.send('Error occurred');
       return;
     }
-    res.sendStatus(200);
+    let isBookmarked = true; // 북마크 추가 성공 시 true 값을 전달
+    res.json({ isBookmarked }); // JSON 형식으로 값을 반환
   });
 });
 
 // 북마크 삭제 요청 처리
 router.post('/:id/bookmark/delete', (req, res) => {
   const itemIndex = req.params.id;
-  var userId = req.session.userIndex;
+  const userId = req.session.userIndex;
   connection.query(`DELETE FROM mybookmarkpage WHERE itemIndex = '${itemIndex}' AND userIndex = '${userId}'`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
       return;
     }
-    res.sendStatus(200);
+    let isBookmarked = false; // 북마크 삭제 성공 시 false 값을 전달
+    res.json({ isBookmarked }); // JSON 형식으로 값을 반환
   });
 });
 
