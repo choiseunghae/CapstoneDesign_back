@@ -51,7 +51,7 @@
       </div>
 
       <!-- modal.css -->
-      <div class="container"> 
+      <div class="container" id="modal"> 
         <div class="popup-wrap"> 
           <div class="popup">	
             <div class="popup-head">	
@@ -75,7 +75,7 @@
          </div>
       </div>
       <!-- 오답 modal-->
-      <div class="container"> 
+      <div class="container" id="modal"> 
         <div class="popup-wrap" id="failBack"> 
           <div class="popup" id="failModal">	
             <div class="popup-head">	
@@ -147,6 +147,7 @@
           // 정답 modal 바텀 확인 창닫기
           document.querySelector('.popup').style.display = 'none';
           document.querySelector('.popup-wrap').style.display = 'none';
+
           // 오답 modal 바텀 확인 창닫기
           document.querySelector('#failModal').style.display = 'none';
           document.querySelector('#failBack').style.display = 'none';

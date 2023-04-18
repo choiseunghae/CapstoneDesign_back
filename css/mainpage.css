@@ -23,4 +23,6 @@
 
 .input-group{
     margin-top: 140px;
+    height: 50px; 
+    /* 검색창 크기 조절 */
 }
