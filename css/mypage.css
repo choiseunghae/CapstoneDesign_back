@@ -52,22 +52,16 @@ i {
     margin-top: 20px;
 }
 
-.nicknamechange, .passwordchange {
+.mypage_option {
     width: 200px;
     height: 50px;
     border-radius: 15px;
     border: 1px solid var(--color-blue);
     background-color: white;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
-.nicknamechange:hover {
-    cursor: pointer;
-    background-color: var(--color-blue);
-    border: none;
-}
-
-.passwordchange:hover {
+.mypage_option:hover {
     cursor: pointer;
     background-color: var(--color-blue);
     border: none;
