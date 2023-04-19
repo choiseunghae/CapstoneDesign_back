@@ -19,7 +19,7 @@ body{
 .list_all {
     margin-top: 120px;
     margin-right: 30px;
-    width: 600px;
+    width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -35,75 +35,110 @@ body{
 
 .best_type1 
 {
-    width: 150px;
-    height: 200px;
+    width: 180px;
+    height: 230px;
     background-color: var(--color-blue);
-    margin: 5px;
+    margin: 10px;
     border-radius: 10px;
 }
 
 .best_type2 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type3 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type4 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type5
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type6
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type7 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type8 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 .best_type9 
 {
-    width: 150px;
-    height: 200px;
-    background-color: var(--color-blue);
-    margin: 5px;
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
+    border-radius: 10px;
+}
+.best_type10
+{
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
+    border-radius: 10px;
+}
+.best_type11
+{
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
+    border-radius: 10px;
+}
+.best_type12
+{
+    width: 180px;
+    height: 230px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    margin: 10px;
     border-radius: 10px;
 }
 

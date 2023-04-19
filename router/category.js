@@ -25,9 +25,9 @@ router.get('/', (req, res) => {
 
         tier = 1;
 
-        for (let i = 0; i < 9 && i < rows.length; i++) {
+        for (let i = 0; i < 12 && i < rows.length; i++) {
             const row = rows[i];
-            const description = row.itemDescription.length > 30 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
+            const description = row.itemDescription.length > 50 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
             html += `
                 <li class="best_type${tier}">
                     <div class="list_contents">
