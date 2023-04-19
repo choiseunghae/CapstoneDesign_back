@@ -38,7 +38,6 @@
   margin: auto;
   width: 500px;  
   height: 300px;
-  /* z-index: 9999; */
 }
 .popup-head{
   width:100%;
@@ -103,6 +102,7 @@
 }
 .pop-btn.confirm{                 
   /* 확인버튼 */
+  display:flex; 
   border-right:1px solid var(--color-blue);
   /* 오른쪽 줄 */
 }
