@@ -1,6 +1,3 @@
-#modal{
-  z-index: 9999;
-}
 .popup-wrap{
   background-color:rgba(0,0,0,.3); 
   /* 배경색과 투명도로 살짝 어둡지만 투명한 배경
@@ -19,6 +16,7 @@
   /* 반응형의 경우 padding이 없으면 박스가 화면에 붙어서 안이뻐짐 */
 }
 .popup{
+  height: 270;;
   width:100%;               
   /* 반응형 이기 때문에 가로값은 100% */
   max-width:350px;          
@@ -36,55 +34,53 @@
   left: 0;
   right: 0;
   margin: auto;
-  width: 500px;  
-  height: 300px;
-}
-.popup-head{
+  height: 260px; 
+} 
+/* .popup-head{
   width:100%;
-  /* 부모요소를 따라가기 때문에 굳이 가로값을 주지 않아도 되지만 일부 ie에서 인식 못하는 문제가 있음 */
   height:50px;  
-  /* 헤드 영역 높이 */
   display:flex; 
-  /* 로고 이미지나 텍스트를 중앙 정렬하기 위한 flex 및 정렬 */
   align-items:center;
   justify-content:center;
-}
+} */
 .popup-body{                
   /* 몸통 */
+  border-top-left-radius:15px ;
+  border-top-right-radius:15px ;
   width:100%;
+  height: 210px;
   background-color:#ffffff; 
   /* 컨텐츠 영역의 배경색 */
 }
 .body-content{              
   /* 몸통 내부 컨텐츠 영역 */
   width:100%;
-  padding:30px;             
-  /* 좌우에 내용이 붙으면 보기 안좋기 때문에 간격 띄움 */
+  padding:0px 30px 30px 30px; 
+
+  height:210px;          
+  text-align: center;
 }
 .body-titlebox{             
   /* 컨텐츠 타이틀 영역 */
-  text-align:center;        
-  /* 제목 중앙정렬 */
-  width:100%;
-  height:40px;
-  margin-bottom:10px;       
-  /* 내용과 간격 조정 */
+  text-align:center;   
+  height:150px;    
+  /* margin-top: 55px;      */
+  /* width:100%;
+  height:40px;*/
+  
 }
-.body-contentbox{           
-  /* 컨텐츠 내용 영역 */
-  word-break:break-word;    
-  /* 단어가 짤리지 않음 */
-  overflow-y:auto;          
-  /* 내부요소가 지정한 세로 값보다 클 경우 스크롤 생성 */
-  min-height:100px;         
-  /* 최소 높이 */
-  max-height:200px;         
-  /* 최대 높이 */
+.body-titlebox p{
+  background-color: #ffffff;
+  color: var(--color-blue);
+  padding-top: 16px;
+}
+.body-titlebox h1{
+  margin-top: 60px;
 }
 .popup-foot{                      
   /* 다리 */
-  width:100%;
-  height:50px;
+  min-height:30px;   
+  max-height:50px;
 }
 .pop-btn{ 
   /* 각각의 버튼 */
@@ -98,7 +94,7 @@
   color:#ffffff; /* 글자색 */
   cursor:pointer; /* 마우스 포인터 효과 */
   text-align: center; 
-  /* ????? */
+  margin-top: 14px;
 }
 .pop-btn.confirm{                 
   /* 확인버튼 */
