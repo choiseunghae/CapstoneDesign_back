@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
           return;
         }
         isBookmarked = rows.length > 0;
-        connection.query(`SELECT * FROM mythumbspage WHERE userIndex = '${userid}' AND thumbsBool = true`, (err, rows) => {
+        connection.query(`SELECT * FROM mythumbspage WHERE userIndex = '${userId}' AND thumbsBool = true`, (err, rows) => {
           if (err) {
             console.log(err);
             res.send('Error occurred');
