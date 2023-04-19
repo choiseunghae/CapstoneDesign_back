@@ -74,9 +74,8 @@ router.post('/:id/bookmark/delete', (req, res) => {
 
 // 좋아요 추가 요청 처리
 router.post('/:id/thumbs', (req, res) => {
-  Boolean thumbsBool = true;
   var userId = req.session.userIndex;
-  connection.query(`INSERT INTO mythumbspage (thumbsBool, userIndex) VALUES ('${thumbsBool}', '${userId}')`, (err) => {
+  connection.query(`INSERT INTO mythumbspage (thumbsBool, userIndex) VALUES ('true', '${userId}')`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
@@ -89,9 +88,8 @@ router.post('/:id/thumbs', (req, res) => {
 
 // 좋아요 삭제 요청 처리
 router.post('/:id/thumbs/delete', (req, res) => {
-  Boolean thumbsBool = false;
   var userId = req.session.userIndex;
-  connection.query(`DELETE FROM mythumbspage WHERE thumbsBool = '${thumbsBool}' AND userIndex = '${userId}'`, (err) => {
+  connection.query(`DELETE FROM mythumbspage WHERE thumbsBool = 'true' AND userIndex = '${userId}'`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');

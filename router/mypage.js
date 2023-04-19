@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     return res.redirect('/login');
   }
 
-
   if (nickname == null) {
     nickname = 'Guest';
   }
@@ -28,10 +27,7 @@ router.get('/', (req, res) => {
     var bookmark = bookmarkCount;
     res.render('mypage', { nickname , bookmark });
   });
-
-
 });
-
 
 module.exports = router;
 
