@@ -31,9 +31,9 @@ router.get('/', (req, res) => {
             html += `
                 <li class="best_type${tier}">
                     <div class="list_contents">
-                        <div class="langking01">BEST ${tier}</div>
-                        <div class="list_content_name"><a href="detail/${row.itemIndex}">${row.itemName}</a></div>
-                        <div class="list_content_content">${description}</div>
+                        <div class="langking${tier}">BEST ${tier}</div>
+                        <div class="list_content_name${tier}"><a href="detail/${row.itemIndex}">${row.itemName}</a></div>
+                        <div class="list_content_content${tier}">${description}</div>
                     </div>
                 </li>
             `;
