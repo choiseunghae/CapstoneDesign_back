@@ -58,10 +58,10 @@ app.use('/chat', (req, res) => {
   res.sendFile(__dirname+"/chat.html");
 });
 
-
-
-app.use((req, res) => {
-  res.sendFile(__dirname+"/404.html");
+app.get('/logout', (req, res) => {
+  req.session.destroy(); // 세션 제거
+  res.clearCookie('authToken'); // 쿠키 제거
+  res.redirect('/mainpage'); // 메인 페이지로 리다이렉트
 });
 
 

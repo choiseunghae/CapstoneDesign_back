@@ -40,6 +40,7 @@ body{
     background-color: var(--color-blue);
     margin: 10px;
     border-radius: 10px;
+    color: black;
 }
 
 .best_type2 
@@ -148,23 +149,222 @@ body{
     margin: 20px;
 }
 
-.langking01 {
+.langking1 {
+    font-weight: bolder;
     font-size: 13px;
-    padding-bottom: 10px;
-    opacity: 70%;
+    color: var(--color-white);
 }
 
-.list_content_name {
+.langking2 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking3 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking4 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking5 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking6 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking7 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking8 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking9 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking10 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking11 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.langking12 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: var(--color-blue);
+}
+
+.list_content_name1 {
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 20px;
-    opacity: 80%;
+    color: var(--color-white);
 }
 
-.list_content_content {
-    opacity: 70%;
-    font-size: 15px;
+.list_content_name2 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
 }
+
+.list_content_name3 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name4 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name5 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name6 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name7 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name8 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name9 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name10 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name11 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_name12 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--color-black);
+}
+
+.list_content_content1 {
+    font-size: 15px;
+    color: var(--color-white);
+}
+
+.list_content_content2 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content3 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content4 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content5 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content6 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content7 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content8 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content9 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content10 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content11 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.list_content_content12 {
+    font-size: 15px;
+    color: var(--color-black);
+}
+
 
 .btn btn-light {
     border-radius: 50%;

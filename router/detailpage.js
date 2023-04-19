@@ -16,6 +16,7 @@ router.get('/:id', (req, res) => {
     const { itemIndex, itemName, itemDescription, itemDescription2 } = rows[0];
     const userId = req.session.userIndex;
     let isBookmarked = false;
+    let isThumbs = false;
     if (userId) {
       connection.query(`SELECT * FROM mybookmarkpage WHERE itemIndex = '${id}' AND userIndex = '${userId}'`, (err, rows) => {
         if (err) {
@@ -24,14 +25,21 @@ router.get('/:id', (req, res) => {
           return;
         }
         isBookmarked = rows.length > 0;
-        res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked });
+        connection.query(`SELECT * FROM mythumbspage WHERE userIndex = '${userId}' AND thumbsBool = true`, (err, rows) => {
+          if (err) {
+            console.log(err);
+            res.send('Error occurred');
+            return;
+          }
+          isThumbs = rows.length > 0;
+          res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked, isThumbs });
+        });
       });
     } else {
-      res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked });
+      res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked, isThumbs });
     }
   });
 });
-
 
 
 // 북마크 추가 요청 처리
@@ -52,7 +60,7 @@ router.post('/:id/bookmark', (req, res) => {
 // 북마크 삭제 요청 처리
 router.post('/:id/bookmark/delete', (req, res) => {
   const itemIndex = req.params.id;
-  const userId = req.session.userIndex;
+  var userId = req.session.userIndex;
   connection.query(`DELETE FROM mybookmarkpage WHERE itemIndex = '${itemIndex}' AND userIndex = '${userId}'`, (err) => {
     if (err) {
       console.log(err);
@@ -61,6 +69,34 @@ router.post('/:id/bookmark/delete', (req, res) => {
     }
     let isBookmarked = false; // 북마크 삭제 성공 시 false 값을 전달
     res.json({ isBookmarked }); // JSON 형식으로 값을 반환
+  });
+});
+
+// 좋아요 추가 요청 처리
+router.post('/:id/thumbs', (req, res) => {
+  var userId = req.session.userIndex;
+  connection.query(`INSERT INTO mythumbspage (thumbsBool, userIndex) VALUES ('true', '${userId}')`, (err) => {
+    if (err) {
+      console.log(err);
+      res.send('Error occurred');
+      return;
+    }
+    let isThumbs = true; // 좋아요 추가 성공 시 true 값을 전달
+    res.json({ isThumbs }); // JSON 형식으로 값을 반환
+  });
+});
+
+// 좋아요 삭제 요청 처리
+router.post('/:id/thumbs/delete', (req, res) => {
+  var userId = req.session.userIndex;
+  connection.query(`DELETE FROM mythumbspage WHERE thumbsBool = 'true' AND userIndex = '${userId}'`, (err) => {
+    if (err) {
+      console.log(err);
+      res.send('Error occurred');
+      return;
+    }
+    let isThumbs = false; // 좋아요 삭제 성공 시 false 값을 전달
+    res.json({ isThumbs }); // JSON 형식으로 값을 반환
   });
 });
 
