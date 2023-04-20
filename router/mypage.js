@@ -6,26 +6,33 @@ const bottomRouter = require('./bottomnav_bar');
 router.use(bottomRouter);
 
 router.get('/', (req, res) => {
-  var nickname = req.session.usernickname;
   const userId = req.session.userIndex;
+  let nickname = req.session.usernickname || 'Guest';
 
-  if (!req.session.userIndex) {
+  if (!userId) {
     return res.redirect('/login');
   }
 
-  if (nickname == null) {
-    nickname = 'Guest';
-  }
-
-  connection.query(`SELECT COUNT(*) as count FROM mybookmarkpage WHERE userIndex = ${userId}`, (err, result) => {
+  // mybookmarkpage에서 userIndex에 해당하는 데이터 개수 가져오기
+  connection.query(`SELECT COUNT(*) as bookmarkCount FROM mybookmarkpage WHERE userIndex = ${userId}`, (err, bookmarkResult) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
       return;
     }
-    const bookmarkCount = result[0].count;
-    var bookmark = bookmarkCount;
-    res.render('mypage', { nickname , bookmark });
+    const bookmarkCount = bookmarkResult[0].bookmarkCount;
+
+    // mythumbspage에서 userIndex에 해당하는 데이터 개수 가져오기
+    connection.query(`SELECT COUNT(*) as thumbsCount FROM mythumbspage WHERE userIndex = ${userId} AND thumbsBool = 1`, (err, thumbsResult) => {
+      if (err) {
+        console.log(err);
+        res.send('Error occurred');
+        return;
+      }
+      const thumbsCount = thumbsResult[0].thumbsCount;
+
+      res.render('mypage', { nickname, bookmarkCount, thumbsCount });
+    });
   });
 });
 
