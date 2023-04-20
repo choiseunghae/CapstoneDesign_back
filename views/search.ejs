@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./style.css">    
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./basic.css">
     <link rel="stylesheet" href="./search.css">
     <link rel="stylesheet" href="./bottom.css">
@@ -16,21 +16,59 @@
 <body>
     <%- searchbox %>
     <div class="search__info">
-    <h1>검색어 : <%= searchWord %>
-    </h1>
-    <ul class="item__box">
-        <% items.forEach(item=> { %>
-            <li class="item__name"><a href="/detail/<%= item.itemIndex %>">
-                    <%= item.itemName %>
-                </a></li>
-            <li class="item__description">
-                <%= item.itemDescription %>
-            </li>
+      <h1>검색어: <%= searchWord %></h1>
+      <% if (Object.keys(groups).length > 0) { %>
+        <% Object.keys(groups).forEach(categoryName => { %>
+          <ul class="item__box">
+            <li class="item__category"><%= categoryName %> 순</li>
+            <% groups[categoryName].forEach(item => { %>
+              <li class="item__name">
+                <a href="/detail/<%= item.itemIndex %>"><%= item.itemName %></a>
+              </li>
+              <li class="item__description"><%= item.itemDescription %></li>
             <% }); %>
-    </ul>
-</div>
+          </ul>
+          <hr> <!-- 카테고리 구분선 -->
+        <% }); %>
+      <% } else { %>
+        <p class="no__result">검색 결과를 찾을 수 없습니다.</p>
+      <% } %>
+    </div>
     <%- bottom %>
+  </body>
+  
+  
 
-</body>
+<script>
+
+    function search() {
+        const searchValue = document.getElementById('searchWord').value;
+
+        // 서버로 검색어를 전송하는 코드
+        fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                searchValue: searchValue
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                const itemIndex = data.itemIndex;
+                window.location.href = `/detail/${itemIndex}`;
+            })
+            .catch(error => console.error(error));
+    }
+
+    document.getElementById('searchWord').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            search();
+        }
+    });
+
+</script>
+
 
 </html>

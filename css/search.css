@@ -15,3 +15,8 @@ li {
 .item__description {
     opacity: 70%;
 }
+
+.item__category {
+    font-style: italic;
+    font-size: 30px;
+}
