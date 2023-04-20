@@ -42,9 +42,9 @@ router.get('/search', (req, res) => {
       }
 
       if (results.length === 0) {
-        return res.render('search', { searchWord, items: null, message: '검색 결과를 찾을 수 없습니다.' });
+        return res.render('search', { searchWord, message: '검색 결과를 찾을 수 없습니다.', groups: {} });
       }
-
+      
       // 검색 결과를 연관성 순으로 그룹화
       const groups = {
         단어명: [],
