@@ -36,11 +36,11 @@
   </div>
 
   <nav class="nav_form">
-    <i id="thumbsIcon"
-      class="bi <% if (isThumbs) { %>bi bi-hand-thumbs-up-fill<% } else { %>bi bi-hand-thumbs-up<% } %>"
-      onclick="togglethumbs(this)" style="font-size: 2rem;"></i>
+    <i class="bi <% if (isThumbs) { %>bi-hand-thumbs-up-fill<% } else { %>bi-hand-thumbs-up<% } %>"
+      onclick="togglethumbs(this)" style="font-size: 2rem;" data-index="<%= itemIndex %>"></i>
     <a class="btn__link" href="#"><i class="bi bi-box-arrow-up" style="font-size: 2rem;"></i></a>
   </nav>
+  
 
   <%- bottom %>
 
@@ -70,7 +70,7 @@
   }
 
   function togglethumbs(thumbsIcon) {
-    const itemIndex = parseInt(thumbsIcon.parentElement.getAttribute('data-index'));
+    const itemIndex = parseInt(thumbsIcon.getAttribute('data-index'));
     let isThumbs = thumbsIcon.classList.contains('bi-hand-thumbs-up-fill');
     const url = isThumbs ? `/detail/${itemIndex}/thumbs/delete` : `/detail/${itemIndex}/thumbs`;
 

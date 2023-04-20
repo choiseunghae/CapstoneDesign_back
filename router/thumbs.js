@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     return res.redirect('/login');
   }
 
-  connection.query(`SELECT * FROM detailpage WHERE itemIndex IN (SELECT thumbsBool FROM mythumbspage WHERE userIndex = ${userId} AND thumbsBool = 1)`, (err, rows) => {
+  connection.query(`SELECT * FROM detailpage WHERE itemIndex IN (SELECT itemIndex FROM mythumbspage WHERE userIndex = ${userId})`, (err, rows) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');

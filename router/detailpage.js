@@ -77,10 +77,10 @@ router.post('/:id/bookmark/delete', (req, res) => {
 });
 
 // 좋아요 추가 요청 처리
-router.post('/:index/thumbs', (req, res) => {
-  const itemIndex = req.params.index;
+router.post('/:id/thumbs', (req, res) => {
+  const itemIndex = req.params.id;
   var userId = req.session.userIndex;
-  connection.query(`INSERT INTO mythumbspage (userIndex, itemIndex, thumbsBool) VALUES ('${userId}', '${itemIndex}', '1')`, (err) => {
+  connection.query(`INSERT INTO mythumbspage (userIndex, itemIndex) VALUES ('${userId}', '${itemIndex}')`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
@@ -92,10 +92,10 @@ router.post('/:index/thumbs', (req, res) => {
 });
 
 // 좋아요 삭제 요청 처리
-router.post('/:index/thumbs/delete', (req, res) => {
+router.post('/:id/thumbs/delete', (req, res) => {
   const itemIndex = req.params.id;
   var userId = req.session.userIndex;
-  connection.query(`DELETE FROM mythumbspage WHERE userIndex = '${userId}' AND itemIndex  = '${itemIndex}' AND thumbsBool = '1'`, (err) => {
+  connection.query(`DELETE FROM mythumbspage WHERE userIndex = '${userId}' AND itemIndex  = '${itemIndex}'`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
