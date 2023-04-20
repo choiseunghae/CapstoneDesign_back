@@ -8,7 +8,14 @@ router.use(bottomRouter);
 router.use(searchboxRouter);
 
 router.get('/', (req, res) => {
-    connection.query('SELECT * FROM detailpage', (err, rows) => {
+    connection.query(`
+        SELECT detailpage.*, COUNT(mythumbspage.itemIndex) AS thumbsCount
+        FROM detailpage
+        LEFT JOIN mythumbspage ON detailpage.itemIndex = mythumbspage.itemIndex AND mythumbspage.thumbsBool = 1
+        GROUP BY detailpage.itemIndex
+        ORDER BY thumbsCount DESC
+        LIMIT 12
+    `, (err, rows) => {
         if (err) {
             console.log(err);
             res.send('Error occurred');
@@ -16,16 +23,13 @@ router.get('/', (req, res) => {
         }
 
         let html = `
-
-
-
         <div class="category_all">
-        <ol id="entryList" class="list_all">
-        `
+            <ol id="entryList" class="list_all">
+        `;
 
-        tier = 1;
+        let tier = 1;
 
-        for (let i = 0; i < 12 && i < rows.length; i++) {
+        for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const description = row.itemDescription.length > 50 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
             html += `
@@ -34,19 +38,22 @@ router.get('/', (req, res) => {
                         <div class="langking${tier}">BEST ${tier}</div>
                         <div class="list_content_name${tier}"><a href="detail/${row.itemIndex}">${row.itemName}</a></div>
                         <div class="list_content_content${tier}">${description}</div>
+                        <div class="list_content_likes${tier}">${row.thumbsCount} Likes</div>
                     </div>
                 </li>
             `;
             tier++;
         }
 
-
-        html += `</ol>
-                </div>`
+        html += `
+            </ol>
+        </div>
+        `;
 
         res.render('category', { category: html });
     });
 });
+
 
 router.get('/:categoryId', (req, res) => {
     const categoryId = req.params.categoryId;

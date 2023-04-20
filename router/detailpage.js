@@ -80,7 +80,7 @@ router.post('/:id/bookmark/delete', (req, res) => {
 router.post('/:id/thumbs', (req, res) => {
   const itemIndex = req.params.id;
   var userId = req.session.userIndex;
-  connection.query(`INSERT INTO mythumbspage (userIndex, itemIndex) VALUES ('${userId}', '${itemIndex}')`, (err) => {
+  connection.query(`INSERT INTO mythumbspage (userIndex, itemIndex, thumbsBool) VALUES ('${userId}', '${itemIndex}', '1')`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
@@ -95,7 +95,7 @@ router.post('/:id/thumbs', (req, res) => {
 router.post('/:id/thumbs/delete', (req, res) => {
   const itemIndex = req.params.id;
   var userId = req.session.userIndex;
-  connection.query(`DELETE FROM mythumbspage WHERE userIndex = '${userId}' AND itemIndex  = '${itemIndex}'`, (err) => {
+  connection.query(`DELETE FROM mythumbspage WHERE userIndex = '${userId}' AND itemIndex  = '${itemIndex}' AND thumbsBool = '1'`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
