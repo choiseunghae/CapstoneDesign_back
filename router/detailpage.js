@@ -25,21 +25,25 @@ router.get('/:id', (req, res) => {
           return;
         }
         isBookmarked = rows.length > 0;
-        connection.query(`SELECT * FROM mythumbspage WHERE userIndex = '${userId}' AND thumbsBool = true`, (err, rows) => {
+        connection.query(`SELECT * FROM mythumbspage WHERE userIndex = '${userId}' AND thumbsBool = '1' AND itemIndex = '${id}'`, (err, rows) => {
           if (err) {
             console.log(err);
             res.send('Error occurred');
             return;
           }
-          isThumbs = rows.length > 0;
+          if (rows.length > 0) {
+            isThumbs = true;
+          }
           res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked, isThumbs });
         });
       });
     } else {
       res.render('word', { itemIndex, itemName, itemDescription, itemDescription2, isBookmarked, isThumbs });
     }
+    
   });
 });
+
 
 
 // 북마크 추가 요청 처리
@@ -73,9 +77,10 @@ router.post('/:id/bookmark/delete', (req, res) => {
 });
 
 // 좋아요 추가 요청 처리
-router.post('/:id/thumbs', (req, res) => {
+router.post('/:index/thumbs', (req, res) => {
+  const itemIndex = req.params.index;
   var userId = req.session.userIndex;
-  connection.query(`INSERT INTO mythumbspage (thumbsBool, userIndex) VALUES ('true', '${userId}')`, (err) => {
+  connection.query(`INSERT INTO mythumbspage (userIndex, itemIndex, thumbsBool) VALUES ('${userId}', '${itemIndex}', '1')`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
@@ -87,9 +92,10 @@ router.post('/:id/thumbs', (req, res) => {
 });
 
 // 좋아요 삭제 요청 처리
-router.post('/:id/thumbs/delete', (req, res) => {
+router.post('/:index/thumbs/delete', (req, res) => {
+  const itemIndex = req.params.id;
   var userId = req.session.userIndex;
-  connection.query(`DELETE FROM mythumbspage WHERE thumbsBool = 'true' AND userIndex = '${userId}'`, (err) => {
+  connection.query(`DELETE FROM mythumbspage WHERE userIndex = '${userId}' AND itemIndex  = '${itemIndex}' AND thumbsBool = '1'`, (err) => {
     if (err) {
       console.log(err);
       res.send('Error occurred');
