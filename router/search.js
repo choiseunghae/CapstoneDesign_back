@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
   const searchWord = req.query.searchWord;
 
-  connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchWord}%'`, (error, results) => {
+  connection.query(`SELECT * FROM detailpage WHERE itemName LIKE '%${searchWord}%' OR itemDescription LIKE '%${searchWord}%' OR itemDescription2 LIKE '%${searchWord}%'`, (error, results) => {
     if (error) {
       console.error(error);
       return res.status(500).send('Internal Server Error');
@@ -27,7 +27,7 @@ router.get('/search', (req, res) => {
 
     // 검색 결과가 없는 경우
     if (results.length === 0) {
-      return res.status(404).send('Not Found');
+      return res.status(404).send('검색 결과를 찾을 수 없습니다.');
     }
 
     const items = results.map(result => {
@@ -39,6 +39,7 @@ router.get('/search', (req, res) => {
     res.render('search', { searchWord, items });
   });
 });
+
 
 
 
