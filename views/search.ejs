@@ -46,33 +46,6 @@
 
 <script>
 
-    function search() {
-        const searchValue = document.getElementById('searchWord').value;
-
-        // 서버로 검색어를 전송하는 코드
-        fetch('/search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                searchValue: searchValue
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                const itemIndex = data.itemIndex;
-                window.location.href = `/detail/${itemIndex}`;
-            })
-            .catch(error => console.error(error));
-    }
-
-    document.getElementById('searchWord').addEventListener('keyup', function (event) {
-        if (event.key === 'Enter') {
-            search();
-        }
-    });
-
 </script>
 
 
