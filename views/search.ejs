@@ -16,28 +16,33 @@
 <body>
     <%- searchbox %>
     <div class="search__info">
-      <h1>검색어: <%= searchWord %></h1>
-      <% if (Object.keys(groups).length > 0) { %>
-        <% Object.keys(groups).forEach(categoryName => { %>
-          <ul class="item__box">
-            <li class="item__category"><%= categoryName %> 순</li>
-            <% groups[categoryName].forEach(item => { %>
-              <li class="item__name">
-                <a href="/detail/<%= item.itemIndex %>"><%= item.itemName %></a>
-              </li>
-              <li class="item__description"><%= item.itemDescription %></li>
+        <h1>검색어: <%= searchWord %></h1>
+        <% if (Object.keys(groups).length > 0) { %>
+            <% Object.keys(groups).forEach(categoryName => { %>
+                <ul class="item__box">
+                    <li class="item__category"><%= categoryName %></li>
+                    <% groups[categoryName].forEach(item => { %>
+                        <li class="item__name">
+                            <a href="/detail/<%= item.itemIndex %>">
+                                <%- item.itemName.replace(new RegExp(searchWord, "gi"), "<mark>$&</mark>") %>
+                            </a>
+                        </li>
+                        <li class="item__description">
+                            <%- item.itemDescription.replace(new RegExp(searchWord, "gi"), "<mark>$&</mark>") %>
+                        </li>
+                    <% }); %>
+                </ul>
             <% }); %>
-          </ul>
-          <hr> <!-- 카테고리 구분선 -->
-        <% }); %>
-      <% } else { %>
-        <p class="no__result">검색 결과를 찾을 수 없습니다.</p>
-      <% } %>
+        <% } else { %>
+            <p class="no__result">검색 결과를 찾을 수 없습니다.</p>
+        <% } %>
     </div>
     <%- bottom %>
-  </body>
+</body>
+
   
-  
+
+
 
 <script>
 
