@@ -68,11 +68,30 @@
         <div><i class="bi bi-person-fill"></i></div>
         <span class="text">마이페이지</span></li></a>
     </ul>
-
+        
         <script>
             function goBack() {
-                window.history.back();
+            window.history.back();
             }
+
+            const changeProfileBtn = document.querySelector('.changeprofile input[type="button"]');
+            const profileImage = document.querySelector('#profile-image');
+
+            changeProfileBtn.addEventListener('click', () => {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+            // 선택된 이미지 파일을 img 태그의 src 속성에 할당하여 업데이트
+            profileImage.src = reader.result;
+            });
+            reader.readAsDataURL(file);
+            });
+            fileInput.click();
+            });
         </script>
 </body>
 
