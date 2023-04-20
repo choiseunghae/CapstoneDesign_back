@@ -38,8 +38,27 @@
   <nav class="nav_form">
     <i class="bi <% if (isThumbs) { %>bi-hand-thumbs-up-fill<% } else { %>bi-hand-thumbs-up<% } %>"
       onclick="togglethumbs(this)" style="font-size: 2rem;" data-index="<%= itemIndex %>"></i>
-    <a class="btn__link" href="#"><i class="bi bi-box-arrow-up" style="font-size: 2rem;"></i></a>
+    <div class="btn__link" onclick="copyAddress()"><i class="bi bi-box-arrow-up" style="font-size: 2rem;"></i></div>
   </nav>
+
+  <!-- modal.css -->
+  <div class="container" id="modal"> 
+    <div class="popup-wrap"> 
+      <div class="popup">	
+        <div class="popup-body">	
+          <div class="body-content">
+            <div class="body-titlebox">
+              <p>요즘말사전</p>
+              <h1>클립보드가 복사되었습니다</h1>
+            </div>
+          </div>
+        </div>
+        <div class="popup-foot" id="hh">
+          <span class="pop-btn confirm" id="confirm" onclick="closeClick()">확인</span>
+        </div>
+      </div>
+     </div>
+  </div>
   
 
   <%- bottom %>
@@ -92,5 +111,30 @@
       });
   }
 
+
+// 주소복사
+function copyAddress() {
+  var address = window.location.href;
+  navigator.clipboard.writeText(address)
+    .then(function() {
+      showModal();
+    })
+    .catch(function() {
+      console.log("Failed to copy the address.");
+    });
+}
+
+function showModal() {
+  // 아이콘 눌렀을 때 modal 창 뜨기
+  document.querySelector('.popup').style.display = 'block';
+  document.querySelector('.popup-wrap').style.display = 'block';
+  modal.style.display = 'block';
+}
+
+function closeClick(){
+          // 클립복사 modal 확인 창닫기
+          document.querySelector('.popup').style.display = 'none';
+          document.querySelector('.popup-wrap').style.display = 'none';
+        }
 
 </script>

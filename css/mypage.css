@@ -17,7 +17,7 @@ i {
 }
 
 .mypage-profile {
-    margin-top: 150px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ i {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .mypage_like_btn{
     text-align: center;
@@ -60,11 +60,12 @@ i {
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+    padding-bottom: 50px;
 }
 
 .mypage_option {
     width: 200px;
-    height: 50px;
+    height: 45px;
     border-radius: 15px;
     border: 1px solid var(--color-blue);
     background-color: white;
