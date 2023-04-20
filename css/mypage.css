@@ -39,14 +39,24 @@ i {
     align-items: center;
     margin-top: 50px;
 }
-
-.mypage_like_btn {
+.mypage_like_btn{
+    text-align: center;
     padding: 10px;
+}
+.mypage_like_btn i{
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+.mypage_like_btn span{
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+
 }
 
 .mypage_btn_list {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
@@ -88,7 +98,6 @@ i {
 }
 .nav__list 
 {
-    align-items: center;
     flex-direction: column;
     padding-left: 30px;
     padding-right: 30px;
@@ -110,6 +119,5 @@ i {
 .itemIcon{
     font-size: 10px;
 }
-
 
 
