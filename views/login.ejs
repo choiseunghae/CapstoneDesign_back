@@ -17,26 +17,38 @@
 </head>
 
 <body class="text-center">
-  <!--  html 전체 영역을 지정하는 container -->
-  <div id="container">
-    <!--  login 폼 영역을 : loginBox -->
-    <div id="loginBox">
-      <!-- 로그인 페이지 타이틀 -->
-      <div id="loginBoxTitle">Login</div>
-      <!-- 아이디, 비번, 버튼 박스 -->
-      <form action="/login" method="post">
-          <div id="inputBox">
-            <div class="input-form-box"><span>닉네임 </span><input type="text" name="usernickname" class="form-control"
-                id="id"></div>
-            <div class="input-form-box"><span>비밀번호 </span><input type="password" name="password" class="form-control"
-                id="password"></div>
-            <div class="button-login-box">
-              <button  class="btn btn-xs" id="login"  onclick="toggle()">로그인</button>
-              <button type="submit" class="btn btn-xs" id="singUp" onclick="toggle()">회원가입</button>
-            </div>
-          </div>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>회원가입</h1>
+        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="id"/>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password"/>
+        <button id="singUp">가입하기</button>
       </form>
     </div>
+    <div class="form-container sign-in-container">
+      <form action="/login" method="post">
+        <h1>로그인</h1>
+        <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
+        <button type="submit" id="login" >로그인</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>환영합니다</h1>
+          <p>회원이신 분은 아래를 눌러주세요!</p>
+          <button class="ghost" id="signIn">로그인하러 가기</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>안녕하세요</h1>
+          <p>요즘말사전과 함께 하실래요?</p>
+          <button class="ghost" id="signUp">회원가입하러 가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 
   <!-- Bootstrap Bundle with Popper -->
@@ -51,31 +63,18 @@
             });
           }
         });
-        toggle = () => {
-          container.classList.toggle('login')
-          container.classList.toggle('singUp')
-        }
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+          container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+          container.classList.remove("right-panel-active");
+        });
     </script>
 </body>
 
 </html>
-
-//  <!DOCTYPE html>
-// <html>
-//   <head>
-//     <meta charset="utf-8">
-//     <link rel="stylesheet" href="./style.css">
-//   </head>
-//   <body>
-//     <h1>가입한 닉네임을 입력해주세요.</h1>
-//     <form action="/login" method="post">
-//       <label>닉네임:</label>
-//       <input type="text" name="usernickname" required>
-//       <label>패스워드:</label>
-//       <input type="password" name="password" required>
-//       <button type="submit">로그인</button>
-//     </form>
-//     <br>
-//     <button onclick="location.href='/signup'">회원가입</button>
-//   </body>
-// </html> 
