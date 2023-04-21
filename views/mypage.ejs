@@ -22,6 +22,7 @@
     </div>
     <div class="mypage-profile">
         <div id="profile-photo" class="profile-photo">
+            <img id="profile-image" src="" alt="Profile image" style="width: 170%; height: 170%;">
         </div>
         <div id="profile-nickname" class="profile-nickname">
             <h2> <%= nickname %> 님</h2>
@@ -35,9 +36,9 @@
     </div>
 
     <div class="mypage_btn_list">
-        <a href="" class="changeprofile"><input type="button" value="프로필 수정" class="mypage_option"></a>
-        <a href="" class="changenickname"><input type="button" value="닉네임 변경" class="mypage_option"></a>
-        <a href="" class="changepassword"><input type="button" value="비밀번호 변경" class="mypage_option"></a>
+        <div class="changeprofile"><input type="button" value="프로필 수정" class="mypage_option"></div>
+        <div class="changenickname" onclick="showModal_id()"><input type="button" value="닉네임 변경" class="mypage_option"></div>
+        <div class="changepassword" onclick="showModal_pw()"><input type="button" value="비밀번호 변경" class="mypage_option"></div>
         <a href="/logout" class="logout"><input type="button" value="로그아웃" class="mypage_option"></a>
     </div>
 
@@ -70,7 +71,7 @@
     </ul>
 
     <!-- nickname modal.css -->
-  <div class="container" id="modal"> 
+  <div class="container" id="modal_id"> 
     <div class="popup-wrap"> 
       <div class="popup">	
         <div class="popup-body">	
@@ -81,16 +82,44 @@
 
               <form action="">
                 <div class="int-area">
-                    <input id="changenickname_modal" type="text" placeholder="닉네임을 설정해주세요">
-                    <button id="changenickname_button" onclick="saveNickname()" type="submit"><i class="bi bi-check-lg fs-1"></i></button>
+                    <input id="changenickname_modal" type="text">
+                    <button id="changenickname_button" class="bi bi-arrow-right-square-fill"
+                     onclick="saveNickname()" type="submit"></button>
                 </div>
             </form>
-
         </div>
           </div>
         </div>
         <div class="popup-foot" id="hh">
-          <span class="pop-btn close" id="close" onclick="closeClick()">취소</span>
+          <span class="pop-btn close" id="close" onclick="closeClick_id()">취소</span>
+          <span class="pop-btn confirm" id="confirm">확인</span>
+        </div>
+      </div>
+     </div>
+  </div>
+
+  <!-- password modal.css -->
+  <div class="container" id="modal_pw"> 
+    <div class="popup-wrap" id="failBack"> 	
+      <div class="popup" id="failModal">	
+        <div class="popup-body">	
+          <div class="body-content">
+            <div class="body-titlebox">
+              <p>요즘말사전</p>
+              <h1>변경할 비밀번호를 입력해주세요</h1>
+
+              <form action="">
+                <div class="int-area">
+                    <input id="changepassword_modal" type="text">
+                    <button id="changepassword_button" class="bi bi-arrow-right-square-fill"
+                     onclick="saveNickname()" type="submit"></button>
+                </div>
+            </form>
+        </div>
+          </div>
+        </div>
+        <div class="popup-foot" id="hh">
+          <span class="pop-btn close" id="close" onclick="closeClick_pw()">취소</span>
           <span class="pop-btn confirm" id="confirm">확인</span>
         </div>
       </div>
@@ -103,38 +132,66 @@
             }
 
             const changeProfileBtn = document.querySelector('.changeprofile input[type="button"]');
-            const profileImage = document.querySelector('#profile-image');
+const profileImage = document.querySelector('#profile-image');
 
-            changeProfileBtn.addEventListener('click', () => {
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = 'image/*';
-            fileInput.addEventListener('change', () => {
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-            reader.addEventListener('load', () => {
-            // 선택된 이미지 파일을 img 태그의 src 속성에 할당하여 업데이트
-            profileImage.src = reader.result;
-            });
-            reader.readAsDataURL(file);
-            });
-            fileInput.click();
-            });
+changeProfileBtn.addEventListener('click', () => {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*';
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      // 선택된 이미지 파일을 img 태그의 src 속성에 할당하여 업데이트
+      profileImage.src = reader.result;
+      // 선택된 이미지에 selected 클래스 추가
+      profileImage.classList.add('selected');
+      // 이미지가 로드된 후에 이미지 요소의 크기를 적절하게 설정합니다.
+      profileImage.style.width = '100%';
+      profileImage.style.height = 'auto';
+    });
+    reader.readAsDataURL(file);
+  });
+  fileInput.click();
+});
+
 
 //<---nickname modal--->
-            function showModal() {
+            function showModal_id(){
   // 아이콘 눌렀을 때 modal 창 뜨기
-  document.querySelector('.popup').style.display = 'block';
+  document.querySelector('.popup ').style.display = 'block';
   document.querySelector('.popup-wrap').style.display = 'block';
   modal.style.display = 'block';
 }
 
-function closeClick(){
+function closeClick_id(){
           // modal 확인 창닫기
           document.querySelector('.popup').style.display = 'none';
           document.querySelector('.popup-wrap').style.display = 'none';
         }
 
+//<---password modal--->
+    function showModal_pw(){
+  // 아이콘 눌렀을 때 modal 창 뜨기
+  document.querySelector('#failBack').style.display = 'block';
+  document.querySelector('#failModal').style.display = 'block';
+  modal.style.display = 'block';
+}
+function closeClick_pw(){
+          // modal 확인 창닫기
+          document.querySelector('#failBack').style.display = 'none';
+          document.querySelector('#failModal').style.display = 'none';
+        }
+function saveNickname() {
+                //입력된 닉네임을 가져오기
+                var nickname = document.getElementById("nickname").value;
+            
+             // localStorage에 닉네임 저장
+            localStorage.setItem("nickname", nickname);
+           
+              alert("저장되었습니다.");
+              console.log(nickname);
+            }
 
         </script>
 </body>

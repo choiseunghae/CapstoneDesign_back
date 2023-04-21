@@ -24,14 +24,14 @@ i {
     flex-direction: column;
     
 }
-
 .profile-photo {
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
     border-radius: 100%;
     background-color: var(--color-blue);
     margin-bottom: 20px;
 }
+
 
 .mypage_btn {
     display: flex;
@@ -64,9 +64,10 @@ i {
 }
 
 .mypage_option {
-    width: 200px;
-    height: 45px;
+    width: 210px;
+    height: 50px;
     border-radius: 15px;
+    font-size: 14px;
     border: 1px solid var(--color-blue);
     background-color: white;
     margin-bottom: 15px;
@@ -76,6 +77,7 @@ i {
     cursor: pointer;
     background-color: var(--color-blue);
     border: none;
+    color: var(--color-white);
 }
 
 
@@ -123,7 +125,9 @@ i {
 
 
 -- nickname modal --
-
+.modal{
+    display:none;
+  } 
   .popup-wrap{
     background-color:rgba(0,0,0,.3); 
     /* 배경색과 투명도로 살짝 어둡지만 투명한 배경
@@ -160,7 +164,7 @@ i {
     left: 0;
     right: 0;
     margin: auto;
-    height: 300px; /* 흰색body 높이 조절*/
+    height: 270px; /* 흰색body 높이 조절*/
   } 
   /* .popup-head{
     width:100%;
@@ -175,7 +179,7 @@ i {
     border-top-right-radius:15px ;
     width:100%;
     margin-bottom: -3px;
-    height: 250px;  /* 확인버튼 높이조절*/
+    height: 220px;  /* 확인버튼 높이조절*/
     background-color:#ffffff; 
     /* 컨텐츠 영역의 배경색 */
   }
@@ -201,8 +205,8 @@ i {
     padding-top: 16px;
   }
   .body-titlebox h1{
-    margin-top: 70px;
-    font-size: 17px;
+    margin-top: 65px;
+    font-size: 18px;
   }
   
   #hh{
@@ -228,7 +232,6 @@ i {
   }
   .pop-btn.close{                 
     /* 확인버튼 */
- 
     border-right:1px solid var(--color-blue);
     /* 오른쪽 줄 */
     outline: var(--color-blue);
@@ -244,14 +247,47 @@ i {
     outline: var(--color-blue);
     margin-top: 5px;
     width: 50px;
-    padding-left: 100px;
+    padding-left: 110px;
     padding-top: 10px;
     height: 30px;
 }
 #changenickname_modal{
-    padding: 20px 10px 10px;
+    margin-right: -30px;
+    margin-left: 5px;
+    font-size: 17px;
+    color: var(--color-blue);
+    padding: 15px 0px 0px 0px;
+    margin-top: 5px;
     background-color: transparent;
     border: none;
     outline: none;
     border-bottom: solid 2px var(--color-blue);
 }
+#changenickname_button{
+    color: var(--color-blue);
+    font-size: 26px;
+    border-color: white;
+    background-color: white;
+    border: none;
+}
+
+#changepassword_modal{
+    margin-right: -20px;
+    margin-left: 5px;
+    font-size: 17px;
+    color: var(--color-blue);
+    padding: 15px 7px 0px 0px;
+    margin-top: 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: solid 2px var(--color-blue);
+}
+#changepassword_button{
+    color: var(--color-blue);
+    font-size: 26px;
+    border-color: white;
+    background-color: white;
+    border: none;
+}
+
