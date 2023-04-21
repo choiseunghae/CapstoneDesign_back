@@ -64,9 +64,11 @@ app.get('/logout', (req, res) => {
   res.redirect('/mainpage'); // 메인 페이지로 리다이렉트
 });
 
+app.use(express.static(path.join(__dirname, 'router')));
 
 app.listen(3000,(err) => {
   if(err) return console.log(err);
   console.log("The server is listening on port 3000")
 });
+
 
