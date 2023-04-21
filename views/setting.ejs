@@ -15,79 +15,119 @@
 
     <header class="status-setting">
         <div class="status-bar">
-          <div onclick="goBack()"><i class="bi bi-arrow-left" style="color: black; font-size:25px;"></i></div>
-          <div class="status-bar__coulumn">설정</div>
-          <div class="status-bar_coulumn">.</div>
+            <div onclick="goBack()"><i class="bi bi-arrow-left" style="color: black; font-size:25px;"></i></div>
+            <div class="status-bar__coulumn">설정</div>
+            <div class="status-bar_coulumn">.</div>
         </div>
-        </header>
-    
-        <div class="account">계정</div>
-        <ul class="userlist">
+    </header>
+
+    <div class="account">계정</div>
+    <ul class="userlist">
         <li class="mypage-profile">
-        <div class="profile-photo" onclick="onProfilePhotoClick()"></div>
+            <div class="profile-photo" onclick="onProfilePhotoClick()"></div>
         </li>
-    
+
         <li class="user">
-        <div class="nickname"><a> <%= nickname %> 님</a></div>
-        <div class="information"><a href="/mypage">내 정보 보기</a>
-        <i class="bi bi-chevron-right"></i></div>
-        </li>
-    
-        </ul>
-    
-        <div class="customer">고객지원</div>
-    
-        <div class="box">
-            <ul>
-    
-            <a href="/theme">
-            <li class="settinglist">
-            <div class="list_icon"><i class="bi bi-paint-bucket"></i>
-            테마변경</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            <a href="#">
-            <li class="settinglist">
-            <div class="list_icon"><i class="bi bi-trash-fill"></i>
-            북마크 전체 삭제</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            <a href="#"><li class="settinglist">
-            <div class="list_icon"><i class="bi bi-share-fill"></i>
-            공유하기</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            <a href="#"><li class="settinglist">
-            <div class="list_icon"><i class="bi bi-chat-square-text"></i>
-            공지사항</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            <a href="#"><li class="settinglist">
-            <div class="list_icon"><i class="bi bi-arrow-repeat"></i>
-            초기화</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            <a href="#"><li class="settinglist_last">
-            <div class="list_icon"><i class="bi bi-display"></i>
-            PC버전</div>
-            <i class="bi bi-chevron-right"></i></li></a>
-    
-            </ul>
+            <div class="nickname"><a>
+                    <%= nickname %> 님
+                </a></div>
+            <div class="information"><a href="/mypage">내 정보 보기</a>
+                <i class="bi bi-chevron-right"></i>
             </div>
+        </li>
 
-        <footer class="btn">
-            <a class="btn__link" href="#"><i class="fa-regular fa-thumbs-up fa-2x"></i></a>
-            <a class="btn__link" href="#"><i class="fa-solid fa-arrow-up-from-bracket fa-2x"></i></a>
-        </footer>
+    </ul>
+
+    <div class="customer">고객지원</div>
+
+    <div class="box">
+        <ul>
+
+            <a href="/theme">
+                <li class="settinglist">
+                    <div class="list_icon"><i class="bi bi-paint-bucket"></i>
+                        테마변경</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+            <a href="#" id="all-delete-btn">
+                <li class="settinglist">
+                    <div class="list_icon"><i class="bi bi-trash-fill"></i> 북마크 전체 삭제</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+            <a href="#">
+                <li class="settinglist">
+                    <div class="list_icon"><i class="bi bi-share-fill"></i>
+                        공유하기</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+            <a href="#">
+                <li class="settinglist">
+                    <div class="list_icon"><i class="bi bi-chat-square-text"></i>
+                        공지사항</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+            <a href="#">
+                <li class="settinglist">
+                    <div class="list_icon"><i class="bi bi-arrow-repeat"></i>
+                        초기화</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+            <a href="#">
+                <li class="settinglist_last">
+                    <div class="list_icon"><i class="bi bi-display"></i>
+                        PC버전</div>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+            </a>
+
+        </ul>
+    </div>
+
+    <footer class="btn">
+        <a class="btn__link" href="#"><i class="fa-regular fa-thumbs-up fa-2x"></i></a>
+        <a class="btn__link" href="#"><i class="fa-solid fa-arrow-up-from-bracket fa-2x"></i></a>
+    </footer>
 
 
-        <%- bottom %>
+    <%- bottom %>
 
         <script href="./theme.js"></script>
         <script>
             function goBack() {
-        window.history.back();
-      } 
+                window.history.back();
+            }
+
+            const allDeleteBtn = document.getElementById('all-delete-btn');
+
+            allDeleteBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const confirmation = confirm('정말로 모든 북마크를 삭제하시겠습니까?');
+
+                if (confirmation) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/setting/bookmarkalldelete');
+                    xhr.send();
+
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                            // 북마크 전체 삭제가 성공적으로 처리되었을 때 실행할 코드 작성
+                        } else {
+                            // 북마크 전체 삭제가 실패했을 때 실행할 코드 작성
+                        }
+                    }
+                }
+            });
         </script>
 </body>
 
