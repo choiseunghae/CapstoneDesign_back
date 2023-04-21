@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
                         <div class="langking${tier}">BEST ${tier}</div>
                         <div class="list_content_name${tier}"><a href="detail/${row.itemIndex}">${row.itemName}</a></div>
                         <div class="list_content_content${tier}">${description}</div>
-                        <div class="list_content_likes${tier}">${row.thumbsCount} Likes</div>
+                        <div class="list_content_likes${tier}"><i class="bi bi-heart-fill"></i> ${row.thumbsCount}</div>
                     </div>
                 </li>
             `;
@@ -88,7 +88,7 @@ router.get('/:categoryId', (req, res) => {
             <div class="langking${tier}">BEST ${tier}</div>
             <div class="list_content_name${tier}"><a href="/detail/${row.itemIndex}">${row.itemName}</a></div>
             <div class="list_content_content${tier}">${description}</div>
-            <div class="list_content_likes${tier}">${row.thumbsCount} Likes</div>
+            <div class="list_content_likes${tier}"><i class="bi bi-heart-fill"></i> ${row.thumbsCount}</div>
           </div>
         </li>
       `;
