@@ -21,37 +21,38 @@
   <%- bottom %>
 
     
+  <script>
+
+    // 이전 페이지로 돌아가기 
+    function goBack() {
+         window.history.back();
+       } 
+   
+   // 북마크&추천 nav바
+   function changeColor(navItem) {
+         // 모든 Nav 아이템의 active 클래스 제거
+         const navItems = document.querySelectorAll('.nav-item');
+         navItems.forEach(item => item.classList.remove('active'));
+           
+         // 클릭한 Nav 아이템에 active 클래스 추가
+         navItem.classList.add('active');
+         }
+ 
+   // 북마크 설정 및 해제
+ function toggleIcon(icon) {
+   if (icon.classList.contains('bi-bookmark-fill')) {
+     // 북마크가 설정되었을 경우 해제하기
+     icon.classList.remove('bi-bookmark-fill');
+     icon.classList.add('bi-bookmark');
+   } else {
+     // 북마크가 해제되었을 경우 설정하기
+     icon.classList.remove('bi-bookmark');
+     icon.classList.add('bi-bookmark-fill');
+   }
+ }
+ </script>
+ <script src="/color.js"></script>
 </body>
-<script>
-
-   // 이전 페이지로 돌아가기 
-   function goBack() {
-        window.history.back();
-      } 
-  
-  // 북마크&추천 nav바
-  function changeColor(navItem) {
-        // 모든 Nav 아이템의 active 클래스 제거
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => item.classList.remove('active'));
-          
-        // 클릭한 Nav 아이템에 active 클래스 추가
-        navItem.classList.add('active');
-        }
-
-  // 북마크 설정 및 해제
-function toggleIcon(icon) {
-  if (icon.classList.contains('bi-bookmark-fill')) {
-    // 북마크가 설정되었을 경우 해제하기
-    icon.classList.remove('bi-bookmark-fill');
-    icon.classList.add('bi-bookmark');
-  } else {
-    // 북마크가 해제되었을 경우 설정하기
-    icon.classList.remove('bi-bookmark');
-    icon.classList.add('bi-bookmark-fill');
-  }
-}
-</script>
 
 </html>
 
