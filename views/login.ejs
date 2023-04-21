@@ -25,19 +25,20 @@
       <div id="loginBoxTitle">Login</div>
       <!-- 아이디, 비번, 버튼 박스 -->
       <form action="/login" method="post">
-        <div id="inputBox">
-          <div class="input-form-box"><span>닉네임 </span><input type="text" name="usernickname" class="form-control"
-              id="id"></div>
-          <div class="input-form-box"><span>비밀번호 </span><input type="password" name="password" class="form-control"
-              id="password"></div>
-          <div class="button-login-box">
-            <button type="submit" class="btn btn-xs" id="singUp">회원가입</button>
-            <button type="submit" class="btn btn-xs" id="login">로그인</button>
+          <div id="inputBox">
+            <div class="input-form-box"><span>닉네임 </span><input type="text" name="usernickname" class="form-control"
+                id="id"></div>
+            <div class="input-form-box"><span>비밀번호 </span><input type="password" name="password" class="form-control"
+                id="password"></div>
+            <div class="button-login-box">
+              <button  class="btn btn-xs" id="login"  onclick="toggle()">로그인</button>
+              <button type="submit" class="btn btn-xs" id="singUp" onclick="toggle()">회원가입</button>
+            </div>
           </div>
-        </div>
       </form>
     </div>
   </div>
+
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -50,6 +51,10 @@
             });
           }
         });
+        toggle = () => {
+          container.classList.toggle('login')
+          container.classList.toggle('singUp')
+        }
     </script>
 </body>
 
