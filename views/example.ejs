@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>질문과 답변 페이지</title>
+  </head>
+  <body>
+    <h1>질문과 답변 페이지</h1>
+    <form action="/chat/ask" method="POST">
+      <label for="question">질문:</label>
+      <input type="text" id="question" name="question" required><br><br>
+      <button type="submit">질문하기</button>
+    </form>
+    <% if (typeof answer !== 'undefined') { %>
+      <h3>답변:</h3>
+      <p><%= answer %></p>
+    <% } %>
+  </body>
+</html>

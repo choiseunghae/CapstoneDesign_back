@@ -20,6 +20,7 @@ const themeRouter = require('./router/theme');
 const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
+const chatbotRouter = require('./router/chatGPT');
 
 const port = 3000;
 
@@ -54,9 +55,7 @@ app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
 
-app.use('/chat', (req, res) => {
-  res.sendFile(__dirname+"/chat.html");
-});
+app.use('/chat', chatbotRouter);
 
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
