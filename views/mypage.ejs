@@ -68,6 +68,34 @@
         <div><i class="bi bi-person-fill"></i></div>
         <span class="text">마이페이지</span></li></a>
     </ul>
+
+    <!-- nickname modal.css -->
+  <div class="container" id="modal"> 
+    <div class="popup-wrap"> 
+      <div class="popup">	
+        <div class="popup-body">	
+          <div class="body-content">
+            <div class="body-titlebox">
+              <p>요즘말사전</p>
+              <h1>변경할 닉네임을 입력해주세요</h1>
+
+              <form action="">
+                <div class="int-area">
+                    <input id="changenickname_modal" type="text" placeholder="닉네임을 설정해주세요">
+                    <button id="changenickname_button" onclick="saveNickname()" type="submit"><i class="bi bi-check-lg fs-1"></i></button>
+                </div>
+            </form>
+
+        </div>
+          </div>
+        </div>
+        <div class="popup-foot" id="hh">
+          <span class="pop-btn close" id="close" onclick="closeClick()">취소</span>
+          <span class="pop-btn confirm" id="confirm">확인</span>
+        </div>
+      </div>
+     </div>
+  </div>
         
         <script>
             function goBack() {
@@ -92,6 +120,22 @@
             });
             fileInput.click();
             });
+
+//<---nickname modal--->
+            function showModal() {
+  // 아이콘 눌렀을 때 modal 창 뜨기
+  document.querySelector('.popup').style.display = 'block';
+  document.querySelector('.popup-wrap').style.display = 'block';
+  modal.style.display = 'block';
+}
+
+function closeClick(){
+          // modal 확인 창닫기
+          document.querySelector('.popup').style.display = 'none';
+          document.querySelector('.popup-wrap').style.display = 'none';
+        }
+
+
         </script>
 </body>
 
