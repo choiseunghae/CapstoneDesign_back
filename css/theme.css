@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 100px;
+    text-align: center;
+    margin-top: 200px;
 }
 
 .theme-colors > button {
