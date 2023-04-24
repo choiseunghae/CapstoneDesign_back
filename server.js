@@ -1,8 +1,17 @@
 const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const openai = require('openai');
+
 const path = require('path');
 const app = express();
+
+const apiKey = 'YOUR_API_KEY';
+openai.apiKey = apiKey;
+
+
+const prompt = 'Hello, how are you?';
+const model = 'text-davinci-002';
 
 const listpageRouter = require('./router/dictionary');
 const detailpageRouter = require('./router/detailpage');
@@ -20,7 +29,6 @@ const themeRouter = require('./router/theme');
 const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
-const chatbotRouter = require('./router/chatGPT');
 
 const port = 3000;
 
@@ -35,6 +43,19 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
+
+openai.complete({
+  engine: model,
+  prompt: prompt,
+  maxTokens: 100,
+  n: 1,
+  stop: '\n'
+}).then(gptResponse => {
+  const message = gptResponse.data.choices[0].text.trim();
+  console.log(message); // GPT 모델에서 생성된 응답
+}).catch(error => {
+  console.error(error);
+});
 
 app.use(express.static(__dirname + '/css'));
 
@@ -55,7 +76,6 @@ app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
 
-app.use('/chat', chatbotRouter);
 
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
@@ -64,7 +84,7 @@ app.get('/logout', (req, res) => {
 });
 
 
-app.listen(3000,(err) => {
+app.listen(port,(err) => {
   if(err) return console.log(err);
   console.log("The server is listening on port 3000")
 });
