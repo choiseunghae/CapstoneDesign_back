@@ -14,37 +14,37 @@
     background-color: transparent;
 }
 
-.burgundy:hover {
+#burgundy:hover {
     border-radius: 15px;
     background-color: #95475b;
 }
 
-.pink:hover {
+#pink:hover {
     border-radius: 15px;
     background-color: #ff87a1;
 }
 
-.yellow:hover {
+#yellow:hover {
     border-radius: 15px;
     background-color: #ffe65a;
 }
 
-.green:hover {
+#green:hover {
     border-radius: 15px;
     background-color: #D0E450;
 }
 
-.blue:hover {
+#blue:hover {
     border-radius: 15px;
     background-color: #4298e8;
 }
 
-.purple:hover {
+#purple:hover {
     border-radius: 15px;
     background-color: #9554bd;
 }
 
-.white:hover {
+#white:hover {
     border-radius: 15px;
     background-color: #ffffff;
 }
