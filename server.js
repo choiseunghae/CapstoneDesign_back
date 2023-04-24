@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+
 const path = require('path');
 const app = express();
 
@@ -54,9 +55,6 @@ app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
 
-app.use('/chat', (req, res) => {
-  res.sendFile(__dirname+"/chat.html");
-});
 
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
@@ -66,7 +64,7 @@ app.get('/logout', (req, res) => {
 
 app.use(express.static(path.join(__dirname, 'router')));
 
-app.listen(3000,(err) => {
+app.listen(port,(err) => {
   if(err) return console.log(err);
   console.log("The server is listening on port 3000")
 });
