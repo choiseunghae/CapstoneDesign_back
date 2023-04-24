@@ -1,17 +1,9 @@
 const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const openai = require('openai');
 
 const path = require('path');
 const app = express();
-
-const apiKey = 'YOUR_API_KEY';
-openai.apiKey = apiKey;
-
-
-const prompt = 'Hello, how are you?';
-const model = 'text-davinci-002';
 
 const listpageRouter = require('./router/dictionary');
 const detailpageRouter = require('./router/detailpage');
@@ -43,19 +35,6 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
-
-openai.complete({
-  engine: model,
-  prompt: prompt,
-  maxTokens: 100,
-  n: 1,
-  stop: '\n'
-}).then(gptResponse => {
-  const message = gptResponse.data.choices[0].text.trim();
-  console.log(message); // GPT 모델에서 생성된 응답
-}).catch(error => {
-  console.error(error);
-});
 
 app.use(express.static(__dirname + '/css'));
 
