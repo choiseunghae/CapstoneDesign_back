@@ -17,5 +17,9 @@
     --color-pink: #ff87a1;
     --color-purple: #9554bd;
     --color-burgundy: #95475b;
+    --color-red: #ff5e5e;
+    --color-orange: #ff9b4f;
+    --color-purple2: #e2a7ff;
+    --color-mint: #45d8c0;
 }
 @media screen and (max-width: 768px) { body { background-color: #ffffff; } }
