@@ -17,12 +17,14 @@
     <%- searchbox %>
     <div class="search__info">
         <h1>검색어: <%= searchWord %></h1>
+        <hr/>
         <% if (Object.keys(groups).length > 0) { %>
             <% Object.keys(groups).forEach(categoryName => { %>
                 <ul class="item__box">
                     <li class="item__category"><%= categoryName %></li>
                     <% groups[categoryName].forEach(item => { %>
                         <li class="item__name">
+                            <hr/>
                             <a href="/detail/<%= item.itemIndex %>">
                                 <%- item.itemName.replace(new RegExp(searchWord, "gi"), "<mark>$&</mark>") %>
                             </a>
@@ -38,15 +40,7 @@
         <% } %>
     </div>
     <%- bottom %>
+    <script src="/color.js"></script>
 </body>
-
-  
-
-
-
-<script>
-
-</script>
-
 
 </html>

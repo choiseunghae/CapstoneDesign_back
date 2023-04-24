@@ -17,7 +17,7 @@
 
     <header class="status-setting">
         <div class="status-bar">
-            <div onclick="goBack()"><i class="bi bi-arrow-left" style="color: black; font-size:25px;"></i></div>
+            <a href="/setting"><div><i class="bi bi-arrow-left" style="color: black; font-size:25px;"></i></div></a>
             <div class="status-bar__coulumn">테마변경</div>
             <div class="status-bar_coulumn"><i class="bi bi-paint-bucket" style="color: black; font-size:25px;"></i>
             </div>
@@ -25,13 +25,13 @@
     </header>
 
     <div class="theme-colors">
-        <button class="burgundy" onclick="changeThemeColor('--color-blue', '#95475b')">Burgundy</button>
-        <button class="pink" onclick="changeThemeColor('--color-blue', '#ff87a1')">Pink</button>
-        <button class="yellow" onclick="changeThemeColor('--color-blue', '#ffe65a')">Yellow</button>
-        <button class="green" onclick="changeThemeColor('--color-blue', '#D0E450')">Green</button>
-        <button class="blue" onclick="changeThemeColor('--color-blue', '#4298e8')">Blue</button>
-        <button class="purple" onclick="changeThemeColor('--color-blue', '#9554bd')">Purple</button>
-        <button class="white" onclick="changeThemeColor('--color-blue', '#ffffff')">White</button>
+        <button id="burgundy" onclick="changeThemeColor('#95475b')">Burgundy</button>
+        <button id="pink" onclick="changeThemeColor('#ff87a1')">Pink</button>
+        <button id="yellow" onclick="changeThemeColor('#ffe65a')">Yellow</button>
+        <button id="green" onclick="changeThemeColor('#D0E450')">Green</button>
+        <button id="blue" onclick="changeThemeColor('#4298e8')">Blue</button>
+        <button id="purple" onclick="changeThemeColor('#9554bd')">Purple</button>
+        <button id="white" onclick="changeThemeColor('#ffffff')">White</button>
     </div>
     </div>
 
@@ -63,17 +63,7 @@
     </ul>
 
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-        function changeThemeColor(variable, color) {
-            const root = document.documentElement;
-            root.style.setProperty(variable, color);
-        }
-
-
-    </script>
+    <script src="/color.js"></script>
 </body>
 
 </html>
