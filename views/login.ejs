@@ -21,11 +21,7 @@
     <div class="form-container sign-up-container">
       <form action="#">
         <h1>회원가입</h1>
-       <label>
         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="id" />
-        <button id="searchBtn" class="duplicateCheck" tabindex="2">
-          <i class="bi bi-check-square"></i>
-       </label>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password"/>
         <button id="singUp">가입하기</button>
       </form>
@@ -78,6 +74,17 @@
         signInButton.addEventListener('click', () => {
           container.classList.remove("right-panel-active");
         });
+
+
+      //   function blankCheck(f){
+    	// var id=f.id.value;
+      //   id=id.trim();
+      //   if(id.length<5){
+      //   	alert("아이디는 5자 이상 입력해주십시오.");
+      //       return false;
+        // }//if end
+        // return true;
+    // }//blankCheck() end
     </script>
     <script src="/color.js"></script>
 </body>
