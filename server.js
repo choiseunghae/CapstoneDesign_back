@@ -22,7 +22,7 @@ const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
 
-const port = 3000;
+const port = 8080;
 
 app.set('views', path.join(__dirname, 'views')); // 뷰 디렉토리 설정
 app.set('view engine', 'ejs'); // EJS를 뷰 엔진으로 사용
