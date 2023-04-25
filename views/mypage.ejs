@@ -142,14 +142,19 @@ changeProfileBtn.addEventListener('click', () => {
     const file = fileInput.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', () => {
-      // 선택된 이미지 파일을 base64로 인코딩하여 업로드합니다.
-      const base64Image = reader.result.replace(/^data:image\/(png|jpeg);base64,/, '');
-      
+      // 선택된 이미지 파일을 img 태그의 src 속성에 할당하여 업데이트
+      profileImage.src = reader.result;
+      // 선택된 이미지에 selected 클래스 추가
+      profileImage.classList.add('selected');
+      // 이미지가 로드된 후에 이미지 요소의 크기를 적절하게 설정합니다.
+      profileImage.style.width = '100%';
+      profileImage.style.height = '100%';
+
       // FormData 객체를 생성하여 선택된 이미지 데이터를 담습니다.
       const formData = new FormData();
-      formData.append('profileImage', base64Image);
+      formData.append('profileImage', file);
 
-      // XMLHttpRequest 객체를 사용하여 POST 요청을 보냅니다.
+      // XMLHttpRequest 객체를 사용하여 POST 요청
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '/mypage/upload');
       xhr.onload = () => {
