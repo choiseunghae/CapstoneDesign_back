@@ -11,7 +11,7 @@
     /* color */
     --color-black: #000000;
     --color-white: #ffffff;
-    --color-green: #D0E450;
+    --color-yellowgreen: #D0E450;
     --color-blue: #4298e8;
     --color-yellow: #ffe65a;
     --color-pink: #ff87a1;
@@ -22,5 +22,6 @@
     --color-purple2: #e2a7ff;
     --color-mint: #45d8c0;
     --color-skyblue: #60ceef;
+    --color-green: #5fce5d;
 }
 @media screen and (max-width: 768px) { body { background-color: #ffffff; } }
