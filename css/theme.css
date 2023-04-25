@@ -3,12 +3,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 100px;
+    text-align: center;
+    margin-top: 100px;
 }
 
 .theme-colors > button {
     margin: 10px;
-    width: 100px;
+    width: 130px;
     height: 30px;
     border: none;
     background-color: transparent;
@@ -17,6 +18,16 @@
 #burgundy:hover {
     border-radius: 15px;
     background-color: #95475b;
+}
+
+#red:hover {
+    border-radius: 15px;
+    background-color: #ff5e5e;
+}
+
+#orange:hover {
+    border-radius: 15px;
+    background-color: #ff9b4f;
 }
 
 #pink:hover {
@@ -29,7 +40,7 @@
     background-color: #ffe65a;
 }
 
-#green:hover {
+#yellowgreen:hover {
     border-radius: 15px;
     background-color: #D0E450;
 }
@@ -44,11 +55,25 @@
     background-color: #9554bd;
 }
 
-#white:hover {
+#lightpurple:hover {
     border-radius: 15px;
-    background-color: #ffffff;
+    background-color: #e2a7ff;
 }
 
+#mint:hover {
+    border-radius: 15px;
+    background-color: #45d8c0;
+}
+
+#skyblue:hover {
+    border-radius: 15px;
+    background-color: #60ceef;
+}
+
+#green:hover {
+    border-radius: 15px;
+    background-color: #5fce5d;
+}
 
 .nav__form
 {
