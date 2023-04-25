@@ -21,5 +21,6 @@
     --color-orange: #ff9b4f;
     --color-purple2: #e2a7ff;
     --color-mint: #45d8c0;
+    --color-skyblue: #60ceef;
 }
 @media screen and (max-width: 768px) { body { background-color: #ffffff; } }
