@@ -1,6 +1,20 @@
 .search__info {
-    padding-top: 150px;
+    padding-top: 130px;
     margin: 0px 40px 0px 40px;
+}
+.search_word{
+    justify-content: center;
+    margin-bottom: -20px;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+}
+.search_word i{
+    margin-right: 5px;
+    font-size: 20px;
+}
+.item__box{
+    margin: auto;
 }
 
 li {
@@ -8,20 +22,37 @@ li {
 }
 
 .item__name {
-    margin-top: 30px;
+    margin-left: -25px;
+    margin-bottom: 5px;
+    margin-top: 20px;
     font-size: 20px;
 }
-
+.item__name mark{
+    background-color: white;
+    color: var(--color-blue);
+    font-weight: bolder;
+} 
 .item__description {
-    opacity: 70%;
+    margin-left: -25px;
+    color: rgb(142, 140, 140);
 }
-
+.item__description mark{
+    background-color: white;
+    color: var(--color-blue);
+    font-weight: bolder;
+}
 .item__category {
-    font-style: italic;
-    font-size: 30px;
+    margin-top: 70px;
+    margin-left: -30px;
+    font-size: 25px;
 }
-
+.item__category i{
+    font-size: 20px;
+    align-items: center;
+}
 .no__result
 {
-    font-size: 30px;
+    margin-top: 30px;
+    font-size: 25px;
 }
+
