@@ -1,7 +1,7 @@
 {
   "name": "capstonedesign_back",
   "version": "1.0.0",
-  "main": "search.js",
+  "main": "listpage.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
