@@ -43,7 +43,7 @@ app.use('/mainpage', express.static(__dirname + '/css'));
 app.use('/category', express.static(__dirname + '/css'));
 app.use('/dictionary', express.static(__dirname + '/css'));
 
-app.use('/mainpage', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
+app.use('/', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, searchboxRouter]); // listpageRouter, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter]); // detailpageRouter,  searchboxRouter모듈을 사용
@@ -68,5 +68,4 @@ app.listen(port,(err) => {
   if(err) return console.log(err);
   console.log("The server is listening on port 3000")
 });
-
 

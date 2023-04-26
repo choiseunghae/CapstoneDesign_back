@@ -14,7 +14,7 @@ router.use((req, res, next) => {
                 <div><i class="bi bi-chat-dots-fill"></i></div>
                 <span class="text">채팅</span></li></a>
 
-                <a href="/mainpage">
+                <a href="/">
                 <li class="nav__list">
                 <div><i class="bi bi-house-door-fill"></i></div>
                 <span class="text">홈</span></li></a>
