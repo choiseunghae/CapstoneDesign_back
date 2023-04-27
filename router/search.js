@@ -27,16 +27,12 @@ router.get('/search', (req, res) => {
     CASE 
       WHEN itemDescription LIKE ? THEN 1 
       ELSE 0 
-    END AS descriptionMatch,
-    CASE 
-      WHEN itemDescription2 LIKE ? THEN 1 
-      ELSE 0 
-    END AS description2Match
+    END AS descriptionMatch
     FROM detailpage 
-    WHERE itemName LIKE ? OR itemDescription LIKE ? OR itemDescription2 LIKE ? 
-    ORDER BY (nameMatch + descriptionMatch + description2Match) DESC`;
+    WHERE itemName LIKE ? OR itemDescription LIKE ? 
+    ORDER BY (nameMatch + descriptionMatch) DESC`;
 
-  const values = [`%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`];
+  const values = [`%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`, `%${searchWord}%`];
 
   connection.query(query, values, (error, results) => {
     if (error) {
@@ -51,21 +47,18 @@ router.get('/search', (req, res) => {
     // 검색 결과를 연관성 순으로 그룹화
     const groups = {
       단어명: [],
-      뜻: [],
-      예시: []
+      뜻: []
     };
 
     results.forEach(result => {
-      const { itemIndex, itemName, itemDescription, itemDescription2 } = result;
-      const matchScores = [result.nameMatch, result.descriptionMatch, result.description2Match];
+      const { itemIndex, itemName, itemDescription } = result;
+      const matchScores = [result.nameMatch, result.descriptionMatch];
       const maxScore = Math.max(...matchScores);
       if (maxScore === 1) {
         if (result.nameMatch === 1) {
           groups.단어명.push({ itemIndex, itemName, itemDescription });
         } else if (result.descriptionMatch === 1) {
           groups.뜻.push({ itemIndex, itemName, itemDescription });
-        } else if (result.description2Match === 1) {
-          groups.예시.push({ itemIndex, itemName, itemDescription });
         }
       }
     });
@@ -74,6 +67,7 @@ router.get('/search', (req, res) => {
     res.render('search', { searchWord, groups });
   });
 });
+
 
 
 

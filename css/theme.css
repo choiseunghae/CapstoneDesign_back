@@ -9,16 +9,12 @@
 
 .theme-colors > button {
     margin: 10px;
-    width: 100px;
+    width: 130px;
     height: 30px;
     border: none;
     background-color: transparent;
 }
 
-#burgundy:hover {
-    border-radius: 15px;
-    background-color: #95475b;
-}
 
 #red:hover {
     border-radius: 15px;
@@ -40,7 +36,7 @@
     background-color: #ffe65a;
 }
 
-#green:hover {
+#yellowgreen:hover {
     border-radius: 15px;
     background-color: #D0E450;
 }
@@ -70,6 +66,10 @@
     background-color: #60ceef;
 }
 
+#green:hover {
+    border-radius: 15px;
+    background-color: #5fce5d;
+}
 
 .nav__form
 {

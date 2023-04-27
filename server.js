@@ -22,7 +22,7 @@ const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 app.set('views', path.join(__dirname, 'views')); // 뷰 디렉토리 설정
 app.set('view engine', 'ejs'); // EJS를 뷰 엔진으로 사용
@@ -43,7 +43,7 @@ app.use('/mainpage', express.static(__dirname + '/css'));
 app.use('/category', express.static(__dirname + '/css'));
 app.use('/dictionary', express.static(__dirname + '/css'));
 
-app.use('/mainpage', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
+app.use('/', [searchboxRouter, QuizRouter, searchRouter]); // searchbox, QuizRouter 모듈을 사용
 app.use('/category', [categoryRouter, searchboxRouter]); // categoryRouter, searchbox 모듈을 사용
 app.use('/dictionary', [listpageRouter, searchboxRouter]); // listpageRouter, searchbox 모듈을 사용
 app.use('/detail', [detailpageRouter]); // detailpageRouter,  searchboxRouter모듈을 사용
@@ -66,7 +66,6 @@ app.use(express.static(path.join(__dirname, 'router')));
 
 app.listen(port,(err) => {
   if(err) return console.log(err);
-  console.log("The server is listening on port 3000")
+  console.log("The server is listening on port")
 });
-
 

@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
             res.cookie('authToken', authToken, { maxAge: 86400000, httpOnly: true }); // 쿠키에 인증 토큰 저장
             req.session.userIndex = userIndex; // 세션에 userIndex 저장
             req.session.usernickname = usernickname; // 세션에 usernickname 저장
-            res.redirect("/mainpage");
+            res.redirect("/");
         } else {
             res.render('login', { message: '회원 정보가 다릅니다.' });
         }

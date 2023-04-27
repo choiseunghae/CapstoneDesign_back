@@ -11,7 +11,7 @@
     <title>마이페이지</title>
 </head>
 
-<body>
+<hr>
 
     <div class="status-bar">
         <div class="status-bar__coulumn"><i class="bi bi-arrow-left" onclick="goBack()" style="font-size: 25px;"></i>
@@ -21,19 +21,20 @@
                     style="font-size: 25px;"></i></a></div>
     </div>
     <div class="mypage-profile">
-        <div id="profile-photo" class="profile-photo">
-            <img id="profile-image" src="" style="width: 100%; height: 100%; border-radius: 100%;">
-        </div>
+      <div id="profile-photo" class="profile-photo">
+        <img id="profile-image" src="<%= profile_image_path %>" style="width: 100%; height: 100%; border-radius: 100%;">
+      </div>
         <div id="profile-nickname" class="profile-nickname">
             <h2> <%= nickname %> </h2>
         </div>
     </div>
 
     <div class="mypage_btn">
-        <div class="mypage_like_btn"><a href="bookmark"><i class="bi bi-bookmark-fill"></i><span>북마크 : <%= bookmarkCount %></span></a></div>
-        <div class="mypage_like_btn"><a href="thumbs"><i class="bi bi-hand-thumbs-up-fill"></i><span>추천 : <%= thumbsCount %></span></a>
+        <div class="mypage_bookmark_btn"><a href="bookmark"><i class="bi bi-bookmark-fill"></i><span>북마크 <%= bookmarkCount %></span></a></div>
+        <div class="mypage_like_btn"><a href="thumbs"><i class="bi bi-hand-thumbs-up-fill"></i><span>추천 <%= thumbsCount %></span></a>
         </div>
     </div>
+
 
     <div class="mypage_btn_list">
         <div class="changeprofile"><input type="button" value="프로필 수정" class="mypage_option"></div>
@@ -42,33 +43,7 @@
         <a href="/logout" class="logout"><input type="button" value="로그아웃" class="mypage_option"></a>
     </div>
 
-
-    <ul class="nav__form">
-        <a href="/bookmark">
-        <li class="nav__list">
-        <div><i class="bi bi-bookmark-fill"></i></div>
-        <span class="text">북마크</span></li></a>
-
-        <a href="/chat">
-        <li class="nav__list">
-        <div><i class="bi bi-chat-dots-fill"></i></div>
-        <span class="text">채팅</span></li></a>
-
-        <a href="/mainpage">
-        <li class="nav__list">
-        <div><i class="bi bi-house-door-fill"></i></div>
-        <span class="text">홈</span></li></a>
-
-        <a href="/dictionary">
-        <li class="nav__list">
-        <div><i class="bi bi-search"></i></div>
-        <span class="text">검색</span></li></a>
-
-        <a href="/mypage">
-        <li class="nav__list">
-        <div><i class="bi bi-person-fill"></i></div>
-        <span class="text">마이페이지</span></li></a>
-    </ul>
+    <%- bottom %>
 
     <!-- nickname modal.css -->
   <div class="container" id="modal_id"> 
@@ -131,6 +106,7 @@
             window.history.back();
             }
 
+//<---profile 변경--->
 const changeProfileBtn = document.querySelector('.changeprofile input[type="button"]');
 const profileImage = document.querySelector('#profile-image');
 
@@ -149,10 +125,40 @@ changeProfileBtn.addEventListener('click', () => {
       // 이미지가 로드된 후에 이미지 요소의 크기를 적절하게 설정합니다.
       profileImage.style.width = '100%';
       profileImage.style.height = '100%';
+
+       // 이미지 데이터를 로컬 스토리지에 저장합니다.
+      localStorage.setItem('profileImage', reader.result);
+
+      // FormData 객체를 생성하여 선택된 이미지 데이터를 담습니다.
+      const formData = new FormData();
+      formData.append('profileImage', file);
+
+      // XMLHttpRequest 객체를 사용하여 POST 요청
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/mypage/upload');
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          console.log(xhr.responseText);
+        } else {
+          console.error(xhr.responseText);
+        }
+      };
+      xhr.send(formData);
     });
     reader.readAsDataURL(file);
   });
   fileInput.click();
+});
+
+// 페이지 로드 시, 로컬 스토리지에서 프로필 이미지를 가져와 설정합니다.
+window.addEventListener('load', () => {
+  const savedProfileImage = localStorage.getItem('profileImage');
+  if (savedProfileImage) {
+    profileImage.src = savedProfileImage;
+    profileImage.classList.add('selected');
+    profileImage.style.width = '100%';
+    profileImage.style.height = '100%';
+  }
 });
 
 
