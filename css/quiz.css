@@ -24,6 +24,7 @@
 .quizbox li:hover
 {
   /* color: #D0E450; */
+  color: black;
   background-color: var(--color-blue);
   opacity: 0.8;
 }
