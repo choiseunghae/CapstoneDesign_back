@@ -57,9 +57,9 @@
 
               <form action="">
                 <div class="int-area">
-                    <input id="changenickname_modal" type="text">
+                    <input id="nicknameInput" type="text">
                     <button id="changenickname_button" class="bi bi-arrow-right-square-fill"
-                     onclick="saveNickname()" type="submit"></button>
+                     onclick="changeNickname()" type="submit"></button>
                 </div>
             </form>
         </div>
@@ -87,7 +87,7 @@
                 <div class="int-area">
                     <input id="changepassword_modal" type="text">
                     <button id="changepassword_button" class="bi bi-arrow-right-square-fill"
-                     onclick="saveNickname()" type="submit"></button>
+                     onclick="changePassword()" type="submit"></button>
                 </div>
             </form>
         </div>
@@ -175,6 +175,16 @@ function closeClick_id(){
           document.querySelector('.popup').style.display = 'none';
           document.querySelector('.popup-wrap').style.display = 'none';
         }
+        
+        function changeNickname() {
+  var newNickname = document.getElementById("nicknameInput").value;
+  // 이 부분에서 새로운 닉네임을 가져올 수 있도록 입력 필드의 ID를 사용합니다.
+
+  // 여기에서 새로운 닉네임을 사용하여 서버와 통신하고 저장하는 코드를 작성합니다.
+  // 이 예제에서는 로그에 새로운 닉네임을 출력합니다.
+  console.log("새로운 닉네임: " + newNickname);
+}
+
 
 //<---password modal--->
     function showModal_pw(){
