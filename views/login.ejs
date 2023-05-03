@@ -21,8 +21,9 @@
     <div class="form-container sign-up-container">
       <form action="#">
         <h1>회원가입</h1>
-        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="id" />
-        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password"/>
+        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
+        <p class="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
         <button id="singUp">가입하기</button>
       </form>
     </div>
@@ -75,7 +76,61 @@
           container.classList.remove("right-panel-active");
         });
 
+    const loginCheck = [
+      {
+        ItemName : "1",
+        Category_categoryId : "1",
+        itemDescription:"dd",
+        itemDescription2:"dd",
+        bookmarkTF:"dd",
+        goodTF:"dd",
+        link:"dd",
+	  },
+    {
+        ItemName : "2",
+        Category_categoryId : "2",
+        itemDescription:"dd",
+        itemDescription2:"dd",
+        bookmarkTF:"dd",
+        goodTF:"dd",
+        link:"dd",
+	  },
+    {
+        ItemName : "3",
+        Category_categoryId : "3",
+        itemDescription:"dd",
+        itemDescription2:"dd",
+        bookmarkTF:"dd",
+        goodTF:"dd",
+        link:"dd",
+	  }]
+    const singCheck = [
+      {
+        ItemName : "1",
+        Category_categoryId : "1",
+        itemDescription:"dd",
+        itemDescription2:"dd",
+        bookmarkTF:"dd",
+        goodTF:"dd",
+        link:"dd",
+	  },
+    {
+        ItemName : "2",
+        Category_categoryId : "2",
+        itemDescription:"dd",
+        itemDescription2:"dd",
+        bookmarkTF:"dd",
+        goodTF:"dd",
+        link:"dd",
+	  }]
 
+    const singId = document.getElementById('singId').value;
+    const loginId= document.getElementById('id').value;
+
+    if(loginId==singId){
+      
+    }
+// ------------------화원가입 닉네임 중복---------------
       //   function blankCheck(f){
     	// var id=f.id.value;
       //   id=id.trim();
@@ -85,6 +140,8 @@
         // }//if end
         // return true;
     // }//blankCheck() end
+//---------------------------------------------------
+
     </script>
     <script src="/color.js"></script>
 </body>

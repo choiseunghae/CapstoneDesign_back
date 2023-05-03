@@ -27,6 +27,14 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
+.duplication{
+  /* display : none; */
+  display : block;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  background-color: #FFFFFF;
+  color: var(--color-blue);
+}
 button{
   margin-top: 20px;
   border-radius: 15px;
