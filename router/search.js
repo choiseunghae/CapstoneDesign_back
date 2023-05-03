@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   var nickname = req.session.usernickname;
 
   if (nickname == null) {
-    nickname = 'Guest';
+    nickname = '로그인';
   }
   res.render('mainpage', { nickname });
 });
