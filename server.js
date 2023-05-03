@@ -59,7 +59,7 @@ app.use('/theme', [themeRouter] );
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
   res.clearCookie('authToken'); // 쿠키 제거
-  res.redirect('/mainpage'); // 메인 페이지로 리다이렉트
+  res.redirect('/'); // 메인 페이지로 리다이렉트
 });
 
 app.use(express.static(path.join(__dirname, 'router')));
