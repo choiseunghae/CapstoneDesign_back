@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
   const createdAt = new Date(); 
   const image = NULL;
 
-  connection.query("INSERT INTO users (usernickname, password, createdAt, userImage) VALUES (?, ?, ?)", [usernickname, password, createdAt, image], (error, result) => {
+  connection.query("INSERT INTO users (usernickname, password, createdAt, userImage) VALUES (?, ?, ?, ?)", [usernickname, password, createdAt, image], (error, result) => {
     if (error) throw error;
     res.redirect("/login");
   });
