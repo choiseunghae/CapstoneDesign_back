@@ -19,12 +19,12 @@
 <body class="text-center">
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form action="/signup" method="post">
         <h1>회원가입</h1>
         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
         <p class="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
-        <button id="singUp">가입하기</button>
+        <button type="submit" id="singUp">가입하기</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
