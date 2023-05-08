@@ -1,5 +1,5 @@
 body{
-    font-family: 'GmarketSansMedium', sans-serif !important;
+  font-family: 'GmarketSansMedium', sans-serif !important;
   }
 i {
     cursor: pointer;
@@ -17,7 +17,7 @@ i {
 }
 
 .mypage-profile {
-    margin-top: 80px;
+    margin-top: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,17 +31,14 @@ i {
     background-color: var(--color-blue);
     margin-bottom: 20px;
 }
-
-
 .mypage_btn {
-  border-bottom: solid 1px rgb(233, 227, 227);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
 }
 .mypage_like_btn{
-  margin-left: 30px;
+  margin-left: 20px;
     text-align: center;
     padding: 10px;
 }
@@ -55,7 +52,7 @@ i {
     margin-top: 10px;
 }
 .mypage_bookmark_btn{
-  margin-right: 30px;
+  margin-right: 20px;
   text-align: center;
   padding: 10px;
 }
@@ -284,7 +281,9 @@ i {
     background-color: white;
     border: none;
 }
-
+#changenickname_button i{
+  color:var(--color-blue);
+}
 #changepassword_modal{
     margin-right: -20px;
     margin-left: 5px;
