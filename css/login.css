@@ -29,7 +29,7 @@ p {
 }
 .duplication{
   /* display : none; */
-  display : none;
+  display :block;
   margin-top: 10px;
   margin-bottom: 0px;
   background-color: #FFFFFF;
@@ -48,7 +48,7 @@ button{
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
-#login, #singUp{
+#login, #signup{
   margin-top: 20px;
   border-radius: 15px;
 }

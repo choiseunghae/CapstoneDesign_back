@@ -21,10 +21,10 @@
     <div class="form-container sign-up-container">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
-        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
+        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
         <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
-        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
-        <button type="submit" id="singUp" >가입하기</button>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
+        <button type="submit" id="signup">가입하기</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -64,8 +64,6 @@
             });
           }
         });
-        
-
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -78,23 +76,6 @@
           container.classList.remove("right-panel-active");
         });
 
-  
-    const singCheck = [
-    {
-        usernickname:"하이염"
-	  },
-    {
-        usernickname:"안녕"
-	  },
-    {
-        usernickname:"응"
-	  },
-    {
-        usernickname:"화가난무지"
-	  }]
-
-    
-    
     </script>
     <script src="/color.js"></script>
 </body>
