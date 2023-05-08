@@ -24,7 +24,7 @@
         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
         <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
-        <button type="submit" id="singUp">가입하기</button>
+        <button type="submit" id="singUp" >가입하기</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -64,6 +64,8 @@
             });
           }
         });
+        
+
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -91,54 +93,8 @@
         usernickname:"화가난무지"
 	  }]
 
-    // const singId = document.getElementById('singId').value;
-    // const loginId= document.getElementById('id').value;
-
-    const singUpBtn = document.getElementById('singUp');
-const nicknameInput = document.getElementById('singId');
-const duplicationMsg = document.getElementById('duplication');
-
-singUpBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  const nickname = nicknameInput.value;
-
-  // check if nickname already exists
-  if (checkNicknameExists(nickname)) {
-    duplicationMsg.style.display = 'block'; // show duplication message
-  } else {
-    duplicationMsg.style.display = 'none'; // hide duplication message
-    // submit form if nickname is valid and does not exist
-    document.querySelector('form').submit();
-  }
-});
-
-// function to check if nickname already exists (replace with your own logic)
-function checkNicknameExists(nickname) {
-  // logic to check if nickname already exists in database or other storage
-  // return true if nickname exists, false otherwise
-  return false;
-}
-    // singId.onblur=function(e){
-    //   if(loginId==singId){
-    //   document.querySelector('.duplication').style.display = 'block';
-  
-    // }else{
-    //   document.querySelector('.duplication').style.display = 'none';
-    // }
-    // }
-
-// ------------------화원가입 닉네임 중복---------------
-      //   function blankCheck(f){
-    	// var id=f.id.value;
-      //   id=id.trim();
-      //   if(id.length<5){
-      //   	alert("아이디는 5자 이상 입력해주십시오.");
-      //       return false;
-        // }//if end
-        // return true;
-    // }//blankCheck() end
-//---------------------------------------------------
-
+    
+    
     </script>
     <script src="/color.js"></script>
 </body>
