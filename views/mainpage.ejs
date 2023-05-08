@@ -22,9 +22,13 @@
       <!-- 상단 네브바 (뒤로가기, 마이페이지, 환경설정) -->
       <div class="row ">
         <nav class="navbar fixed-top navbar-light bg-white ">
-          <div class="container-fluid fs-4" id="mainTop" >
-            <a class="navbar-brand center fw-bold" href="#" > <h4>요즘말사전 </h4></a>
-            <a class="navbar-brand center fw-bold" href="/login" > <%= nickname %> 님 </a>
+          <div class="container-fluid fs-4" id="mainTop">
+            <a class="navbar-brand center fw-bold" href="#">
+              <h4>요즘말사전 </h4>
+            </a>
+            <a class="navbar-brand center fw-bold" href="/login">
+              <%= nickname %> 님
+            </a>
           </div>
         </nav>
       </div>
@@ -34,7 +38,7 @@
         <div class="input-group mb-3">
           <input id="searchWord" type="text" class="search-text form-control mx-auto" name="searchWord"
             placeholder="검색어를 입력하시오" aria-label="검색어를 입력하시오" aria-describedby="button-addon2">
-          <button id="searchBtn" class="bi bi-search btn btn-outline-#264db5" type="submit" ></button>
+          <button id="searchBtn" class="bi bi-search btn btn-outline-#264db5" type="submit"></button>
         </div>
       </form>
 
@@ -51,10 +55,10 @@
       </div>
 
       <!-- modal.css -->
-      <div class="container" id="modal"> 
-        <div class="popup-wrap"> 
-          <div class="popup">	
-            <div class="popup-body">	
+      <div class="container" id="modal">
+        <div class="popup-wrap">
+          <div class="popup">
+            <div class="popup-body">
               <div class="body-content">
                 <div class="body-titlebox">
                   <p>요즘말사전</p>
@@ -66,13 +70,13 @@
               <span class="pop-btn confirm" id="confirm" onclick="closeClick()">확인</span>
             </div>
           </div>
-         </div>
+        </div>
       </div>
       <!-- 오답 modal-->
-      <div class="container" id="modal"> 
-        <div class="popup-wrap" id="failBack"> 
-          <div class="popup" id="failModal">	
-            <div class="popup-body">	
+      <div class="container" id="modal">
+        <div class="popup-wrap" id="failBack">
+          <div class="popup" id="failModal">
+            <div class="popup-body">
               <div class="body-content">
                 <div class="body-titlebox">
                   <p>요즘말사전</p>
@@ -84,63 +88,74 @@
               </div>
             </div>
           </div>
-         </div>
+        </div>
       </div>
       <%- quiz %>
     </div>
   </div>
-    <%- bottom %>
-   <script>
+  <%- bottom %>
+    <script>
 
-        function search() {
-          const searchValue = document.getElementById('searchWord').value;
+      function search() {
+        const searchValue = document.getElementById('searchWord').value;
 
-          // 서버로 검색어를 전송하는 코드
-          fetch('/search', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              searchValue: searchValue
-            })
+        // 서버로 검색어를 전송하는 코드
+        fetch('/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            searchValue: searchValue
           })
-            .then(response => response.json())
-            .then(data => {
-              const itemIndex = data.itemIndex;
-              window.location.href = `/detail/${itemIndex}`;
-            })
-            .catch(error => console.error(error));
-        }
+        })
+          .then(response => response.json())
+          .then(data => {
+            const itemIndex = data.itemIndex;
+            window.location.href = `/detail/${itemIndex}`;
+          })
+          .catch(error => console.error(error));
+      }
 
-        document.getElementById('searchWord').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            search();
-          }
-        });
-        
-        function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
-          if (selectedAnswer === correctAnswer) { //정답
-            document.querySelector('.popup').style.display = 'block';
-            document.querySelector('.popup-wrap').style.display = 'block';
-          } else { //오답
-            document.querySelector('#failModal').style.display = 'block';
-            document.querySelector('#failBack').style.display = 'block';
-          }
+      document.getElementById('searchWord').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+          search();
         }
-       
+      });
 
-        function closeClick(){
-          // 정답 modal 바텀 확인 창닫기
-          document.querySelector('.popup').style.display = 'none';
-          document.querySelector('.popup-wrap').style.display = 'none';
-
-          // 오답 modal 바텀 확인 창닫기
-          document.querySelector('#failModal').style.display = 'none';
-          document.querySelector('#failBack').style.display = 'none';
+      function checkAnswer(selectedAnswer, correctAnswer) { //퀴즈 스크립트입니다.
+        if (selectedAnswer === correctAnswer) { //정답
+          document.querySelector('.popup').style.display = 'block';
+          document.querySelector('.popup-wrap').style.display = 'block';
+        } else { //오답
+          document.querySelector('#failModal').style.display = 'block';
+          document.querySelector('#failBack').style.display = 'block';
         }
-      </script>
-      <script src="/color.js"></script>
+      }
+
+      function getNextQuiz() {
+        fetch('/quiz', { method: 'POST' })
+          .then(response => response.text())
+          .then(html => {
+            // 받아온 HTML 코드를 페이지에 삽입
+            document.getElementById('quiz-container').innerHTML = html;
+          })
+          .catch(error => console.error(error));
+      }
+
+
+      function closeClick() {
+        // 정답 modal 바텀 확인 창닫기
+        document.querySelector('.popup').style.display = 'none';
+        document.querySelector('.popup-wrap').style.display = 'none';
+
+        // 오답 modal 바텀 확인 창닫기
+        document.querySelector('#failModal').style.display = 'none';
+        document.querySelector('#failBack').style.display = 'none';
+        getNextQuiz();
+      }
+    </script>
+    <script src="/color.js"></script>
 </body>
 
 
