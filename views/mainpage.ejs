@@ -138,7 +138,7 @@
           .then(response => response.text())
           .then(html => {
             // 받아온 HTML 코드를 페이지에 삽입
-            document.getElementById('quiz-container').innerHTML = html;
+            document.getElementById('quizbox').innerHTML = html;
           })
           .catch(error => console.error(error));
       }
