@@ -133,17 +133,6 @@
         }
       }
 
-      function getNextQuiz() {
-        fetch('/quiz', { method: 'POST' })
-          .then(response => response.text())
-          .then(html => {
-            // 받아온 HTML 코드를 페이지에 삽입
-            document.getElementById('quizbox').innerHTML = html;
-          })
-          .catch(error => console.error(error));
-      }
-
-
       function closeClick() {
         // 정답 modal 바텀 확인 창닫기
         document.querySelector('.popup').style.display = 'none';
@@ -152,7 +141,6 @@
         // 오답 modal 바텀 확인 창닫기
         document.querySelector('#failModal').style.display = 'none';
         document.querySelector('#failBack').style.display = 'none';
-        getNextQuiz();
       }
     </script>
     <script src="/color.js"></script>
