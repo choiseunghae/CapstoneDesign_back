@@ -170,3 +170,11 @@
   padding-top: 7px;
   height: 30px;
 }
+
+@media all and (max-width:767px) {
+  .word__box
+  {
+    border: 4px;
+    margin: 70px;
+  }
+}
