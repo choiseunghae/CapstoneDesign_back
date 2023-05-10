@@ -184,7 +184,11 @@
     margin-bottom: 10px;
   }
 
-.word__description--info, .word__example--info {
+  .word__description--info, .word__example--info {
     font-size: 18px;
+  }
+
+  .btn__link i{
+    font-size: 25px;
   }
 }
