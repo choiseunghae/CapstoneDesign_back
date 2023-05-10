@@ -175,7 +175,7 @@
   .word__box
   {
     border: 4px;
-    margin: 70px 0px;
+    margin: 30px 10px;
   }
 
   .word__description--name, .word__example--name
