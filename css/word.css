@@ -175,16 +175,16 @@
   .word__box
   {
     border: 4px;
-    margin: 70px;
+    margin: 70px 0px;
   }
 
   .word__description--name, .word__example--name
   {
-    font-size: 20px;
+    font-size: 23px;
     margin-bottom: 10px;
   }
 
 .word__description--info, .word__example--info {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
