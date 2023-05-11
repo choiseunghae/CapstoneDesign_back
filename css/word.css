@@ -170,3 +170,21 @@
   padding-top: 7px;
   height: 30px;
 }
+
+@media all and (max-width:767px) {
+  .word__box
+  {
+    border: 4px;
+    margin: 70px 50px;
+  }
+
+  .word__description--name, .word__example--name
+  {
+    font-size: 23px;
+    margin-bottom: 10px;
+  }
+
+  .word__description--info, .word__example--info {
+    font-size: 18px;
+  }
+}
