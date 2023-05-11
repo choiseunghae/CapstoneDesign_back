@@ -21,6 +21,7 @@ const themeRouter = require('./router/theme');
 const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
+const chatRouter = require("./router/openAi"); // Import the chat router
 
 const port = process.env.PORT || 8080;
 
@@ -53,6 +54,7 @@ app.use("/login", loginRouter);
 app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
+app.use("/chat", chatRouter); // Register the chat router
 
 
 app.get('/logout', (req, res) => {
