@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chat</title>
+  <title>Chatbot Example</title>
   <style>
-    /* Add your custom CSS styles here */
+    #chat-messages {
+      height: 300px;
+      overflow-y: scroll;
+    }
   </style>
 </head>
 <body>
-  <h1>Chat</h1>
-
-  <div id="chat-container">
-    <div id="chat-messages">
-      <!-- Messages will be added dynamically using JavaScript -->
-    </div>
-    <form id="chat-form">
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button type="submit">Send</button>
-    </form>
+  <h1>Chatbot Example</h1>
+  
+  <div id="chat-messages">
+    <!-- Messages will be added dynamically using JavaScript -->
   </div>
+  
+  <form id="chat-form" action="/chat" method="POST">
+    <input type="text" name="userInput" placeholder="Enter your message" />
+    <button type="submit">Send</button>
+  </form>
 
   <script>
-    // JavaScript code for handling the chat functionality
+    // JavaScript code to handle the chat functionality
     const chatForm = document.getElementById('chat-form');
-    const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
-
+    
     chatForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-
-      const userMessage = userInput.value.trim();
-      if (userMessage !== '') {
-        // Add user message to the chat interface
-        appendMessage('user', userMessage);
-
-        // Send user message to the server
-        const response = await sendMessageToServer(userMessage);
-
-        // Add server response to the chat interface
-        appendMessage('server', response);
-
-        // Clear user input
-        userInput.value = '';
-      }
-    });
-
-    function appendMessage(role, content) {
-      const messageElement = document.createElement('div');
-      messageElement.classList.add('message');
-      messageElement.classList.add(role);
-      messageElement.innerText = content;
-      chatMessages.appendChild(messageElement);
-    }
-
-    async function sendMessageToServer(userInput) {
+      const userInput = event.target.elements.userInput.value;
+      
+      // Send a POST request to the server with the user input
       const response = await fetch('/chat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userInput }),
+        body: JSON.stringify({ userInput })
       });
-      const data = await response.json();
-      return data.response;
-    }
+      
+      if (response.ok) {
+        const data = await response.json();
+        const botMessage = data.response;
+        
+        // Add the user and bot messages to the chat interface
+        const userMessageElement = document.createElement('p');
+        userMessageElement.textContent = userInput;
+        chatMessages.appendChild(userMessageElement);
+        
+        const botMessageElement = document.createElement('p');
+        botMessageElement.textContent = botMessage;
+        chatMessages.appendChild(botMessageElement);
+        
+        // Clear the input field
+        event.target.elements.userInput.value = '';
+      }
+    });
   </script>
 </body>
 </html>
