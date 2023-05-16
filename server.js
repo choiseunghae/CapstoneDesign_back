@@ -54,7 +54,7 @@ app.use("/login", loginRouter);
 app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
-app.use("/chat", chatRouter); // Register the chat router
+app.use("/chatbot", chatRouter); // Register the chat router
 
 
 app.get('/logout', (req, res) => {
