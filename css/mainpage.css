@@ -9,11 +9,17 @@
 
 #mainTop
 {
-    text-align:center; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-left: 50px;
     margin-right: 50px;
-  
 }
+
+#main_nickname {
+    color: black;
+}
+
 #categoryBtn{
     margin-bottom: 10px;
     border-radius: 10px;
@@ -32,3 +38,14 @@
     /* 검색창 크기 조절 */
 }
 
+@media all and (max-width:767px) {
+    #mainTop
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+}

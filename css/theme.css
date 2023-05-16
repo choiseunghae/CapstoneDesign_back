@@ -1,3 +1,7 @@
+button {
+    color: black;
+}
+
 .theme-colors {
     display: flex;
     justify-content: center;
@@ -114,3 +118,4 @@
 .itemIcon{
     font-size: 10px;
 }
+
