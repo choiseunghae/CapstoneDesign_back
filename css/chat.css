@@ -170,3 +170,7 @@
     text-align: right;
   }
   
+  .chat-form input:focus {
+    border-color: var(--color-blue);
+    outline: none;
+  }
