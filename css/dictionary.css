@@ -48,3 +48,16 @@ body{
   z-index: 100;
   color: var(--color-blue);
 }
+@media all and (max-width:767px) {
+  .nav-item{
+    position: fixed;
+    justify-content: center;
+    display: flex;
+    margin-top: 70px;
+    font-size: 15px;
+    z-index: 9999;
+    padding-bottom: 10px;
+    width:100%;
+    background-color: #ffffff;
+  }
+}
