@@ -15,11 +15,11 @@ router.post("/chat", async (req, res) => {
   const userInput = req.body.userInput; // 클라이언트에서 전송한 사용자 입력 값
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.complete({
       model: "ada:ft-personal-2023-05-16-09-15-15",
       messages: [{ role: "user", content: userInput }],
     });
-
+    
     const response = completion.data.choices[0].message.content;
 
     // 클라이언트에 응답 전송
