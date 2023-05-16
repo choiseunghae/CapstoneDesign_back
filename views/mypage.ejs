@@ -12,6 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 </head>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 49846014361d60cc5bbfda801c6be097f907f88f
     <div class="status-bar">
         <div class="status-bar__coulumn"><i class="bi bi-arrow-left" onclick="goBack()" style="font-size: 25px;"></i>
         </div>
@@ -24,7 +29,7 @@
         <img id="profile-image" src="<%= profile_image_path %>" style="width: 100%; height: 100%; border-radius: 100%;">
       </div>
         <div id="profile-nickname" class="profile-nickname">
-            <h2> <%= nickname %> </h2>
+            <h2> <%= nickname %> 님</h2>
         </div>
     </div>
 
@@ -54,11 +59,11 @@
               <p>요즘말사전</p>
               <h1>변경할 닉네임을 입력해주세요</h1>
 
-              <form action="">
+              <form id="changeNicknameForm" method="post" action="">
                 <div class="int-area">
-                    <input id="nicknameInput" type="text">
-                    <button id="changenickname_button" class="bi bi-arrow-right-square-fill"
-                     onclick="changeNickname()" type="submit"></button>
+                    <input id="changenickname_modal" type="text">
+                    <button id="changenickname_button">
+                      <i class="bi bi-arrow-right-square-fill"></i></button>
                 </div>
             </form>
         </div>
@@ -66,7 +71,7 @@
         </div>
         <div class="popup-foot" id="hh">
           <span class="pop-btn close" id="close" onclick="closeClick_id()">취소</span>
-          <span class="pop-btn confirm" id="confirm">확인</span>
+          <span class="pop-btn confirm" id="saveNicknameButton" onclick="changeclick_id()" type="submit">확인</span>
         </div>
       </div>
      </div>
@@ -82,11 +87,10 @@
               <p>요즘말사전</p>
               <h1>변경할 비밀번호를 입력해주세요</h1>
 
-              <form action="">
+              <form action="" method="post">
                 <div class="int-area">
                     <input id="changepassword_modal" type="text">
-                    <button id="changepassword_button" class="bi bi-arrow-right-square-fill"
-                     onclick="changePassword()" type="submit"></button>
+                    <button id="changepassword_button" class="bi bi-arrow-right-square-fill"></button>
                 </div>
             </form>
         </div>
@@ -94,7 +98,7 @@
         </div>
         <div class="popup-foot" id="hh">
           <span class="pop-btn close" id="close" onclick="closeClick_pw()">취소</span>
-          <span class="pop-btn confirm" id="confirm">확인</span>
+          <span class="pop-btn confirm" id="confirm" onclick="changePassword()" type="submit">확인</span>
         </div>
       </div>
      </div>
@@ -170,32 +174,9 @@ window.addEventListener('load', () => {
 }
 
 function closeClick_id(){
-          // modal 확인 창닫기
+          // modal 취소 창닫기
           document.querySelector('.popup').style.display = 'none';
           document.querySelector('.popup-wrap').style.display = 'none';
-        }
-        
-        function changeNickname() {
-  var newNickname = document.getElementById("nicknameInput").value;
-  // 이 부분에서 새로운 닉네임을 가져올 수 있도록 입력 필드의 ID를 사용합니다.
-
-  // 여기에서 새로운 닉네임을 사용하여 서버와 통신하고 저장하는 코드를 작성합니다.
-  // 이 예제에서는 로그에 새로운 닉네임을 출력합니다.
-  console.log("새로운 닉네임: " + newNickname);
-}
-
-
-//<---password modal--->
-    function showModal_pw(){
-  // 아이콘 눌렀을 때 modal 창 뜨기
-  document.querySelector('#failBack').style.display = 'block';
-  document.querySelector('#failModal').style.display = 'block';
-  modal.style.display = 'block';
-}
-function closeClick_pw(){
-          // modal 확인 창닫기
-          document.querySelector('#failBack').style.display = 'none';
-          document.querySelector('#failModal').style.display = 'none';
         }
 function saveNickname() {
                 //입력된 닉네임을 가져오기
@@ -208,7 +189,124 @@ function saveNickname() {
               console.log(nickname);
             }
 
-        </script>
+//<---nickname 변경--->
+  function changeclick_id() {
+  // 사용자가 입력한 값을 읽어서 변수에 저장
+  var newNickname = document.getElementById("changenickname_modal").value;
+
+  // 변경된 닉네임을 페이지에 적용
+  document.getElementById("current-nickname").innerHTML = newNickname;
+
+  // 변경된 닉네임을 서버에 저장 (예시: AJAX를 이용한 비동기 요청)
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/api/changeNickname");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  };
+  xhr.send(JSON.stringify({nickname: newNickname}));
+}
+
+
+//<---password modal--->
+    function showModal_pw(){
+  // 아이콘 눌렀을 때 modal 창 뜨기
+  document.querySelector('#failBack').style.display = 'block';
+  document.querySelector('#failModal').style.display = 'block';
+  modal.style.display = 'block';
+}
+
+//<---password 변경--->
+
+// HTML에서 비밀번호 변경 모달창과 관련된 element 가져오기
+const modal = document.getElementById('modal_pw');
+const input = document.getElementById('changepassword_modal');
+
+// 모달창을 닫기 위한 함수
+function closeModal_pw() {
+  modal.style.display = 'none';
+}
+
+// 비밀번호 변경 요청을 보내는 함수
+function changePassword() {  
+  const newPassword = document.getElementById("changepassword_modal").value;
+  // 새 비밀번호 값이 입력되지 않은 경우 에러 메시지 출력
+  if (newPassword === '') {
+    alert('새 비밀번호를 입력해주세요.');
+    return;
+  }
+// API 호출을 위한 설정
+var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:8080");
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  
+  // API 호출 시 전달할 데이터
+  var data = {
+    newPassword: newPassword
+  };
+  console.log(xhr.status);
+
+  // API 호출 후 처리할 로직
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        // API 호출 성공 시 처리할 로직
+        alert("비밀번호가 변경되었습니다.");
+        closeModal();
+      } else if (xhr.status === 400) {
+        // Bad Request: 잘못된 요청
+        alert("잘못된 요청입니다. 비밀번호 변경에 실패하였습니다.");
+      } else if (xhr.status === 401) {
+        // Unauthorized: 인증 실패
+        alert("인증에 실패하여 비밀번호 변경에 실패하였습니다.");
+      } else if (xhr.status === 403) {
+        // Forbidden: 액세스 거부
+        alert("액세스가 거부되어 비밀번호 변경에 실패하였습니다.");
+      } else if (xhr.status === 500) {
+        // Internal Server Error: 서버 오류
+        alert("서버 오류로 인해 비밀번호 변경에 실패하였습니다.");
+      } else {
+        // 기타 상태 코드에 따른 처리
+        alert("비밀번호 변경에 실패하였습니다. 상태 코드: " + xhr.status);
+      }
+    }
+  };
+  
+// API 호출
+console.log(JSON.stringify(data));
+xhr.send(JSON.stringify(data));
+}
+
+
+
+
+// 모달창에서 '취소' 버튼 클릭 시 실행되는 함수
+function closeClick_pw() {
+  // 입력된 값 초기화
+  input.value = '';
+  // 모달창 닫기
+  closeModal_pw();
+}
+
+// 모달창에서 '확인' 버튼 클릭 시 실행되는 함수
+function confirmClick_pw() {
+  // 비밀번호 변경 요청 함수 호출
+  changePassword();
+}
+
+// 모달창에서 '확인' 버튼에 클릭 이벤트 리스너 등록
+document.getElementById('confirm').addEventListener('click', confirmClick_pw);
+
+// 모달창에서 '취소' 버튼에 클릭 이벤트 리스너 등록
+document.getElementById('close').addEventListener('click', closeClick_pw);
+
+
+</script>
         <script src="/color.js"></script>
 </body>
 

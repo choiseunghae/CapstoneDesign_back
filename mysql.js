@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
   user: 'root',
   password: '963472',
   database: 'dictionary'
+*/
 
   /*
   host: process.env.DB_HOST,
