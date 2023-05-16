@@ -19,7 +19,7 @@ router.post("/chat", async (req, res) => {
       model: "ada:ft-personal-2023-05-16-09-15-15",
       messages: [{ role: "user", content: userInput }],
     });
-    
+
     const response = completion.data.choices[0].message.content;
 
     // 클라이언트에 응답 전송
