@@ -170,7 +170,7 @@
     text-align: right;
   }
   
-  .chat-form input:focus {
+  .chat-form input:focus, textarea:focus {
     border-color: var(--color-blue);
     outline: none;
   }
