@@ -16,7 +16,7 @@ router.post("/chat", async (req, res) => {
 
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "ada:ft-personal-2023-05-16-09-15-15",
       messages: [{ role: "user", content: userInput }],
     });
 
