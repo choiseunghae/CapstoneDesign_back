@@ -178,7 +178,7 @@ body{
     .list_all {
         margin-top: 120px;
         margin-right: 30px;
-        width: 600px;
+        width: 700px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -194,8 +194,8 @@ body{
     
     .best_type1 
     {
-        width: 135px;
-        height: 120px;
+        width: 140px;
+        height: 130px;
         background-color: var(--color-blue);
         margin: 7px;
         border-radius: 10px;
@@ -214,8 +214,8 @@ body{
     .best_type10,
     .best_type11,
     .best_type12{
-        width: 135px;
-        height: 120px;
+        width: 140px;
+        height: 130px;
         background-color: var(--color-white);
         border: 2px solid var(--color-blue);
         margin: 7px;
