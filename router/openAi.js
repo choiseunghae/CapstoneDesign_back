@@ -31,7 +31,7 @@ router.post("/chat", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "chat.html"));
+  res.render('chat');
 });
 
 module.exports = router;
