@@ -15,7 +15,7 @@ router.post("/chat", async (req, res) => {
   const userInput = req.body.userInput; // 클라이언트에서 전송한 사용자 입력 값
 
   try {
-    const completion = await openai.api_completions.create({
+    const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: userInput }],
     });
