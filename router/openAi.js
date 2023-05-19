@@ -31,7 +31,7 @@ router.post("/chat", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  let nickname = req.session.usernickname || 'Guest';
+  let nickname = req.session.usernickname || '사용자';
   res.render('chat', { nickname });
 });
 
