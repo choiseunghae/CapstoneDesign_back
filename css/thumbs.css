@@ -51,3 +51,18 @@ body{
     text-decoration: none;
     color: black;
 }
+
+@media all and (max-width:767px) {
+    .list-group__title{
+        font-size: 16px;
+        font-weight: bolder;
+        margin-bottom: 6px;
+    }
+
+    .list-group__info {
+        margin-right: -35px;
+        margin-left: 20px;
+        opacity: 70%;
+        font-size: 14px;
+    }
+}
