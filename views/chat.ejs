@@ -44,7 +44,7 @@ const chatForm = document.getElementById('chat-form');
     chatPartsContainer.appendChild(userMessagePart);
 
     // Add the user message to the chat part
-    const userMessageElement = createMessageElement('msg-bubble', '사용자', userInput);
+    const userMessageElement = createMessageElement('msg-bubble', '<%= nickname %>', userInput);
     userMessagePart.appendChild(userMessageElement);
 
     // Clear the input field
