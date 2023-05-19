@@ -48,3 +48,6 @@ body{
   z-index: 100;
   color: var(--color-blue);
 }
+@media all and (max-width:767px) {
+  
+}
