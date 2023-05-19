@@ -194,7 +194,7 @@ body{
     
     .best_type1 
     {
-        width: 130px;
+        width: 135px;
         height: 120px;
         background-color: var(--color-blue);
         margin: 7px;
@@ -214,7 +214,7 @@ body{
     .best_type10,
     .best_type11,
     .best_type12{
-        width: 130px;
+        width: 135px;
         height: 120px;
         background-color: var(--color-white);
         border: 2px solid var(--color-blue);
@@ -251,7 +251,7 @@ body{
     }
     
     .list_content_name1{
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         padding-bottom: 20px;
         color: var(--color-white);
@@ -267,7 +267,7 @@ body{
     .list_content_name10,
     .list_content_name11,
     .list_content_name12{
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         padding-bottom: 20px;
         color: var(--color-black);
