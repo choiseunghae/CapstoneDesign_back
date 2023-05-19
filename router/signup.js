@@ -5,9 +5,9 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.get('/', (req, res) => {
-  res.render('signup');
-});
+// router.get('/', (req, res) => {
+//   res.render('signup');
+// });
 
 router.post('/', (req, res) => {
   const usernickname = req.body.usernickname;
@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
     if (error) throw error;
     if (result.length > 0) {
       // 이미 존재하는 usernickname인 경우
-      res.redirect("/signup");
+      res.locals.duplication = true; // 중복 메시지 보내는 변수 생성
+      res.redirect("/login");
     } else {
       // 새로운 usernickname인 경우 쿼리 실행
       connection.query("INSERT INTO users (usernickname, password, createdAt, userImage) VALUES (?, ?, ?, ?)", [usernickname, password, createdAt, image], (error, result) => {
