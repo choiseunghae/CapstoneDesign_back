@@ -40,7 +40,7 @@
 @media all and (max-width:767px) {
   .search_box {
     width: aut0;
-    height: aut0;
+    height: 68px;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 20px;
