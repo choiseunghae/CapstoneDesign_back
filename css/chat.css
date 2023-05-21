@@ -176,7 +176,7 @@
   }
 
   @media all and (max-width:767px) {
-    .msg-bubble {
+    .msger-chat-part.right-msg .msg-bubble {
       margin: 10px;
     }
 }
