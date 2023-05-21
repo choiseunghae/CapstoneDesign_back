@@ -16,6 +16,7 @@
 .search_box-input {
   flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
   height: 46px;
+  margin-top: 8px;
   padding-left: 12px;
   padding-right: 12px;
   border: none;
@@ -26,11 +27,15 @@
   flex: 1; /* search-box내부에서 1만큼의 크기를 차지(비율) */
   width: auto;
   height: 60px;
-  margin: 0;
   padding: 0;
   border: none;
   outline: none;
   background-color: #ffffff;
+}
+.search_box-button i{
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 20px;
 }
 @media all and (max-width:767px) {
   .search_box {
