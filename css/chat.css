@@ -49,6 +49,7 @@ body {
   border-radius: 5px;
   background: var(--msger-bg);
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .msger-header {
@@ -185,6 +186,12 @@ body {
   text-align: right;
 }
 
+.chat-parts-container {
+  /* 추가 스타일 */
+  overflow-y: scroll;
+  height: 100%;
+}
+
 .chat-form input:focus,
 textarea:focus {
   border-color: var(--color-blue);
@@ -212,6 +219,11 @@ textarea:focus {
     padding: 5px;
     max-height: calc(100% - 40px);
     overflow-y: auto;
+    position: absolute;
+    top: 45px; /* 헤더의 높이에 맞게 조정 */
+    left: 0;
+    right: 0;
+    bottom: 50px; /* 입력 영역의 높이에 맞게 조정 */
   }
 
   .msg-bubble {
@@ -225,6 +237,10 @@ textarea:focus {
   .msger-inputarea {
     flex-direction: column;
     align-items: stretch;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   .msger-input {
