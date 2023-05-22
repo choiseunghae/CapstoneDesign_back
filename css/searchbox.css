@@ -38,6 +38,14 @@
   font-size: 20px;
 }
 @media all and (max-width:767px) {
+  .search_box-form{
+    margin-top: -30px;
+    position: fixed;
+    z-index: 9999;
+    background-color: #ffffff;
+    left: 0;
+    right: 0;
+  }
   .search_box {
     width: aut0;
     height: 68px;
