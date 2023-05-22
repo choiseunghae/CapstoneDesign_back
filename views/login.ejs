@@ -78,14 +78,16 @@
           container.classList.remove("right-panel-active");
         });
         
+
+        //헐~
         const moveButtons = document.querySelectorAll('.move');
         const Container = document.getElementById('container');
 
-        moveButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            Container.classList.toggle("right-panel-active");
-          });
+        moveButtons.addEventListener('click', () => {
+          container.classList.remove("right-panel-active");
         });
+
+       
 
   
     const singCheck = [
