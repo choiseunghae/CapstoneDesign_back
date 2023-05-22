@@ -67,12 +67,16 @@
     flex-grow: 1;
     overflow-y: auto;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   .msger-chat {
     flex: 1;
     overflow-y: auto;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   .msger-chat::-webkit-scrollbar {
     width: 6px;
@@ -85,8 +89,7 @@
   }
 
   .msger-chat-part {
-    display: flex;
-    flex-direction: column;
+    flex-shrink: 0;
   }
 
   .msger-chat-part.right-msg {
@@ -149,8 +152,9 @@
   
   .msger-inputarea {
     display: flex;
+    flex: none;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     padding: 10px;
     border-top: var(--border);
     background: #eee;
