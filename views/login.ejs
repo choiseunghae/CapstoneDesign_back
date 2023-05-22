@@ -25,7 +25,7 @@
         <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
         <button type="submit" id="singUp">가입하기</button>
-        <button class="move" id="signin" >로그인하러 가기</button>
+        <button class="move" id="move" >로그인하러 가기</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -33,8 +33,8 @@
         <h1>로그인</h1>
         <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
-        <button type="submit" id="logIn" >로그인</button>
-        <button class="move" id="signup">회원가입</button>
+        <button type="submit" id="login" >로그인</button>
+        <button class="move" id="move" >회원가입</button>
       </form>
     </div>
     <div class="overlay-container">
@@ -42,12 +42,12 @@
         <div class="overlay-panel overlay-left">
           <h1>환영합니다</h1>
           <p>회원이신 분은 아래를 눌러주세요!</p>
-          <button class="ghost" id="signin">로그인하러 가기</button>
+          <button class="ghost" id="signIn">로그인하러 가기</button>
         </div>
         <div class="overlay-panel overlay-right">
           <h1>안녕하세요</h1>
           <p>요즘말사전과 함께 하실래요?</p>
-          <button class="ghost" id="signup">회원가입하러 가기</button>
+          <button class="ghost" id="signUp">회원가입하러 가기</button>
         </div>
       </div>
     </div>
@@ -66,8 +66,8 @@
             });
           }
         });
-        const signUpButton = document.getElementById('signup');
-        const signInButton = document.getElementById('signin');
+        const signUpButton = document.getElementById('signUp','move');
+        const signInButton = document.getElementById('signIn','move');
         const container = document.getElementById('container');
 
         signUpButton.addEventListener('click', () => {
@@ -97,12 +97,12 @@
     // const loginId= document.getElementById('id').value;
 
     const singUpBtn = document.getElementById('singUp');
-    const nicknameInput = document.getElementById('singId');
-    const duplicationMsg = document.getElementById('duplication');
+const nicknameInput = document.getElementById('singId');
+const duplicationMsg = document.getElementById('duplication');
 
-    singUpBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const nickname = nicknameInput.value;
+singUpBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  const nickname = nicknameInput.value;
 
   // check if nickname already exists
   if (checkNicknameExists(nickname)) {
