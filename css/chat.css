@@ -40,8 +40,8 @@ body {
 
 .msger {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
+  flex-direction: column-reverse; /* 채팅창 역순으로 정렬 */
+  justify-content: flex-end; /* 채팅창 아래에서부터 시작 */
   width: 100%;
   max-width: 867px;
   margin: 25px 10px;
@@ -139,7 +139,8 @@ body {
 }
 
 .right-msg .msg-img {
-  margin: 0 0 0 10px;
+  margin-left: 10px;
+  margin-right: 0;
 }
 
 .msger-inputarea {
@@ -147,6 +148,7 @@ body {
   padding: 10px;
   border-top: var(--border);
   background: #eee;
+  align-items: center;
 }
 
 .msger-inputarea * {
@@ -225,11 +227,12 @@ textarea:focus {
   }
 
   .msger-inputarea {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end; /* 입력창과 버튼을 오른쪽으로 정렬 */
   }
 
   .msger-input {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 }
