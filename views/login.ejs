@@ -66,8 +66,8 @@
             });
           }
         });
-        const signUpButton = document.getElementById('signUp','move');
-        const signInButton = document.getElementById('signIn','move');
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
 
         signUpButton.addEventListener('click', () => {
@@ -76,6 +76,15 @@
 
         signInButton.addEventListener('click', () => {
           container.classList.remove("right-panel-active");
+        });
+        
+        const moveButtons = document.querySelectorAll('.move');
+        const Container = document.getElementById('container');
+
+        moveButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            Container.classList.toggle("right-panel-active");
+          });
         });
 
   
