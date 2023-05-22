@@ -6,6 +6,18 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.use((req, res, next) => {
+  loadNewQuestion();
+});
+
+// Shuffle array in place
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+function loadNewQuestion() {
   connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
     if (err) {
       console.log(err);
@@ -44,28 +56,21 @@ router.use((req, res, next) => {
         options.push(correctAnswer);
         shuffleArray(options);
 
+        // 퀴즈 문제 HTML 구성
         const html = `
-                  <div class="quizbox">
-                  <h1>${result[0].itemDescription}</h1>
-                  <ul>
-                    ${options.map((option) => `<li button class="gradient-btn" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</li>`).join('')}
-                  </ul>
-                  </div>
-                `;
+          <div class="quizbox">
+            <h1>${result[0].itemDescription}</h1>
+            <ul>
+              ${options.map((option) => `<li button class="gradient-btn" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</li>`).join('')}
+            </ul>
+          </div>
+        `;
 
         res.locals.quiz = html;
         next();
       });
     });
   });
-});
-
-// Shuffle array in place
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
 }
 
 module.exports = router;
