@@ -178,9 +178,37 @@
   @media all and (max-width:767px) {
     .msg-bubble {
       margin: 10px;
+      max-width: 70%;
     }
 
     .msger-chat-part.right-msg{
       margin: 10px;
+    }
+
+    .msger {
+      width: 90%;
+      max-width: none;
+      margin: 10px;
+    }
+  
+    .msger-chat {
+      padding: 5px;
+    }
+  
+    .msg-bubble {
+      max-width: 80%;
+    }
+
+    .msger-send-btn {
+      margin-top: 10px;
+    }
+  
+    .msger-inputarea {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .msger-input {
+      margin-bottom: 10px;
     }
 }
