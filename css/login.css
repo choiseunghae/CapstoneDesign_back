@@ -27,25 +27,8 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
-.Cduplication{
-  display: flex;
-  padding: 0px;
-  margin: 0px;
-}
-.Cduplication div {
-  width: 200px;
-  text-align: center;/* 안의 내용 글자 정렬 */
-  padding: 10px 0px 0px 0px;
-  margin: 0px 0px 0px 10px;
-  flex: 1;
-}
-input.nickname_sign{
-  border-radius: 20px;
-   height: 48px;
-   width: 345px;
-   flex: 5;
- 
-}
+
+
 .duplication{
   /* display : none; */
   display :block;
@@ -55,17 +38,7 @@ input.nickname_sign{
   color: var(--color-blue);
   display: inline-block;
 }
-.b_duplication{
-  margin-top: 15px;
-  margin-left: auto;
-  border-radius: 15px;
-  border: 1px solid var(--color-blue);
-  background-color: #FFFFFF;
-  color: var(--color-blue);
-  padding: 9px;
-  cursor: pointer;
-  display :block;
-}
+
 button{
   margin-top: 20px;
   border-radius: 15px;
@@ -260,6 +233,28 @@ input {
   height: 40px;
   width: 40px;
 }
+@media all and (max-width:767px) {
+ 
+  .overlay-container {
+    display: none;
+  }
+  .sign-in-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .overlay-panel.overlay-left {
+    display: none;
+    
+  }
+  .form-container.right-panel-active {
+    width: 100%;
+    max-width: 100%;
+  }
+ 
+  
+}
+
 
 
 
