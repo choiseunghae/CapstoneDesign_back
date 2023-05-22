@@ -189,10 +189,12 @@
       width: 90%;
       max-width: none;
       margin: 10px;
+      height: 80vh;
     }
   
     .msger-chat {
       padding: 5px;
+      max-height: calc(100% - 40px);
     }
   
     .msg-bubble {
