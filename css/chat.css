@@ -4,6 +4,7 @@
   --msger-bg: #fff;
   --border: 2px solid #ddd;
   --left-msg-bg: #ececec;
+  --color-blue: #4e6bff;
 }
 
 html {
@@ -49,6 +50,7 @@ body {
   border-radius: 5px;
   background: var(--msger-bg);
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* 스크롤 막기 */
 }
 
 .msger-header {
