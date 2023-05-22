@@ -49,4 +49,14 @@
     display: flex;
     justify-content: center;
   }
+  .search_box-input {
+    flex: 5; /* search-box내부에서 9만큼의 크기를 차지(비율) */
+    height: 46px;
+    margin-top: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+  }
 }
