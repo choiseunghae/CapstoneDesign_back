@@ -57,4 +57,9 @@
     display: flex;
     justify-content: center;
   }
+  .search_box-button i{
+    margin-right: 70px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
 }
