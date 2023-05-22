@@ -6,8 +6,8 @@
   right: 0;
 }
 .search_box {
-  width: auto;
-  height: auto;
+  width: aut0;
+  height: aut0;
   margin :20px;
   border: 4px solid var(--color-blue);
   display: flex;
@@ -40,7 +40,7 @@
 @media all and (max-width:767px) {
   .search_box {
     width: aut0;
-    height: 68px;
+    height: aut0;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 20px;
@@ -48,5 +48,15 @@
     border: 4px solid var(--color-blue);
     display: flex;
     justify-content: center;
+  }
+  .search_box-input {
+    flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
+    height: 46px;
+    margin-top: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
   }
 }
