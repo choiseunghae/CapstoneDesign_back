@@ -37,7 +37,7 @@
   margin-top: 10px;
   font-size: 20px;
 }
-@media all and (max-width:767px) {
+@media screen and (max-width:767px) {
   .search_box {
     width: aut0;
     height: aut0;
