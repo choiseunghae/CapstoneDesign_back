@@ -37,7 +37,7 @@
   margin-top: 10px;
   font-size: 20px;
 }
-@media all and (max-width:767px) {
+@media screen and (max-width:767px) {
   .search_box {
     width: aut0;
     height: aut0;
@@ -50,18 +50,10 @@
     justify-content: center;
   }
   .search_box-input {
-<<<<<<< HEAD
     height: 46px;
     margin-top: 8px;
     padding-left: 12px;
     padding-right: 12px;
-=======
-    flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
-    height: 46px;
-    margin-top: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
     border: none;
     outline: none;
     font-size: 18px;
