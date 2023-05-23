@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const description = row.itemDescription.length > 50 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
+            const description = row.itemDescription.length > 30 ? row.itemDescription.substring(0, 30) + "..." : row.itemDescription;
             html += `
                 <li class="best_type${tier}">
                     <div class="list_contents">

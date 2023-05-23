@@ -15,7 +15,10 @@
 #mainTop
 {
     display: flex;
+<<<<<<< HEAD
     justify-content: space-between;
+=======
+>>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
     align-items: center;
     margin-left: 50px;
     margin-right: 50px;

@@ -27,14 +27,18 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
+
+
 .duplication{
   /* display : none; */
-  display : none;
+  display :block;
   margin-top: 10px;
   margin-bottom: 0px;
   background-color: #FFFFFF;
   color: var(--color-blue);
+  display: inline-block;
 }
+
 button{
   margin-top: 20px;
   border-radius: 15px;
@@ -48,7 +52,7 @@ button{
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
-#login, #singUp{
+#login, #signup{
   margin-top: 20px;
   border-radius: 15px;
 }
@@ -282,6 +286,10 @@ input {
 }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
 
 
 
