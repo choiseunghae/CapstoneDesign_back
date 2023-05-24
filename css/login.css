@@ -113,11 +113,15 @@ input {
 }
 
 .nickname {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
+}
+
+.duplication {
+  grid-column: 2 / span 1;
 }
 
 .password {
-  grid-column: 1 / span 1;
+  margin-top: 20px;
 }
 
 .container {
