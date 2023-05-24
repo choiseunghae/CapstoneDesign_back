@@ -136,6 +136,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 470px;
 }
 
 .sign-in-container {
@@ -300,5 +301,11 @@ input {
 .container.form-container {
   width: 100%;
   max-width: none;
+}
+
+.dup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 }
