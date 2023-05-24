@@ -25,13 +25,11 @@
         <% if (locals.duplication) { %>
           <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
           <% } %>
-          <div class="container">
-            <div class="dup">
-              <input type="text" id="nickname" name="nickname" placeholder="닉네임" class="input-field">
-              <button id="check-duplicate" class="button">중복체크</button>
-            </div>
-            <input type="password" id="password" name="password" placeholder="비밀번호" class="input-field">
-          </div>
+          <div class="dup">
+            <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
+            <button class="dd">중복확인</button>
+        </div>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
         <button type="submit" id="signup">가입하기</button>
       </form>
       <div>

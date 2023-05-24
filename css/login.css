@@ -39,25 +39,6 @@ p {
   flex: 4;
 }
 
-.container {
-  display: flex;
-}
-
-.dup {
-  flex: 6;
-  display: flex;
-}
-
-.input-field {
-  flex: 6;
-}
-
-.button {
-  flex: 4;
-  width: 100%;
-}
-
-
 .duplication{
   /* display : none; */
   display :block;
@@ -123,7 +104,6 @@ input {
 .nickname, .password{
   margin-top: 20px;
   border-radius: 20px; 
-  width: 100%;
   /* 전체 테두리 */
 }
 
@@ -152,7 +132,12 @@ input {
   transition: all 0.6s ease-in-out;
 }
 
-
+.dup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 470px;
+}
 
 .sign-in-container {
   left: 0;
