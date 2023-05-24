@@ -141,7 +141,6 @@
         if (selectedAnswer === correctAnswer) { //정답
           document.querySelector('.popup').style.display = 'block';
           document.querySelector('.popup-wrap').style.display = 'block';
-          location.reload();
         } else { //오답
           document.querySelector('#failModal').style.display = 'block';
           document.querySelector('#failBack').style.display = 'block';
@@ -157,6 +156,7 @@
         // 오답 modal 바텀 확인 창닫기
         document.querySelector('#failModal').style.display = 'none';
         document.querySelector('#failBack').style.display = 'none';
+        location.reload();
       }
     </script>
     <script src="/color.js"></script>
