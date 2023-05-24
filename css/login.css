@@ -34,7 +34,7 @@ p {
   color: var(--color-blue);
   display: inline-block; 
   margin: 0 5px;  
-  float:right;
+  
 }
 
 .duplication{

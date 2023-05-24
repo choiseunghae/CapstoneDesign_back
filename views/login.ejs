@@ -103,6 +103,42 @@
   
 
 
+        const duplicationCheckButton = document.querySelector('.dd');
+duplicationCheckButton.addEventListener('click', handleDuplicationCheck);
+
+// 중복 체크 요청 처리 함수
+function handleDuplicationCheck(event) {
+  event.preventDefault(); // 기본 동작 중단 (페이지 새로고침 방지)
+
+  const usernickname = document.getElementById('signId').value; // 입력된 닉네임 가져오기
+
+  // AJAX 요청 설정
+  fetch('/check-duplication', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ usernickname }), // 닉네임을 JSON 형태로 전송
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.duplicated) {
+        // 중복된 닉네임인 경우 알림 표시
+        const duplicationMessage = document.getElementById('duplication');
+        duplicationMessage.textContent = '중복된 닉네임입니다. 다시 설정해주세요.';
+        duplicationMessage.style.display = 'block';
+      } else {
+        // 중복되지 않은 닉네임인 경우
+        const duplicationMessage = document.getElementById('duplication');
+        duplicationMessage.style.display = 'none'; // 알림 숨기기
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
     </script>
     <script src="/color.js"></script>
 </body>
