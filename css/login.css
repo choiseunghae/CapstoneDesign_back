@@ -27,14 +27,18 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
+
+
 .duplication{
   /* display : none; */
-  display : none;
+  display :block;
   margin-top: 10px;
   margin-bottom: 0px;
   background-color: #FFFFFF;
   color: var(--color-blue);
+  display: inline-block;
 }
+
 button{
   margin-top: 20px;
   border-radius: 15px;
@@ -48,7 +52,7 @@ button{
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
-#login, #singUp{
+#login, #signup{
   margin-top: 20px;
   border-radius: 15px;
 }
@@ -102,7 +106,9 @@ input {
   width: 824px;
   height: 500px;
 }
-
+.gg{
+  margin-top: 120px;
+}
 .form-container {
   position: absolute;
   top: 0;
@@ -234,6 +240,8 @@ input {
   border-style: none;
   color: var(--color-blue);
   display : none;
+  margin:auto;
+  margin-top: 15px;
 }
 @media all and (max-width:767px) {
  
@@ -249,24 +257,16 @@ input {
     display: none;
     
   }
-  /* .right-panel-active.sign-up-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0%;
-  } */
- 
-  /* .container.form-container{
-  width: 100%;
-  max-width: none;
- } */
+  .form-container {
+    flex-direction: column;
+  }
  .move{
   background-color: #FFFFFF;
   border-style: none;
   color: var(--color-blue);
   display : block;
-}
-
-
+  flex-direction: column; 
+ }
 .container.right-panel-active .sign-up-container {
   transform: translateX(0);
   opacity: 1;
@@ -275,7 +275,6 @@ input {
   border-radius: 0;
   width: 100%;
 }
-
 .container.form-container {
   width: 100%;
   max-width: none;
