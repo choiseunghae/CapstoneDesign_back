@@ -73,9 +73,9 @@
   .search_box-input {
     flex: 1;
     height: 46px;
-    width: 60px;
+    width: 150px;
     margin-top: 4px;
-    margin-left: 12px;
+    margin-left: 1-px;
     border: none;
     outline: none;
     font-size: 18px;
@@ -83,7 +83,6 @@
   }
   
   .search_box-button {
-    width: 60px;
     height: 46px;
     margin-top: 8px;
     margin-left: 10px;
