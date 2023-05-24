@@ -61,7 +61,8 @@
     flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
     height: 46px;
     width: aut0;
-    margin: 8px;
+    margin-top: 8px;
+    margin-left: 20px;
     padding-left: 12px;
     padding-right: 12px;
     border: none;
