@@ -177,12 +177,9 @@ body{
 @media all and (max-width:767px) {
     .list_all {
         margin-top: 120px;
-        margin-right: 30px;
-<<<<<<< HEAD
-        width: 700px;
-=======
+        margin-left: -60px;
+        margin-right: -90px;
         width: 600px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -198,13 +195,8 @@ body{
     
     .best_type1 
     {
-<<<<<<< HEAD
-        width: 140px;
-        height: 130px;
-=======
         width: 130px;
         height: 120px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
         background-color: var(--color-blue);
         margin: 7px;
         border-radius: 10px;
@@ -223,13 +215,8 @@ body{
     .best_type10,
     .best_type11,
     .best_type12{
-<<<<<<< HEAD
-        width: 140px;
-        height: 130px;
-=======
         width: 130px;
         height: 120px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
         background-color: var(--color-white);
         border: 2px solid var(--color-blue);
         margin: 7px;
@@ -265,11 +252,7 @@ body{
     }
     
     .list_content_name1{
-<<<<<<< HEAD
-        font-size: 15px;
-=======
         font-size: 13px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
         font-weight: bold;
         padding-bottom: 20px;
         color: var(--color-white);
@@ -285,11 +268,7 @@ body{
     .list_content_name10,
     .list_content_name11,
     .list_content_name12{
-<<<<<<< HEAD
-        font-size: 15px;
-=======
         font-size: 13px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
         font-weight: bold;
         padding-bottom: 20px;
         color: var(--color-black);
