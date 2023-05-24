@@ -28,6 +28,12 @@ p {
   margin: 20px 0 30px;
 }
 
+.dd{
+  background-color: #FFFFFF;
+  border-style: none;
+  float: right;
+}
+
 
 .duplication{
   /* display : none; */
