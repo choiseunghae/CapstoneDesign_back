@@ -19,7 +19,6 @@
 <body class="text-center">
   <div class="container " id="container">
     <div class="form-container sign-up-container">
-      <div class="gg">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
         <% if (locals.duplication) { %>
@@ -28,39 +27,24 @@
          <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
         <button type="submit" id="signup">가입하기</button>
-<<<<<<< HEAD
-=======
         <button class="move" id="signIn" >로그인하러 가기</button>
->>>>>>> f92538676cad20f5cbbf3696b08adab2e11916a6
       </form>
-      <div>
-        <button class="move" id="signIn" >로그인하러 가기</button>
-      </div>
     </div>
-  </div>
     <div class="form-container sign-in-container">
-      <div class="gg">
       <form action="/login" method="post">
         <h1>로그인</h1>
         <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
         <button type="submit" id="login" >로그인</button>
-<<<<<<< HEAD
-=======
         <button class="move" id="signUp">회원가입</button>
->>>>>>> f92538676cad20f5cbbf3696b08adab2e11916a6
       </form>
-      <div>
-        <button class="move" id="mButton" >회원가입</button>
-      </div>
     </div>
-  </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
           <h1>환영합니다</h1>
           <p>회원이신 분은 아래를 눌러주세요!</p>
-          <button class="ghost" id="MButton">로그인하러 가기</button>
+          <button class="ghost" id="signIn">로그인하러 가기</button>
         </div>
         <div class="overlay-panel overlay-right">
           <h1>안녕하세요</h1>
@@ -84,29 +68,28 @@
             });
           }
         });
-        const signUpButton = document.getElementById('signUp','');
+        const signUpButton = document.getElementById('signUp',);
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
 
         signUpButton.addEventListener('click', () => {
           container.classList.add("right-panel-active");
         });
+
         signInButton.addEventListener('click', () => {
           container.classList.remove("right-panel-active");
         });
 
+        const signId = document.getElementById("signId");
 
-        const mButton = document.getElementById('mButton');
-        const MButton = document.getElementById('MButton');
-        const mcontainer = document.getElementById('container');
+  
 
-        mButton.addEventListener('click', () => {
-          container.classList.add("right-panel-active");
-        });
-        MButton.addEventListener('click', () => {
-          container.classList.remove("right-panel-active");
-        });
-
+        // input.addEventListener("change", function(e) {
+        //     console.log("onchange", e.target.value) 
+        //     //값이 바뀔때마다 찍히지 않음. 
+        //     //input바깥을 클릭하면 찍힘
+        //     document.getElementById("b_duplication").style.display = 'block';
+        // })
 
     </script>
     <script src="/color.js"></script>
