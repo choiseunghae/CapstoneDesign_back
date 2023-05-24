@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.use((req, res, next) => {
+router.use('/', (req, res, next) => {
   loadNewQuestion(req, res, next);
 });
 
@@ -25,8 +25,8 @@ function loadNewQuestion(req, res, next) {
       return;
     }
 
-    const maxItemIndex = rows[0]['MAX(itemIndex)'];
-    const question = Math.floor(Math.random() * maxItemIndex) + 1;
+    let maxItemIndex = rows[0]['MAX(itemIndex)'];
+    let question = Math.floor(Math.random() * maxItemIndex) + 1;
 
     connection.query(`SELECT * FROM detailpage WHERE itemIndex = ${question}`, (err, result) => {
       if (err) {
@@ -35,9 +35,10 @@ function loadNewQuestion(req, res, next) {
         return;
       }
 
-      const correctAnswer = result[0].itemName;
+      let correctAnswer = result[0].itemName;
+      let itemDescription = result[0].itemDescription;
 
-      const wrongAnswersQuery = `
+      let wrongAnswersQuery = `
               SELECT itemName
               FROM detailpage
               WHERE itemIndex != ${question}
@@ -52,21 +53,13 @@ function loadNewQuestion(req, res, next) {
           return;
         }
 
-        const options = wrongAnswers.map((item) => item.itemName);
+        let options = wrongAnswers.map((item) => item.itemName);
         options.push(correctAnswer);
         shuffleArray(options);
 
-        // 퀴즈 문제 HTML 구성
-        const html = `
-          <div class="quizbox">
-            <h1>${result[0].itemDescription}</h1>
-            <ul>
-              ${options.map((option) => `<li button class="gradient-btn" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-
-        res.locals.quiz = html;
+        res.locals.itemDescription = itemDescription;
+        res.locals.correctAnswer = correctAnswer;
+        res.locals.options = options;
         next();
       });
     });

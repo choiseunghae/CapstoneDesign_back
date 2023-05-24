@@ -93,7 +93,18 @@
           </div>
         </div>
       </div>
-      <%- quiz %>
+      <div class="quizbox">
+        <h1>
+          <%= itemDescription %>
+        </h1>
+        <ul>
+          <% options.forEach(function(option) { %>
+            <li button class="gradient-btn" onclick="checkAnswer('<%= option %>', '<%= correctAnswer %>')">
+              <%= option %>
+            </li>
+            <% }); %>
+        </ul>
+      </div>
     </div>
   </div>
   <%- bottom %>
@@ -135,8 +146,9 @@
           document.querySelector('#failBack').style.display = 'block';
         }
 
-        loadNewQuestion();
+        location.reload();
       }
+
 
       function closeClick() {
         // 정답 modal 바텀 확인 창닫기
