@@ -31,9 +31,11 @@ p {
 .dd{
   background-color: #FFFFFF;
   border-style: none;
-  float: right;
+  color: var(--color-blue);
+  display: inline-block; 
+  margin: 0 5px;  
+  float:right;
 }
-
 
 .duplication{
   /* display : none; */
