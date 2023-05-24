@@ -118,6 +118,7 @@ body {
 
 .right-msg {
   flex-direction: row-reverse;
+  align-self: flex-end;
 }
 
 .right-msg .msg-bubble {
@@ -171,5 +172,13 @@ body {
 
   .msger-header {
     border-radius: 0;
+  }
+
+  .msg-bubble {
+    max-width: 300px;
+  }
+
+  .msger-send-btn {
+    margin-top: 10px;
   }
 }
