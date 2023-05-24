@@ -136,7 +136,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 470px;
+  width: auto;
 }
 
 .sign-in-container {
