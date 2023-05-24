@@ -80,16 +80,13 @@ button.ghost {
 }
 
 form {
-  background-color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
-  text-align: center;
-  /* dkdk */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
 }
+
 input {
   background-color: #eee;
   border: none;
@@ -99,10 +96,19 @@ input {
   outline-color: var(--color-blue);
   flex: row;
 }
-.nickname, .password{
-  margin-top: 20px;
-  border-radius: 20px; 
-  /* 전체 테두리 */
+
+.input-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+}
+
+
+.nickname,
+.password {
+  border-radius: 20px;
+  padding: 12px 15px;
+  width: 100%;
 }
 .container {
   background-color: #fff;
