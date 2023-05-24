@@ -1,5 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
-
 :root {
   --msger-bg: #fff;
   --border: 2px solid #ddd;
@@ -31,15 +29,9 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-.msger-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .msger {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   max-width: 867px;
@@ -64,8 +56,6 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 10px;
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .msger-chat::-webkit-scrollbar {
@@ -86,8 +76,8 @@ body {
   margin-bottom: 10px;
 }
 
-.msg:last-of-type {
-  margin: 0;
+.msg:last-child {
+  margin-bottom: 0;
 }
 
 .msg-img {
@@ -145,11 +135,14 @@ body {
 .msger-inputarea {
   display: flex;
   padding: 10px;
+  align-items: center;
+  border-top: var(--border);
   background: #eee;
 }
 
 .msger-input {
   flex: 1;
+  height: 40px;
   padding: 10px;
   border: none;
   border-radius: 3px;
@@ -173,8 +166,13 @@ body {
   background: var(--color-light-blue);
 }
 
-@media all and (max-width: 767px) {
+@media (max-width: 768px) {
   .msger {
-    height: 80vh;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .msger-header {
+    border-radius: 0;
   }
 }
