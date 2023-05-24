@@ -15,6 +15,7 @@ body{
   margin-top: 118px;
   font-size: 16px;
   z-index: 9999;
+  padding-top: 10px;
   padding-bottom: 10px;
   width:100%;
   background-color: #ffffff;
@@ -27,7 +28,6 @@ body{
 .box {
   display: flexbox;
   margin-top: 160px;
-
 }
 .box ul
 {
@@ -48,25 +48,25 @@ body{
   z-index: 100;
   color: var(--color-blue);
 }
-@media all and (max-width:767px) {
+@media screen and (max-width:767px) {
   .nav-item{
     position: fixed;
     justify-content: center;
     display: flex;
-<<<<<<< HEAD
-    margin-top: 115px;
-    font-size: 14px;
-=======
+    font-size: 12px;
+    z-index: 9999;
+    top: 0;
     margin-top: 118px;
     font-size: 15px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
     z-index: 9999;
     padding-bottom: 10px;
     width:100%;
     background-color: #ffffff;
   }
-<<<<<<< HEAD
+  .box {
+    display: flexbox;
+    margin-top: 180px;
+  }
 }
-=======
-}
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
+
+
