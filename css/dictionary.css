@@ -27,7 +27,6 @@ body{
 .box {
   display: flexbox;
   margin-top: 160px;
-
 }
 .box ul
 {
@@ -53,20 +52,15 @@ body{
     position: fixed;
     justify-content: center;
     display: flex;
-<<<<<<< HEAD
     margin-top: 115px;
     font-size: 14px;
-=======
     margin-top: 118px;
     font-size: 15px;
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
     z-index: 9999;
     padding-bottom: 10px;
     width:100%;
     background-color: #ffffff;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
+
+
