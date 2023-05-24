@@ -78,10 +78,11 @@
 
     // Utility function to create a chat part element
     function createChatPartElement(className) {
-      const chatPartElement = document.createElement('div');
-      chatPartElement.classList.add('msger-chat-part', className);
-      chatPartsContainer.prepend(chatPartElement);
-      return chatPartElement;
+  const chatPartElement = document.createElement('div');
+  chatPartElement.classList.add('msger-chat-part', className);
+  chatPartsContainer.appendChild(chatPartElement);
+  chatPartsContainer.scrollTop = chatPartsContainer.scrollHeight;
+  return chatPartElement;
 }
 
     // Utility function to create a message element
