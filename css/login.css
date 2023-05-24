@@ -136,7 +136,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 470px;
 }
 
 .sign-in-container {
@@ -266,6 +266,16 @@ input {
   margin:auto;
   margin-top: 15px;
 }
+
+@media all and (max-width:992px) {
+  .dup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 380px;
+  }
+}
+
 @media all and (max-width:767px) {
  
   .overlay-container {
