@@ -67,18 +67,51 @@ router.post('/upload', upload.single('profileImage'), (req, res) => {
 
 router.post('/nickname', (req, res) => {
   const userId = req.session.userIndex;
-  const newNickname = req.body.nickname;
+  const newNickname = req.body.change_nickname;
 
-  // 세션에 저장된 유저 닉네임 변경
-  req.session.userNickname = newNickname;
+// 데이터베이스 users 테이블에서 유저 닉네임 변경
+const checkDuplicateNicknameQuery = `SELECT * FROM users WHERE usernickname = '${newNickname}'`;
+connection.query(checkDuplicateNicknameQuery, (error, duplicateResults) => {
+  if (error) {
+    console.error(error);
+    res.send('Error occurred');
+    return;
+  }
+
+  if (duplicateResults.length > 0) {
+    // 이미 동일한 닉네임이 존재하는 경우
+    console.log("Duplicate nickname exists");
+    return;
+  }
+
+  const updateNicknameQuery = `UPDATE users SET usernickname = '${newNickname}' WHERE userIndex = '${userId}'`;
+  connection.query(updateNicknameQuery, (error, updateResults) => {
+    if (error) {
+      console.error(error);
+      res.send('Error occurred');
+      return;
+    }
+
+    // 닉네임 변경 성공 처리
+    console.log("Nickname changed successfully");
+    res.redirect('/logout');
+  });
+});
+
+});
+
+
+router.post('/password', (req, res) => {
+  const userId = req.session.userIndex;
+  const newPassword = req.body.change_password;
 
   // 데이터베이스 users 테이블에서 유저 닉네임 변경
-  const sql = `UPDATE users SET usernickname = '${newNickname}' WHERE userIndex = '${userId}'`;
+  const sql = `UPDATE users SET password = '${newPassword}' WHERE userIndex = '${userId}'`;
   connection.query(sql, (error, results) => {
     if (error) throw error;
   });
 
-  res.send('Nickname changed successfully');
+  res.redirect('/logout');
 });
 
 

@@ -4,7 +4,6 @@
   --msger-bg: #fff;
   --border: 2px solid #ddd;
   --left-msg-bg: #ececec;
-  --color-blue: #4e6bff;
 }
 
 html {
@@ -32,16 +31,10 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-.msger-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .msger {
   display: flex;
-  flex-direction: column-reverse; /* 채팅창 역순으로 정렬 */
-  justify-content: flex-start; /* 채팅창 위에서부터 시작 */
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 867px;
   margin: 25px 10px;
@@ -50,12 +43,12 @@ body {
   border-radius: 5px;
   background: var(--msger-bg);
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
-  overflow-y: auto; /* 스크롤 막기 */
 }
 
 .msger-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: var(--border);
   background: #eee;
@@ -64,8 +57,10 @@ body {
 
 .msger-chat {
   flex: 1;
-  padding: 10px;
   overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .msger-chat::-webkit-scrollbar {
@@ -86,19 +81,12 @@ body {
   margin-bottom: 10px;
 }
 
-.msg:last-of-type {
-  margin: 0;
+.msg:last-child {
+  margin-bottom: 0;
 }
 
 .msg-img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: #ddd;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
+  display: none;
 }
 
 .msg-bubble {
@@ -139,8 +127,7 @@ body {
 }
 
 .right-msg .msg-img {
-  margin-left: 10px;
-  margin-right: 0;
+  margin: 0 0 0 10px;
 }
 
 .msger-inputarea {
@@ -148,91 +135,41 @@ body {
   padding: 10px;
   border-top: var(--border);
   background: #eee;
-  align-items: center;
-}
-
-.msger-inputarea * {
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  font-size: 1em;
 }
 
 .msger-input {
   flex: 1;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
   background: #ddd;
 }
 
 .msger-send-btn {
   margin-left: 10px;
-  background: var(--color-blue);
+  border: none;
   color: #fff;
-  font-weight: bold;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 3px;
+  background: var(--color-blue);
   cursor: pointer;
   transition: background 0.23s;
 }
 
 .msger-send-btn:hover {
-  background: var(--color-blue);
+  background: var(--color-light-blue);
 }
 
-.msger-chat {
-  background-color: #fcfcfe;
-}
-
-.msger-chat-part.right-msg .msg-bubble {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.msger-chat-part.right-msg .msg-info-name {
-  text-align: right;
-}
-
-.chat-form input:focus,
-textarea:focus {
-  border-color: var(--color-blue);
-  outline: none;
-}
-
-@media all and (max-width: 767px) {
-  .msg-bubble {
-    margin: 10px;
-    max-width: 70%;
-  }
-
-  .msger-chat-part.right-msg {
-    margin: 10px;
-  }
-
+@media (max-width: 768px) {
   .msger {
-    width: 90%;
-    max-width: none;
-    margin: 10px;
-    height: 80vh;
+    height: 100%;
+    border-radius: 0;
   }
 
-  .msger-chat {
-    padding: 5px;
-    max-height: calc(100% - 40px);
-    overflow-y: auto;
-  }
-
-  .msg-bubble {
-    max-width: 80%;
-  }
-
-  .msger-send-btn {
-    margin-top: 10px;
-  }
-
-  .msger-inputarea {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start; /* 입력창과 버튼을 왼쪽으로 정렬 */
-  }
-
-  .msger-input {
-    margin-bottom: 0;
+  .msger-header {
+    border-radius: 0;
   }
 }

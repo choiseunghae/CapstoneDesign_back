@@ -17,7 +17,7 @@
       <i class="bi bi-x" style="font-size: 2rem;" onclick="goBack()"></i>
     </header>
 
-    <div id="chat-parts-container" class="chat-parts-container">
+    <div id="chat-parts-container" class="msger-chat">
       <!-- Chat parts will be added dynamically using JavaScript -->
     </div>
 
@@ -41,7 +41,7 @@
       chatPartsContainer.appendChild(userMessagePart);
 
       // Add the user message to the chat part
-      const userMessageElement = createMessageElement('msg-bubble', '<%= nickname %>', userInput);
+      const userMessageElement = createMessageElement('msg-bubble-right', '<%= nickname %>', userInput);
       userMessagePart.appendChild(userMessageElement);
 
       // Clear the input field
@@ -65,7 +65,7 @@
         chatPartsContainer.appendChild(botMessagePart);
 
         // Add the bot message to the chat part
-        const botMessageElement = createMessageElement('msg-bubble', '챗봇', botMessage);
+        const botMessageElement = createMessageElement('msg-bubble-left', '챗봇', botMessage);
         botMessagePart.appendChild(botMessageElement);
 
         // Scroll to the bottom of the chat
@@ -80,6 +80,8 @@
     function createChatPartElement(className) {
       const chatPartElement = document.createElement('div');
       chatPartElement.classList.add('msger-chat-part', className);
+      chatPartsContainer.prepend(chatPartElement);
+      chatPartsContainer.scrollTo(0, chatPartsContainer.scrollHeight);
       return chatPartElement;
     }
 
@@ -88,10 +90,13 @@
       const messageElement = document.createElement('div');
       messageElement.classList.add(className);
       messageElement.innerHTML = `
-        <div class="msg-info">
-          <div class="msg-info-name">${sender}</div>
+        <div class="msg-img"></div>
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">${sender}</div>
+          </div>
+          <div class="msg-text">${message}</div>
         </div>
-        <div class="msg-text">${message}</div>
       `;
       return messageElement;
     }
