@@ -108,7 +108,6 @@ input {
 }
 .gg{
   margin-top: 120px;
-
 }
 .form-container {
   position: absolute;
@@ -241,6 +240,8 @@ input {
   border-style: none;
   color: var(--color-blue);
   display : none;
+  margin:auto;
+  margin-top: 15px;
 }
 @media all and (max-width:767px) {
  
@@ -279,11 +280,6 @@ input {
   max-width: none;
 }
 }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
 
 
 
