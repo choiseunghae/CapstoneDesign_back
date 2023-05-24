@@ -23,12 +23,8 @@ router.post('/', (req, res) => {
     }
     if (result.length > 0) {
       // 이미 존재하는 usernickname인 경우
-<<<<<<< HEAD
-      res.redirect("/signup");
-=======
       res.locals.duplication = true; // 중복 메시지 보내는 변수 생성
       res.redirect("/login");
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
     } else {
       // 새로운 usernickname인 경우 쿼리 실행
       connection.query("INSERT INTO users (usernickname, password, createdAt, userImage) VALUES (?, ?, ?, ?)", [usernickname, password, createdAt, image], (error, result) => {
