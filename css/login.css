@@ -307,5 +307,6 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto;
 }
 }
