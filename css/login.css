@@ -136,7 +136,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 470px;
+  width: 560px;
 }
 
 .sign-in-container {
@@ -265,6 +265,12 @@ input {
   display : none;
   margin:auto;
   margin-top: 15px;
+}
+
+@media screen and (min-width: 576px) and (max-width: 766px) {
+  .dup {
+    width: 260px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
