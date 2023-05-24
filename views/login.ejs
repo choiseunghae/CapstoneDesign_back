@@ -21,13 +21,6 @@
     <div class="form-container sign-up-container">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
-<<<<<<< HEAD
-        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
-        <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
-        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
-        <button type="submit" id="singUp">가입하기</button>
-        <button class="move" id="move" >로그인하러 가기</button>
-=======
         <% if (locals.duplication) { %>
           <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
           <% } %>
@@ -35,7 +28,6 @@
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
         <button type="submit" id="signup">가입하기</button>
         <button class="move" id="signIn" >로그인하러 가기</button>
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -44,11 +36,7 @@
         <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
         <button type="submit" id="login" >로그인</button>
-<<<<<<< HEAD
-        <button class="move" id="move" >회원가입</button>
-=======
         <button class="move" id="signUp">회원가입</button>
->>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
       </form>
     </div>
     <div class="overlay-container">
@@ -101,11 +89,7 @@
           container.classList.remove("right-panel-active");
         });
 
-<<<<<<< HEAD
         const signId = document.getElementById("signId");
-=======
-       
->>>>>>> 5d9a4c35c640c795c326c9f81c3fa86aab4ba8a3
 
   
 
