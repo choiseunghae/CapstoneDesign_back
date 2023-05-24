@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="popup-foot" id="hh">
-              <span class="pop-btn confirm" id="confirm" onclick="closeClick()">확인</span>
+              <span class="pop-btn confirm" id="confirm" onclick="closeClick1()">확인</span>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
                 </div>
               </div>
               <div class="popup-foot">
-                <span class="pop-btn confirm" id="confirm" onclick="closeClick()">창닫기</span>
+                <span class="pop-btn confirm" id="confirm" onclick="closeClick2()">창닫기</span>
               </div>
             </div>
           </div>
@@ -148,11 +148,14 @@
       }
 
 
-      function closeClick() {
+      function closeClick1() {
         // 정답 modal 바텀 확인 창닫기
         document.querySelector('.popup').style.display = 'none';
         document.querySelector('.popup-wrap').style.display = 'none';
+        location.reload();
+      }
 
+      function closeClick2() {
         // 오답 modal 바텀 확인 창닫기
         document.querySelector('#failModal').style.display = 'none';
         document.querySelector('#failBack').style.display = 'none';
