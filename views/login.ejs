@@ -25,15 +25,13 @@
         <% if (locals.duplication) { %>
           <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
           <% } %>
-        <div class="input-group">
-          <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
-          <button class="dd">중복확인</button>
-        </div>
-        <input class="password" type="password" placeholder="비밀번호" name="password" id="signPassword" />
+         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
+         <button class="dd">중복확인</button>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
         <button type="submit" id="signup">가입하기</button>
       </form>
       <div>
-        <button class="move" id="signIn">로그인하러 가기</button>
+        <button class="move" id="signIn" >로그인하러 가기</button>
       </div>
     </div>
   </div>
@@ -41,12 +39,12 @@
       <div class="gg">
       <form action="/login" method="post">
         <h1>로그인</h1>
-        <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="id"/>
-        <input class="password" type="password" placeholder="비밀번호" name="password" id="password" />
-        <button type="submit" id="login">로그인</button>
+        <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
+        <button type="submit" id="login" >로그인</button>
       </form>
       <div>
-        <button class="move" id="mButton">회원가입</button>
+        <button class="move" id="mButton" >회원가입</button>
       </div>
     </div>
   </div>
