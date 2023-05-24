@@ -60,11 +60,8 @@
   .search_box-input {
     flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
     height: 46px;
-    left: 20px;
     width: aut0;
     margin-top: 8px;
-    margin-left: 0;
-    margin-right: 0;
     padding-left: 12px;
     padding-right: 12px;
     border: none;
