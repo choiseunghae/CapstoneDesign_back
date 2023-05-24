@@ -267,11 +267,15 @@ input {
   margin-top: 15px;
 }
 
-@media all and (max-width:992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .dup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 260px;
+  }
+}
+
+/* 992px부터 1199px까지 */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .dup {
     width: 380px;
   }
 }
