@@ -79,7 +79,8 @@
     background-color: #ffffff;
   }
   .search_box-button i{
-    margin-right: 20px;
+    color: black;
+    margin-right: 50px;
     margin-top: 10px;
     font-size: 20px;
   }
