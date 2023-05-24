@@ -167,9 +167,10 @@ body {
 
 @media (max-width: 768px) {
   .msger {
-    height: 100%;
-    border-radius: 0;
-    margin: 0;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px;
+    height: 80vh;
   }
 
   .msger-header {
