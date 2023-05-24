@@ -101,6 +101,7 @@ input {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 10px;
+  align-items: center;
 }
 
 
@@ -110,6 +111,15 @@ input {
   padding: 12px 15px;
   width: 100%;
 }
+
+.nickname {
+  grid-column: 1 / span 2;
+}
+
+.password {
+  grid-column: 1 / span 1;
+}
+
 .container {
   background-color: #fff;
   border-radius: 20px;
@@ -294,11 +304,3 @@ input {
   max-width: none;
 }
 }
-
-
-
-
-
-
-
-
