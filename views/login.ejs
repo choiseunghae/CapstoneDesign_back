@@ -22,10 +22,10 @@
       <div class="gg">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
-        <% if (locals.duplication) { %>
-          <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
-          <% } %>
+          
          <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
+         <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
+         <button class="dd">중복확인</button>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
         <button type="submit" id="signup">가입하기</button>
       </form>
@@ -99,7 +99,47 @@
           container.classList.remove("right-panel-active");
         });
 
-  
+// ======================조장님 여기서부터입니다==============
+
+          // HTML에서 닉네임 중복 체크 버튼에 클릭 이벤트 리스너 추가
+        const duplicationCheckButton = document.querySelector('.dd');
+        duplicationCheckButton.addEventListener('click', handleDuplicationCheck);
+            // 중복 체크 요청 처리 함수
+        function handleDuplicationCheck(event) {
+          event.preventDefault(); // 기본 동작 중단 (페이지 새로고침 방지)
+
+          const usernickname = document.getElementById('signId').value; // 입력된 닉네임 가져오기
+
+          // AJAX 요청 설정
+          fetch('/checkDuplication', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ usernickname }), // 닉네임을 JSON 형태로 전송
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.duplicated) {
+                console.log(data.duplicated);
+                // 중복된 닉네임인 경우 알림 표시
+                const duplicationMessage = document.getElementById('duplication');
+                duplicationMessage.style.display = 'block';
+              } else {
+                console.log(data.duplicated);
+                // 중복되지 않은 닉네임인 경우
+                const duplicationMessage = document.getElementById('duplication');
+                duplicationMessage.style.display = 'none'; // 알림 숨기기
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        }
+
+
+
+
 
 
     </script>

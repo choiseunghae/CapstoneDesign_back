@@ -28,15 +28,19 @@ p {
   margin: 20px 0 30px;
 }
 
+.dd{
+  background-color: #FFFFFF;
+  border-style: none;
+  color: var(--color-blue);
 
+}
 .duplication{
-  /* display : none; */
-  display :block;
+  display: none;
   margin-top: 10px;
   margin-bottom: 0px;
   background-color: #FFFFFF;
   color: var(--color-blue);
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 button{

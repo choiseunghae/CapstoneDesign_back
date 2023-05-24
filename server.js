@@ -21,6 +21,7 @@ const themeRouter = require('./router/theme');
 const thumbsRouter = require('./router/thumbs');
 const thumbsnavRouter = require('./router/thumbsnav_bar');
 const bottomRouter = require('./router/bottomnav_bar');
+const checkDuplicationRouter = require('./checkDuplication');
 
 const port = process.env.PORT || 8080;
 
@@ -49,7 +50,7 @@ app.use('/detail', [detailpageRouter]); // detailpageRouter,  searchboxRouter모
 app.use('/setting', [settingRouter]); // settingRouter 모듈을 사용
 app.use('/bookmark', [bookmarkRouter, headerRouter]); // bookmarkRouter, headernav_bar, navitem_bar 모듈을 사용
 app.use("/signup", signupRouter);
-app.use("/login", loginRouter);
+app.use('/checkDuplication', checkDuplicationRouter); 
 app.use('/mypage', [mypageRouter]);
 app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
