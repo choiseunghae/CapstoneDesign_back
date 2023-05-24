@@ -80,8 +80,8 @@
     function createChatPartElement(className) {
   const chatPartElement = document.createElement('div');
   chatPartElement.classList.add('msger-chat-part', className);
-  chatPartsContainer.appendChild(chatPartElement);
-  chatPartsContainer.scrollTop = chatPartsContainer.scrollHeight;
+  chatPartsContainer.prepend(chatPartElement);
+  chatPartsContainer.scrollTop = 0;
   return chatPartElement;
 }
 
