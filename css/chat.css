@@ -165,8 +165,8 @@ body {
   background: var(--color-light-blue);
 }
 
-.msg + .msg {
-  margin-top: 10px;
+.msg {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
