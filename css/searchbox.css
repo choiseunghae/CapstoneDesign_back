@@ -47,6 +47,8 @@
     right: 0;
   }
   .search_box {
+    left: 0;
+    right: 0;
     width: aut0;
     height: 67px;
     margin-left: 30px;
@@ -58,6 +60,8 @@
     justify-content: center;
   }
   .search_box-input {
+    left: 0;
+    right: 0;
     height: 46px;
     margin-top: 8px;
     padding-left: 12px;
