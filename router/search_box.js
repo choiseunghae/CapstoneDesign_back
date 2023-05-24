@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.use((req, res, next) => {
   let html = `
-    
+
     <form action="/search" method="GET" class="search_box-form">
             <div class="search_box">
                 <input id="searchWord" name="searchWord" class="search_box-input" type="text" maxlength="225" tabindex="1" />

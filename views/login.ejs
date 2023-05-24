@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./basic.css">
   <link rel="stylesheet" href="./login.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
   <!-- <link rel="stylesheet" href="css/login.css?v=1234"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
@@ -17,14 +17,25 @@
 </head>
 
 <body class="text-center">
-  <div class="container" id="container">
+  <div class="container " id="container">
     <div class="form-container sign-up-container">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
+<<<<<<< HEAD
         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="singId" />
         <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="singPassword"/>
         <button type="submit" id="singUp">가입하기</button>
+        <button class="move" id="move" >로그인하러 가기</button>
+=======
+        <% if (locals.duplication) { %>
+          <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
+          <% } %>
+         <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
+        <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
+        <button type="submit" id="signup">가입하기</button>
+        <button class="move" id="signIn" >로그인하러 가기</button>
+>>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -33,6 +44,11 @@
         <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
         <button type="submit" id="login" >로그인</button>
+<<<<<<< HEAD
+        <button class="move" id="move" >회원가입</button>
+=======
+        <button class="move" id="signUp">회원가입</button>
+>>>>>>> 1acca4ae9793bb7b7743cca28b6743ef520b60a5
       </form>
     </div>
     <div class="overlay-container">
@@ -64,7 +80,7 @@
             });
           }
         });
-        const signUpButton = document.getElementById('signUp');
+        const signUpButton = document.getElementById('signUp','');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
 
@@ -75,69 +91,30 @@
         signInButton.addEventListener('click', () => {
           container.classList.remove("right-panel-active");
         });
+        
+
+        //헐~
+        const moveButtons = document.querySelectorAll('.move');
+        const Container = document.getElementById('container');
+
+        moveButtons.addEventListener('click', () => {
+          container.classList.remove("right-panel-active");
+        });
+
+<<<<<<< HEAD
+        const signId = document.getElementById("signId");
+=======
+       
+>>>>>>> 5d9a4c35c640c795c326c9f81c3fa86aab4ba8a3
 
   
-    const singCheck = [
-    {
-        usernickname:"하이염"
-	  },
-    {
-        usernickname:"안녕"
-	  },
-    {
-        usernickname:"응"
-	  },
-    {
-        usernickname:"화가난무지"
-	  }]
 
-    // const singId = document.getElementById('singId').value;
-    // const loginId= document.getElementById('id').value;
-
-    const singUpBtn = document.getElementById('singUp');
-const nicknameInput = document.getElementById('singId');
-const duplicationMsg = document.getElementById('duplication');
-
-singUpBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  const nickname = nicknameInput.value;
-
-  // check if nickname already exists
-  if (checkNicknameExists(nickname)) {
-    duplicationMsg.style.display = 'block'; // show duplication message
-  } else {
-    duplicationMsg.style.display = 'none'; // hide duplication message
-    // submit form if nickname is valid and does not exist
-    document.querySelector('form').submit();
-  }
-});
-
-// function to check if nickname already exists (replace with your own logic)
-function checkNicknameExists(nickname) {
-  // logic to check if nickname already exists in database or other storage
-  // return true if nickname exists, false otherwise
-  return false;
-}
-    // singId.onblur=function(e){
-    //   if(loginId==singId){
-    //   document.querySelector('.duplication').style.display = 'block';
-  
-    // }else{
-    //   document.querySelector('.duplication').style.display = 'none';
-    // }
-    // }
-
-// ------------------화원가입 닉네임 중복---------------
-      //   function blankCheck(f){
-    	// var id=f.id.value;
-      //   id=id.trim();
-      //   if(id.length<5){
-      //   	alert("아이디는 5자 이상 입력해주십시오.");
-      //       return false;
-        // }//if end
-        // return true;
-    // }//blankCheck() end
-//---------------------------------------------------
+        // input.addEventListener("change", function(e) {
+        //     console.log("onchange", e.target.value) 
+        //     //값이 바뀔때마다 찍히지 않음. 
+        //     //input바깥을 클릭하면 찍힘
+        //     document.getElementById("b_duplication").style.display = 'block';
+        // })
 
     </script>
     <script src="/color.js"></script>
