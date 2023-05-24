@@ -62,8 +62,9 @@
     height: 46px;
     width: aut0;
     margin-top: 8px;
+    left: 0;
+    right: 0;
     margin-left: 15px;
-    margin-right: 15px;
     padding: 0;
     border: none;
     outline: none;
