@@ -141,12 +141,11 @@
         if (selectedAnswer === correctAnswer) { //정답
           document.querySelector('.popup').style.display = 'block';
           document.querySelector('.popup-wrap').style.display = 'block';
+          location.reload();
         } else { //오답
           document.querySelector('#failModal').style.display = 'block';
           document.querySelector('#failBack').style.display = 'block';
         }
-
-        location.reload();
       }
 
 
