@@ -267,12 +267,6 @@ input {
   margin-top: 15px;
 }
 
-@media screen and (min-width: 576px) and (max-width: 766px) {
-  .dup {
-    width: 440px;
-  }
-}
-
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .dup {
     width: 260px;
