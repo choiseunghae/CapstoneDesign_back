@@ -4,7 +4,6 @@
   --msger-bg: #fff;
   --border: 2px solid #ddd;
   --left-msg-bg: #ececec;
-  --color-blue: #4e6bff;
 }
 
 html {
@@ -40,8 +39,8 @@ body {
 
 .msger {
   display: flex;
-  flex-direction: column-reverse; /* 채팅창 역순으로 정렬 */
-  justify-content: flex-start; /* 채팅창 위에서부터 시작 */
+  flex-flow: column wrap;
+  justify-content: space-between;
   width: 100%;
   max-width: 867px;
   margin: 25px 10px;
@@ -50,7 +49,6 @@ body {
   border-radius: 5px;
   background: var(--msger-bg);
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
-  overflow-y: auto; /* 스크롤 막기 */
 }
 
 .msger-header {
@@ -64,8 +62,8 @@ body {
 
 .msger-chat {
   flex: 1;
-  padding: 10px;
   overflow-y: auto;
+  padding: 10px;
 }
 
 .msger-chat::-webkit-scrollbar {
@@ -139,8 +137,7 @@ body {
 }
 
 .right-msg .msg-img {
-  margin-left: 10px;
-  margin-right: 0;
+  margin: 0 0 0 10px;
 }
 
 .msger-inputarea {
@@ -148,7 +145,7 @@ body {
   padding: 10px;
   border-top: var(--border);
   background: #eee;
-  align-items: center;
+  align-items: flex-end; /* 변경된 부분 */
 }
 
 .msger-inputarea * {
@@ -178,6 +175,7 @@ body {
 
 .msger-chat {
   background-color: #fcfcfe;
+  overflow-y: scroll; /* 변경된 부분 */
 }
 
 .msger-chat-part.right-msg .msg-bubble {
@@ -227,12 +225,11 @@ textarea:focus {
   }
 
   .msger-inputarea {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start; /* 입력창과 버튼을 왼쪽으로 정렬 */
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .msger-input {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }
