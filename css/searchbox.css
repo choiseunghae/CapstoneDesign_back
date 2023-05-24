@@ -63,6 +63,8 @@
     left: 20px;
     width: aut0;
     margin-top: 8px;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 12px;
     padding-right: 12px;
     border: none;
@@ -71,6 +73,7 @@
   }
   .search_box-button {
     flex: 1; /* search-box내부에서 1만큼의 크기를 차지(비율) */
+    width: auto;
     height: 0;
     margin-top: 15px;
     padding: 0;
