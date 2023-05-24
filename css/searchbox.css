@@ -71,10 +71,7 @@
   }
   .search_box-button {
     flex: 1; /* search-box내부에서 1만큼의 크기를 차지(비율) */
-    width: auto;
     height: 0;
-    left: 0;
-    right: 0;
     margin-top: 15px;
     padding: 0;
     border: none;
