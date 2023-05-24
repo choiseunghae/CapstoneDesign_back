@@ -177,8 +177,8 @@ body{
 @media all and (max-width:767px) {
     .list_all {
         margin-top: 120px;
-        margin-left: -60px;
-        margin-right: -90px;
+        margin-left: -40px;
+        margin-right: -20px;
         width: 600px;
         display: flex;
         flex-wrap: wrap;
@@ -195,7 +195,7 @@ body{
     
     .best_type1 
     {
-        width: 130px;
+        width: 160px;
         height: 120px;
         background-color: var(--color-blue);
         margin: 7px;
@@ -215,7 +215,7 @@ body{
     .best_type10,
     .best_type11,
     .best_type12{
-        width: 130px;
+        width: 160px;
         height: 120px;
         background-color: var(--color-white);
         border: 2px solid var(--color-blue);
