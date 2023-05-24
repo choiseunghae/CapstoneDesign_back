@@ -13,6 +13,7 @@ body {
 h1 {
   font-weight: bold;
   margin: 0;
+  margin-bottom: 20px;
   /* color: var(--color-blue); */
 }
 
@@ -34,7 +35,8 @@ p {
   color: var(--color-blue);
   display: inline-block; 
   margin: 0 5px;  
-  
+  padding : 0;
+  flex: 4;
 }
 
 .duplication{
@@ -104,6 +106,12 @@ input {
   border-radius: 20px; 
   /* 전체 테두리 */
 }
+
+.nickname {
+  flex: 6;
+  margin: 0;
+}
+
 .container {
   background-color: #fff;
   border-radius: 20px;
