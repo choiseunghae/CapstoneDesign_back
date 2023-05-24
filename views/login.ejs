@@ -17,20 +17,31 @@
 </head>
 
 <body class="text-center">
-  <div class="container " id="container">
+  <div class="container" id="container">
     <div class="form-container sign-up-container">
       <div class="gg">
       <form action="/signup" method="post">
         <h1>회원가입</h1>
+<<<<<<< HEAD
           
          <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
          <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
          <button class="dd">중복확인</button>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
+=======
+        <% if (locals.duplication) { %>
+          <p class="duplication" id="duplication">중복 닉네임입니다. 다시 설정해주세요 </p>
+          <% } %>
+        <div class="input-container">
+          <input class="nickname" type="nickname" placeholder="닉네임" name="usernickname" id="signId" />
+          <button class="dd">중복확인</button>
+        </div>
+        <input class="password" type="password" placeholder="비밀번호" name="password"  id="signPassword"/>
+>>>>>>> 27ab64b35b15e537670e9dd423cd3db40714c586
         <button type="submit" id="signup">가입하기</button>
       </form>
       <div>
-        <button class="move" id="signIn" >로그인하러 가기</button>
+        <button class="move" id="signIn">로그인하러 가기</button>
       </div>
     </div>
   </div>
@@ -40,10 +51,10 @@
         <h1>로그인</h1>
         <input class="nickname" type="nickname" placeholder="닉네임" placeholder="닉네임" name="usernickname" id="id"/>
         <input  class="password" type="password" placeholder="비밀번호" name="password"  id="password" />
-        <button type="submit" id="login" >로그인</button>
+        <button type="submit" id="login">로그인</button>
       </form>
       <div>
-        <button class="move" id="mButton" >회원가입</button>
+        <button class="move" id="mButton">회원가입</button>
       </div>
     </div>
   </div>
@@ -51,13 +62,13 @@
       <div class="overlay">
         <div class="overlay-panel overlay-left">
           <h1>환영합니다</h1>
-          <p>회원이신 분은 아래를 눌러주세요!</p>
-          <button class="ghost" id="MButton">로그인하러 가기</button>
+          <p>회원이신 분은 아래를 눌러 로그인하세요.</p>
+          <button class="ghost" id="signIn">로그인</button>
         </div>
         <div class="overlay-panel overlay-right">
-          <h1>안녕하세요</h1>
-          <p>요즘말사전과 함께 하실래요?</p>
-          <button class="ghost" id="signUp">회원가입하러 가기</button>
+          <h1>안녕하세요!</h1>
+          <p>아직 회원이 아니신가요? 회원가입을 해주세요.</p>
+          <button class="ghost" id="signUp">회원가입</button>
         </div>
       </div>
     </div>
@@ -144,6 +155,7 @@
 
     </script>
     <script src="/color.js"></script>
+
 </body>
 
 </html>
