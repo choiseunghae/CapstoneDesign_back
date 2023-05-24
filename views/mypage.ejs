@@ -54,11 +54,9 @@
               <p>요즘말사전</p>
               <h1>변경할 닉네임을 입력해주세요</h1>
 
-              <form id="changeNicknameForm" method="post" action="">
+              <form id="changeNicknameForm" method="post" action="mypage/nickname">
                 <div class="int-area">
-                    <input id="changenickname_modal" type="text">
-                    <button id="changenickname_button">
-                      <i class="bi bi-arrow-right-square-fill"></i></button>
+                    <input name="change_nickname" type="text">
                 </div>
             </form>
         </div>
@@ -82,18 +80,17 @@
               <p>요즘말사전</p>
               <h1>변경할 비밀번호를 입력해주세요</h1>
 
-              <form action="" method="post">
+              <form action="mypage/password" method="post">
                 <div class="int-area">
-                    <input id="changepassword_modal" type="text">
-                    <button id="changepassword_button" class="bi bi-arrow-right-square-fill"></button>
+                    <input name="change_password" type="text">
                 </div>
             </form>
         </div>
           </div>
         </div>
         <div class="popup-foot" id="hh">
-          <span class="pop-btn close" id="close" onclick="closeClick_pw()">취소</span>
-          <span class="pop-btn confirm" id="confirm" onclick="changePassword()" type="submit">확인</span>
+          <span type="submit" class="pop-btn close" id="close" onclick="closeClick_pw()">취소</span>
+          <span type="submit" class="pop-btn confirm" id="confirm" onclick="changePassword()">확인</span>
         </div>
       </div>
      </div>
@@ -186,26 +183,31 @@ function saveNickname() {
 
 //<---nickname 변경--->
   function changeclick_id() {
-  // 사용자가 입력한 값을 읽어서 변수에 저장
-  var newNickname = document.getElementById("changenickname_modal").value;
-
-  // 변경된 닉네임을 페이지에 적용
-  document.getElementById("current-nickname").innerHTML = newNickname;
-
-  // 변경된 닉네임을 서버에 저장 (예시: AJAX를 이용한 비동기 요청)
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/api/changeNickname");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      console.log(xhr.responseText);
+    const newNickname = document.getElementById("change_nickname").value;
+  
+  // 닉네임 변경 요청 보내기
+  fetch("/nickname", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ change_nickname: newNickname })
+  })
+  .then(response => {
+    if (response.ok) {
+      // 비밀번호 변경 성공 처리
+      console.log("Nickname changed successfully");
     } else {
-      console.error(xhr.statusText);
+      // 비밀번호 변경 실패 처리
+      console.error("Failed to change Nickname");
     }
-  };
-  xhr.send(JSON.stringify({nickname: newNickname}));
-}
+  })
+  .catch(error => {
+    console.error("Error occurred:", error);
+  });
 
+  closeClick_id();
+  }
 
 //<---password modal--->
     function showModal_pw(){
@@ -216,11 +218,6 @@ function saveNickname() {
 }
 
 //<---password 변경--->
-
-// HTML에서 비밀번호 변경 모달창과 관련된 element 가져오기
-const modal = document.getElementById('modal_pw');
-const input = document.getElementById('changepassword_modal');
-
 // 모달창을 닫기 위한 함수
 function closeModal_pw() {
   modal.style.display = 'none';
@@ -228,57 +225,34 @@ function closeModal_pw() {
 
 // 비밀번호 변경 요청을 보내는 함수
 function changePassword() {  
-  const newPassword = document.getElementById("changepassword_modal").value;
-  // 새 비밀번호 값이 입력되지 않은 경우 에러 메시지 출력
-  if (newPassword === '') {
-    alert('새 비밀번호를 입력해주세요.');
-    return;
-  }
-// API 호출을 위한 설정
-var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:8080");
-  xhr.setRequestHeader("Content-Type", "application/json");
-
+  const newPassword = document.getElementById("change_password").value;
   
-  // API 호출 시 전달할 데이터
-  var data = {
-    newPassword: newPassword
-  };
-  console.log(xhr.status);
-
-  // API 호출 후 처리할 로직
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        // API 호출 성공 시 처리할 로직
-        alert("비밀번호가 변경되었습니다.");
-        closeModal();
-      } else if (xhr.status === 400) {
-        // Bad Request: 잘못된 요청
-        alert("잘못된 요청입니다. 비밀번호 변경에 실패하였습니다.");
-      } else if (xhr.status === 401) {
-        // Unauthorized: 인증 실패
-        alert("인증에 실패하여 비밀번호 변경에 실패하였습니다.");
-      } else if (xhr.status === 403) {
-        // Forbidden: 액세스 거부
-        alert("액세스가 거부되어 비밀번호 변경에 실패하였습니다.");
-      } else if (xhr.status === 500) {
-        // Internal Server Error: 서버 오류
-        alert("서버 오류로 인해 비밀번호 변경에 실패하였습니다.");
-      } else {
-        // 기타 상태 코드에 따른 처리
-        alert("비밀번호 변경에 실패하였습니다. 상태 코드: " + xhr.status);
-      }
+  // 비밀번호 변경 요청 보내기
+  fetch("/password", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ change_password: newPassword })
+  })
+  .then(response => {
+    if (response.ok) {
+      // 비밀번호 변경 성공 처리
+      console.log("Password changed successfully");
+      window.alert("비밀번호가 성공적으로 변경되었습니다.");
+    } else {
+      // 비밀번호 변경 실패 처리
+      console.error("Failed to change password");
+      window.alert("비밀번호 변경에 실패했습니다.");
     }
-  };
-  
-// API 호출
-console.log(JSON.stringify(data));
-xhr.send(JSON.stringify(data));
+  })
+  .catch(error => {
+    console.error("Error occurred:", error);
+    window.alert("오류가 발생했습니다.");
+  });
+
+  closeClick_pw();
 }
-
-
-
 
 // 모달창에서 '취소' 버튼 클릭 시 실행되는 함수
 function closeClick_pw() {

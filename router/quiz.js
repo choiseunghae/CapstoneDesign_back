@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.use((req, res, next) => {
-  loadNewQuestion();
+  loadNewQuestion(req, res, next);
 });
 
 // Shuffle array in place
@@ -17,7 +17,7 @@ function shuffleArray(arr) {
   }
 }
 
-function loadNewQuestion() {
+function loadNewQuestion(req, res, next) {
   connection.query(`SELECT MAX(itemIndex) FROM detailpage`, (err, rows) => {
     if (err) {
       console.log(err);

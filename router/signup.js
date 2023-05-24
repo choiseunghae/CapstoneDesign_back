@@ -17,6 +17,10 @@ router.post('/', (req, res) => {
   
   connection.query("SELECT * FROM users WHERE usernickname = ?", [usernickname], (error, result) => {
     if (error) throw error;
+    if (!usernickname) {
+      res.redirect("/signup");
+      return;
+    }
     if (result.length > 0) {
       // 이미 존재하는 usernickname인 경우
       res.redirect("/signup");
