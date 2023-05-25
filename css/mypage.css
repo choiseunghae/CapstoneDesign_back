@@ -294,8 +294,8 @@ i {
     border-bottom: solid 2px var(--color-blue);
 }
 #change_nickname{
-  margin-right: -30px;
-  margin-left: 5px;
+  margin-right: 10px;
+  margin-left: 0px;
   font-size: 17px;
   color: var(--color-blue);
   padding: 15px 0px 0px 0px;
