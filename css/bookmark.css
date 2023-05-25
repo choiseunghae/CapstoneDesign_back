@@ -55,10 +55,9 @@ body{
 @media all and (max-width:767px) {
     .list-group__title{
         font-size: 17px;
-        font-weight: bold;
+        font-weight: 700;
         margin-bottom: 6px;
     }
-
     .list-group__info {
         margin-right: -35px;
         margin-left: 20px;
