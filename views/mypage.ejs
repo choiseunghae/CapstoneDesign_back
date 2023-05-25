@@ -85,7 +85,7 @@
 
               <form id="changeNicknameForm" method="post" action="mypage/nickname">
                 <div class="int-area">
-                    <input name="change_nickname" type="text">
+                    <input id="change_nickname" type="text">
                 </div>
             </form>
         </div>
@@ -224,10 +224,10 @@ function saveNickname() {
   })
   .then(response => {
     if (response.ok) {
-      // 비밀번호 변경 성공 처리
+      // 닉네임 변경 성공 처리
       console.log("Nickname changed successfully");
     } else {
-      // 비밀번호 변경 실패 처리
+      // 닉네임 변경 실패 처리
       console.error("Failed to change Nickname");
     }
   })
