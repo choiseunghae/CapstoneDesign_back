@@ -319,7 +319,10 @@ i {
   display: flex;
 }
 #doublecheck_nickname{
-  list-style: none;
+  color: var(--color-blue);
+  border-radius: 15px;
+  border-style: none;
+  background-color: #80808029;
 }
 #changepassword_modal{
     margin-right: -20px;
