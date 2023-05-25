@@ -315,6 +315,9 @@ i {
 #changenickname_button i{
   color:var(--color-blue);
 }
+.int-area{
+  justify-content: space-between;
+}
 #changepassword_modal{
     margin-right: -20px;
     margin-left: 5px;
