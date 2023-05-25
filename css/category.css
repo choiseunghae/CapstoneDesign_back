@@ -177,7 +177,7 @@ body{
 @media all and (max-width:767px) {
     .list_all {
         margin-top: 120px;
-        margin-left: -40px;
+        margin-left: -50px;
         margin-right: -10px;
         width: 600px;
         display: flex;
@@ -252,7 +252,7 @@ body{
     }
     
     .list_content_name1{
-        font-size: 15px;
+        font-size: 16px;
         font-weight: normal;
         padding-bottom: 20px;
         color: var(--color-white);
@@ -268,7 +268,7 @@ body{
     .list_content_name10,
     .list_content_name11,
     .list_content_name12{
-        font-size: 15px;
+        font-size: 16px;
         font-weight: normal;
         padding-bottom: 20px;
         color: var(--color-black);
