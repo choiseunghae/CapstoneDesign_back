@@ -293,6 +293,18 @@ i {
     outline: none;
     border-bottom: solid 2px var(--color-blue);
 }
+#change_nickname{
+  margin-right: -30px;
+  margin-left: 5px;
+  font-size: 17px;
+  color: var(--color-blue);
+  padding: 15px 0px 0px 0px;
+  margin-top: 5px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: solid 2px var(--color-blue);
+}
 #changenickname_button{
     color: var(--color-blue);
     font-size: 26px;
