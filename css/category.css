@@ -178,7 +178,7 @@ body{
     .list_all {
         margin-top: 120px;
         margin-left: -40px;
-        margin-right: -20px;
+        margin-right: 0px;
         width: 600px;
         display: flex;
         flex-wrap: wrap;
