@@ -316,7 +316,10 @@ i {
   color:var(--color-blue);
 }
 .int-area{
-  justify-content: space-between;
+  display: flex;
+}
+#doublecheck_nickname{
+  list-style: none;
 }
 #changepassword_modal{
     margin-right: -20px;
