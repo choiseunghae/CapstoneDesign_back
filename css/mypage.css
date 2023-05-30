@@ -344,3 +344,8 @@ i {
     border: none;
 }
 
+@media (max-width: 767px) {
+  #changenickname_modal input[type="text"] {
+    width: 80%; /* 모바일에서 원하는 너비로 조정해주세요 */
+  }
+}
