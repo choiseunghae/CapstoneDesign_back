@@ -72,13 +72,15 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
     <script>
-       document.getElementById('login').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            fetch('/login', {
-            method: 'POST'
-            });
-          }
-        });
+       document.getElementById('login').addEventListener('click', function (event) {
+  event.preventDefault(); // 기본 동작 중단 (페이지 새로고침 방지)
+
+  // 로그인 요청 보내는 코드
+  fetch('/login', {
+    method: 'POST'
+  });
+});
+
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
