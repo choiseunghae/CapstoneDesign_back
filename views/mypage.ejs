@@ -286,8 +286,10 @@ function changePassword() {
 
 // 모달창에서 '취소' 버튼 클릭 시 실행되는 함수
 function closeClick_pw() {
+  document.querySelector('.popup').style.display = 'none';
+  document.querySelector('.popup-wrap').style.display = 'none';
   // 입력된 값 초기화
-  input.value = '';
+ // input.value = '';
   // 모달창 닫기
   closeModal_pw();
 }
