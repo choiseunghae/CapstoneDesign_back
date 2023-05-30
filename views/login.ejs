@@ -122,12 +122,11 @@
           const usernickname = document.getElementById('signId').value; // 입력된 닉네임 가져오기
 
           // AJAX 요청 설정
-          fetch('/checkDuplication', {
-            method: 'POST',
+          fetch(`/checkDuplication?usernickname=${usernickname}`, {
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ usernickname }), // 닉네임을 JSON 형태로 전송
           })
             .then(response => response.json())
             .then(data => {
@@ -147,11 +146,6 @@
               console.error('Error:', error);
             });
         }
-
-
-
-
-
 
     </script>
     <script src="/color.js"></script>
