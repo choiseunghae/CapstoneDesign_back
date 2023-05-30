@@ -13,7 +13,7 @@
 <body>
   <section class="msger">
     <header class="msger-header">
-      <div class="msger-title">Chat</div>
+      <div class="msger-title">채팅</div>
       <i class="bi bi-x" style="font-size: 2rem;" onclick="goBack()"></i>
     </header>
 
@@ -22,8 +22,8 @@
     </div>
 
     <form class="msger-inputarea" id="chat-form" action="/chatbot/chat" method="POST">
-      <input type="text" name="userInput" class="msger-input" placeholder="Enter your message...">
-      <button type="submit" class="msger-send-btn">Send</button>
+      <input type="text" name="userInput" class="msger-input" placeholder="무엇이든 물어보세요">
+      <button type="submit" class="msger-send-btn">전송</button>
     </form>
 
   </section>
@@ -65,7 +65,7 @@
         chatPartsContainer.appendChild(botMessagePart);
 
         // Add the bot message to the chat part
-        const botMessageElement = createMessageElement('msg-bubble-left', '챗봇', botMessage);
+        const botMessageElement = createMessageElement('msg-bubble-left', 'MZ봇', botMessage);
         botMessagePart.appendChild(botMessageElement);
 
         // Scroll to the bottom of the chat
