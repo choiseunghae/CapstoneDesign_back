@@ -72,13 +72,47 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
     <script>
-       document.getElementById('login').addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            fetch('/login', {
-            method: 'POST'
-            });
-          }
-        });
+      //  document.getElementById('login').addEventListener('keyup', function (event) {
+      //     if (event.key === 'Enter') {
+      //       fetch('/login', {
+      //       method: 'POST'
+      //       });
+      //     }
+      //   });
+
+// 로그인 폼 제출 이벤트 핸들러
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // 기본 동작 중단 (페이지 새로고침 방지)
+
+    const usernickname = document.getElementById('usernickname').value;
+    const password = document.getElementById('password').value;
+
+    // 서버로 POST 요청을 보냅니다.
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ usernickname, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // 로그인 성공 시 처리할 로직을 작성합니다.
+            alert('로그인이 성공적으로 이루어졌습니다.');
+            // 추가적인 로그인 처리를 수행합니다.
+            // 예: 페이지 리디렉션, UI 업데이트 등
+        } else {
+            // 로그인 실패 시 처리할 로직을 작성합니다.
+            alert('회원 정보가 다릅니다.');
+        }
+    })
+    .catch(error => {
+        console.error('로그인 요청 중 오류가 발생했습니다.', error);
+    });
+})
+
+
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
