@@ -88,7 +88,7 @@
                 <div class="int-area">
                     <input id="change_nickname" type="text">
                 </div>
-                <button id="doublecheck_nickname">중복확인</button>
+                <button id="doublecheck_nickname" onclick="ll()">중복확인</button>
             </form>
         </div>
           </div>
@@ -252,6 +252,9 @@ function closeClick_pw(){
   document.querySelector('#failBack').style.display = 'none';
   document.querySelector('#failModal').style.display = 'none';
   modal.style.display = 'block';
+}
+function ll(){
+  console.log("안녕");
 }
 
 //<---password 변경--->
