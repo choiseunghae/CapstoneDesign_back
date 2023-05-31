@@ -338,11 +338,11 @@ i {
 }
 #change_password{
   margin-right: 10px;
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 17px;
   color: var(--color-blue);
   padding: 15px 0px 0px 0px;
-  width:190px;
+  width: 250px;
   margin-top: 5px;
   background-color: transparent;
   border: none;
