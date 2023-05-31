@@ -369,7 +369,7 @@ i {
   #change_nickname{
     margin-right: 10px;
     margin-left: 30px;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-blue);
     padding: 15px 0px 0px 0px;
     width:235px;
@@ -377,10 +377,11 @@ i {
     background-color: transparent;
     border: none;
     outline: none;
+    border-bottom-left-radius: 0%;
     border-bottom: solid 2px var(--color-blue);
   }
   #doublecheck_nickname{
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color-blue);
     border-style: none;
     margin-top: 10px;
