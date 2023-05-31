@@ -61,7 +61,7 @@ app.use(express.static('CapstoneDesign_back'));
 
 // 파비콘 경로 설정
 app.get('/favicon.ico', (req, res) => {
-  res.sendFile('views/logo.png', { root: __dirname + '/CapstoneDesign_back' });
+  res.sendFile('/logo.png', { root: __dirname + '/CapstoneDesign_back' });
 });
 
 
