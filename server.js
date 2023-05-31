@@ -57,6 +57,14 @@ app.use('/theme', [themeRouter] );
 app.use("/chatbot", chatRouter); // Register the chat router
 
 
+// 정적 파일을 제공하는 미들웨어 추가
+app.use(express.static('views'));
+
+// 파비콘 경로 설정
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile('logo.png', { root: __dirname + '/views' });
+});
+
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
   res.clearCookie('authToken'); // 쿠키 제거
