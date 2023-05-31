@@ -15,11 +15,6 @@ router.post('/', (req, res) => {
     const usernickname = req.body.usernickname;
     const password = req.body.password;
 
-    // 닉네임과 비밀번호가 입력되었는지 확인합니다.
-    if (!usernickname || !password) {
-        return res.json({ success: false, message: '닉네임과 비밀번호를 입력해주세요.' });
-    }
-
     connection.query("SELECT * FROM users WHERE usernickname = ? AND password = ?", [usernickname, password], (error, result) => {
         if (error) throw error;
         if (result.length === 1) {
