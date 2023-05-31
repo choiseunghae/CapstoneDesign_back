@@ -325,6 +325,10 @@ i {
   margin-top: 10px;
   background-color: white
 }
+#doublecheck_nickname:hover {
+  cursor: pointer;
+  border: none;
+}
 #changepassword_modal{
     margin-right: -20px;
     margin-left: 5px;
@@ -361,5 +365,12 @@ i {
 @media (max-width: 767px) {
   #changenickname_modal input[type="text"] {
     width: 80%; /* 모바일에서 원하는 너비로 조정해주세요 */
+  }
+  #doublecheck_nickname{
+    font-size: 16px;
+    color: var(--color-blue);
+    border-style: none;
+    margin-top: 10px;
+    background-color: white
   }
 }
