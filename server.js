@@ -56,6 +56,14 @@ app.use('/thumbs', [thumbsRouter, thumbsnavRouter]);
 app.use('/theme', [themeRouter] );
 app.use("/chatbot", chatRouter); // Register the chat router
 
+// 정적 파일을 제공하는 미들웨어 추가
+app.use(express.static('CapstoneDesign_back'));
+
+// 파비콘 경로 설정
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile('views/logo.png', { root: __dirname + '/CapstoneDesign_back' });
+});
+
 
 app.get('/logout', (req, res) => {
   req.session.destroy(); // 세션 제거
