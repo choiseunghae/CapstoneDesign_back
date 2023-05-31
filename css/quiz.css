@@ -50,3 +50,27 @@
     cursor:pointer;                 
   /* 마우스 포인터 효과 */
 }
+@media all and (max-width:767px) {
+  .quizbox li{
+    padding: 12px 12px;
+    border-radius: 0;
+    color:black; 
+    /* 글자색이 바뀜 */
+    z-index:9999;
+    margin-top:1rem;
+    font-weight: normal;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(to right, rgba(#4298e8, 0) 25%, rgba(#4298e8, .8) 75%);
+    /* 디자인 색이 바뀜 */
+    background-position: 1% 50%;
+    background-size: 400% 300%;
+    border: 0.8px solid var(--color-blue);
+    border-radius: 15px;
+    cursor:pointer;                 
+  /* 마우스 포인터 효과 */
+  }
+}
