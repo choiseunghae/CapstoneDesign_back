@@ -55,8 +55,13 @@ body{
 @media all and (max-width:767px) {
     .list-group__title{
         font-size: 17px;
-        font-weight: 700;
+        font-weight: normal;
         margin-bottom: 6px;
+    }
+    .list_name {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
     }
     .list-group__info {
         margin-right: -35px;
