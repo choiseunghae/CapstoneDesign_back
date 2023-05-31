@@ -87,8 +87,8 @@
               <form id="changeNicknameForm" method="post" action="mypage/nickname">
                 <div class="int-area">
                     <input id="change_nickname" type="text">
-                    <button id="doublecheck_nickname">중복확인</button>
                 </div>
+                <button id="doublecheck_nickname">중복확인</button>
             </form>
         </div>
           </div>
@@ -247,7 +247,6 @@ function saveNickname() {
   document.querySelector('#failModal').style.display = 'block';
   modal.style.display = 'block';
 }
-// 모달창을 닫기 위한 함수
 function closeClick_pw(){
   // modal 취소 창닫기
   document.querySelector('#failBack').style.display = 'none';
