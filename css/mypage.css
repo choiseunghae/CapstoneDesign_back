@@ -299,7 +299,7 @@ i {
   font-size: 17px;
   color: var(--color-blue);
   padding: 15px 0px 0px 0px;
-  width:190px;
+  width:235px;
   margin-top: 5px;
   background-color: transparent;
   border: none;
@@ -322,6 +322,7 @@ i {
 #doublecheck_nickname{
   color: var(--color-blue);
   border-style: none;
+  margin-top: 10px;
   background-color: white
 }
 #changepassword_modal{
