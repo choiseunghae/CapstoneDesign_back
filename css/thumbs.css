@@ -65,8 +65,8 @@ body{
         opacity: 70%;
         font-size: 14px;
     }
-}.thumbs__word{
-    font-weight: 600;
+    .thumbs__word{
+    font-weight: 500;
     font-size: 18px;
     color: rgb(86, 82, 82);
     position: fixed;
@@ -78,5 +78,5 @@ body{
     width: 100%;
     z-index: 9999;
     background-color: white;
-
+}
 }
