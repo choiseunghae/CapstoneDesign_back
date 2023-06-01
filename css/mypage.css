@@ -322,10 +322,12 @@ i {
 #doublecheck_nickname{
   font-size: 15px;
   color: var(--color-blue);
+  color: white;
   border-style: none;
   margin-top: 10px;
   border-radius: 5px;
   margin-left: 155px;
+  padding: 5px 5px 5px 5px;
   background-color: var(--color-blue);
 }
 #doublecheck_nickname:hover {
@@ -389,8 +391,11 @@ i {
     color: var(--color-blue);
     border-style: none;
     margin-top: 10px;
+    border-radius: 5px;
     margin-left: 170px;
-    background-color: white;
+    padding: 5px;
+    color: white;
+    background-color: var(--color-blue);
   }
   #change_password{
     margin-right: 10px;
