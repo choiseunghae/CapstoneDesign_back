@@ -320,10 +320,13 @@ i {
   display: flex;
 }
 #doublecheck_nickname{
+  font-size: 15px;
   color: var(--color-blue);
   border-style: none;
   margin-top: 10px;
-  background-color: white
+  border-radius: 5px;
+  margin-left: 155px;
+  background-color: var(--color-blue);
 }
 #doublecheck_nickname:hover {
   cursor: pointer;
